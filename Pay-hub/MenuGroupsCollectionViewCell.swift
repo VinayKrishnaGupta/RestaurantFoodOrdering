@@ -9,5 +9,7 @@
 import UIKit
 
 class MenuGroupsCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var cellImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
 }

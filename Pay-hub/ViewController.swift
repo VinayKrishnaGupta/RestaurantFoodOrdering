@@ -8,17 +8,65 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate{
+    @IBOutlet weak var selectCity: UITextField!
+    @IBOutlet weak var selectArea: UITextField!
+    @IBOutlet weak var pickerView1: UIPickerView!
+    @IBAction func orderNowButton(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "cuisinegroups", sender: self)
+        
+    }
 
+    var City = ["Delhi", "Noida", "Gurgaon", "Bangalore", "Mumbai"]
+    var Area = ["Sector 12" , "Sector 18", "Sector 21", "Sector 32", "Sector 50"]
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        pickerView1.dataSource = self
+        pickerView1.delegate = self
+        
+        self.selectCity.inputView = pickerView1
+       
+        
+        
+        
+        
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+   
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return City.count
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        if component == 0 {
+        return City[row]
+        }
+        if component == 1 {
+        return Area[row]
+        }
+        else {
+            return nil
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectCity.text = City[row]
+        selectArea.text = Area[row]
+        
+        
+        
+        
+        
+    }
+    
 
 
 }

@@ -9,5 +9,42 @@
 import UIKit
 
 class MenuItemCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var itemImageView: UIImageView!
+    
+    @IBOutlet weak var backgroundviewofcell: UIView!
+    @IBOutlet weak var itemtName: UILabel!
+    @IBOutlet weak var itemdescripion: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var stepperItem: UIStepper!
+    
+    
+    override func awakeFromNib() {
+        let topColor = UIColor.clear
+        
+        let bottomColor = UIColor.black
+        
+        
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        
+        let gradientLoactions: [Float] = [0.6, 1.0]
+        
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        gradientLayer.colors = gradientColors
+        
+        gradientLayer.locations = gradientLoactions as [NSNumber]
+        
+        
+        gradientLayer.frame = self.itemImageView.bounds
+        
+        
+        self.layer.insertSublayer(gradientLayer, at: 0)
+
+
+        
+    }
+    
+    
     
 }

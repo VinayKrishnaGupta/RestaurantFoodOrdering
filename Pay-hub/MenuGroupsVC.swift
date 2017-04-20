@@ -8,17 +8,40 @@
 
 import UIKit
 
-class MenuGroupsVC: UIViewController {
+class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var CollectionViewMenuGroups: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        CollectionViewMenuGroups.dataSource = self
+        CollectionViewMenuGroups.delegate = self
+        self.navigationItem.title = "Menu"
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 18
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "MenuGroupsCollectionViewCell", for: indexPath) as! MenuGroupsCollectionViewCell
+        
+        
+        cell.cellImageView.image = UIImage.init(named: "MenuGroupssample")
+        cell.titleLabel.text = "Veg Starters"
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            self.performSegue(withIdentifier: "itemDetails", sender: self)
+        }
+        
+        
     }
     
 

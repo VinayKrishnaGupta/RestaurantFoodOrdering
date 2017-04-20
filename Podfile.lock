@@ -1,0 +1,18 @@
+PODS:
+  - Alamofire (4.4.0)
+  - GMStepper (2.0.0)
+  - SideMenuController (0.2.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - GMStepper
+  - SideMenuController
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  GMStepper: 6aff0c881afac2f432e5c9b0df71e44e14110a06
+  SideMenuController: b463d2b3aa58e2afe57f57a07938fa9a647894ca
+
+PODFILE CHECKSUM: 567ed15ae694331a3d2c6e78eb06085435a22e3f
+
+COCOAPODS: 1.2.1

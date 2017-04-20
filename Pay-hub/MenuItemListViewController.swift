@@ -8,20 +8,58 @@
 
 import UIKit
 
-class MenuItemListViewController: UIViewController {
+class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var CollectionViewList: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        CollectionViewList.dataSource = self
+        CollectionViewList.delegate = self
+        
+        self.navigationItem.title = "Veg Starters"
+        
+        
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+         return 1
     }
     
-
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = CollectionViewList.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MenuItemCollectionViewCell
+        if indexPath.row == 0
+        {
+            cell.itemImageView.image = UIImage.init(named: "rollimage")
+            cell.itemtName.text = "Veg Wrap"
+            cell.itemdescripion.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+            cell.priceLabel.text = "₹ 199"
+            return cell
+        }
+        else {
+        cell.itemImageView.image = UIImage.init(named: "homescreenbg")
+        cell.itemtName.text = "Veg Pizza"
+        cell.itemdescripion.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+        cell.priceLabel.text = "₹ 349"
+        return cell
+        }
+     
+        
+       
+        
+    }
+    
+    
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 
