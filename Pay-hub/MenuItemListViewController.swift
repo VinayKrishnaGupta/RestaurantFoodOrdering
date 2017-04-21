@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Alamofire
 
 class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var CollectionViewList: UICollectionView!
+    public var selectedGroup: NSDictionary = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +19,45 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         CollectionViewList.delegate = self
         
         self.navigationItem.title = "Veg Starters"
+        print("Selected Dictionary group is \(selectedGroup)")
+        
         
         
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let HEADERS: HTTPHeaders = [
+            "Token": "d75542712c868c1690110db641ba01a",
+            "Accept": "application/json",
+            "user_name" : "admin",
+            "user_id" : "3"
+        ]
+        Alamofire.request(
+            URL(string: "https://pay-hub.in/payhub%20api/v1/menu_group.php")!,
+            method: .get,
+            parameters: nil,
+            headers: HEADERS
+            )
+            .validate()
+            
+            .responseJSON { response in
+                debugPrint(response)
+                
+                
+                if let json = response.result.value {
+                    let dict = json as! NSDictionary
+                   
+                    
+                }
+                
+        }
+        
+        
+    }
+
+    
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
          return 1
@@ -55,19 +91,5 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         
     }
     
-    
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

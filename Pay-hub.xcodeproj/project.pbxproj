@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BE538578CB61DFC752B8964 /* Pods_Pay_hub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C73A40A118492F42E51195B /* Pods_Pay_hub.framework */; };
 		2F03A9441EA7635600660DBB /* GMStepper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F03A9431EA7635600660DBB /* GMStepper.framework */; };
+		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
 		2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */; };
 		2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */; };
 		2FEEC6CF1E9CA24E00CBE471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEEC6CD1E9CA24E00CBE471 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		292BE282079238B5F14DA220 /* Pods-Pay-hub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pay-hub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pay-hub/Pods-Pay-hub.debug.xcconfig"; sourceTree = "<group>"; };
 		2F03A9431EA7635600660DBB /* GMStepper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GMStepper.framework; path = "../../../Library/Developer/Xcode/DerivedData/Pay-hub-dcmsrvzwqdvbarehvtvqhcywirdq/Build/Products/Debug-iphonesimulator/GMStepper/GMStepper.framework"; sourceTree = "<group>"; };
+		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
 		2FEEC6C61E9CA24E00CBE471 /* Pay-hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pay-hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,14 +146,15 @@
 			isa = PBXGroup;
 			children = (
 				2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */,
+				2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */,
 				2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */,
 				2FEEC6F71E9CE00500CBE471 /* CuisineGroupsViewController.swift */,
 				2FEEC6CD1E9CA24E00CBE471 /* Main.storyboard */,
+				2FEEC6FA1E9F643100CBE471 /* HomeScreenViewController.swift */,
 				2FEEC7081EA5D5D200CBE471 /* MenuGroupsVC.swift */,
 				2FEEC7061EA5D54A00CBE471 /* MenuGroupsCollectionViewCell.swift */,
 				2FEEC70A1EA5FC1C00CBE471 /* MenuItemCollectionViewCell.swift */,
 				2FEEC7001E9F8F1900CBE471 /* CustomSideMenuController.swift */,
-				2FEEC6FA1E9F643100CBE471 /* HomeScreenViewController.swift */,
 				2FEEC6FC1E9F64F000CBE471 /* SideMenuViewController.swift */,
 				2FEEC7041EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift */,
 				2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */,
@@ -505,6 +508,7 @@
 				2FEEC7121EA638C400CBE471 /* Alamofire.swift in Sources */,
 				2FEEC7051EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift in Sources */,
 				2FEEC6F81E9CE00500CBE471 /* CuisineGroupsViewController.swift in Sources */,
+				2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */,
 				2FEEC7071EA5D54A00CBE471 /* MenuGroupsCollectionViewCell.swift in Sources */,
 				2FEEC6FD1E9F64F000CBE471 /* SideMenuViewController.swift in Sources */,
 				2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */,

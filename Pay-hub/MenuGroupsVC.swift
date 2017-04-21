@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+
+
 
 class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var CollectionViewMenuGroups: UICollectionView!
-
+    var menugroups : NSArray = []
+    var SelectedMenuGroup : NSDictionary = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
         CollectionViewMenuGroups.dataSource = self
@@ -18,41 +22,89 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         self.navigationItem.title = "Menu"
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        
+        let script = GetDatafromAPI()
+       
+        let dict1 = script.getDataofGETcall(URLString: "https://pay-hub.in/payhub%20api/v1/menu_group.php")
+        print("Dictionary is \(String(describing: dict1))")
+        self.menugroups = (dict1?.value(forKeyPath: "Response.data.menu") as? NSArray)!
+        self.CollectionViewMenuGroups.reloadData()
+//        let HEADERS: HTTPHeaders = [
+//            "Token": "d75542712c868c1690110db641ba01a",
+//            "Accept": "application/json",
+//            "user_name" : "admin",
+//            "user_id" : "3"
+//        ]
+//        Alamofire.request(
+//            URL(string: "https://pay-hub.in/payhub%20api/v1/menu_group.php")!,
+//            method: .get,
+//            parameters: nil,
+//            headers: HEADERS
+//            )
+//            .validate()
+//            
+//            .responseJSON { response in
+//                debugPrint(response)
+//                
+//                
+//                if let json = response.result.value {
+//                    let dict = json as! NSDictionary
+//                    print("Converted Dictionary is \(dict)")
+//                    self.menugroups = dict.value(forKeyPath: "Response.data.menu") as! NSArray
+//                    print("Menu group list is \(String(describing: self.menugroups))")
+//                    self.CollectionViewMenuGroups.reloadData()
+//                    
+//                }
+//                
+//        }
+//
+        
+    }
+    
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 18
+        return menugroups.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "MenuGroupsCollectionViewCell", for: indexPath) as! MenuGroupsCollectionViewCell
-        
-        
+        let dict : NSDictionary = menugroups[indexPath.row] as! NSDictionary
         cell.cellImageView.image = UIImage.init(named: "MenuGroupssample")
-        cell.titleLabel.text = "Veg Starters"
+        cell.titleLabel.text = dict.value(forKey: "menu_title") as? String
+        
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 1 {
-            self.performSegue(withIdentifier: "itemDetails", sender: self)
+        
+        
+        SelectedMenuGroup = menugroups[indexPath.row] as! NSDictionary
+        self.performSegue(withIdentifier: "itemDetails", sender: self)
+      
+        
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "itemDetails" {
+            if let nextViewController = segue.destination as? MenuItemListViewController{
+             nextViewController.selectedGroup = SelectedMenuGroup
+            }
+            
         }
         
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

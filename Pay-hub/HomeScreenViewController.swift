@@ -12,8 +12,63 @@ import Alamofire
 
 class HomeScreenViewController: UIViewController {
     @IBOutlet weak var menuicon: UIImageView!
+    @IBOutlet weak var image1: UIImageView!
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var image2: UIImageView!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var image3: UIImageView!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var image4: UIImageView!
+    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var image5: UIImageView!
+    @IBOutlet weak var label5: UILabel!
+    @IBOutlet weak var image6: UIImageView!
+    @IBOutlet weak var label6: UILabel!
+    @IBOutlet weak var image7: UIImageView!
+    @IBOutlet weak var label7: UILabel!
+    
+    
+    
+    
+    
+    
+    
+    
+    var menuitems : NSArray = []
 
    
+    override func awakeFromNib() {
+        let HEADERS: HTTPHeaders = [
+            "Token": "d75542712c868c1690110db641ba01a",
+            "Accept": "application/json",
+            "user_name" : "admin",
+            "user_id" : "3"
+        ]
+        Alamofire.request(
+            URL(string: "https://pay-hub.in/payhub%20api/v1/home_api.php")!,
+            method: .get,
+            parameters: nil,
+            headers: HEADERS
+            )
+            .validate()
+            
+            .responseJSON { response in
+                debugPrint(response)
+                
+                
+                if let json = response.result.value {
+                    let dict = json as! NSDictionary
+                    print("Converted Dictionary is \(dict)")
+                    self.menuitems = dict.value(forKeyPath: "Response.data.menu") as! NSArray
+                    print("Menu item list is \(String(describing: self.menuitems))")
+                    self.updatelabelsandimage()
+                    
+                }
+                
+        }
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -30,39 +85,11 @@ class HomeScreenViewController: UIViewController {
         menuicon.addGestureRecognizer(Menutapguesture)
         menuicon.isUserInteractionEnabled = true;
         
-        
-        let HEADERS: HTTPHeaders = [
-            "Token": "d75542712c868c1690110db641ba01a",
-            "Accept": "application/json",
-            "user_name" : "admin",
-            "user_id" : "3"
-        ]
-        
-   //     Alamofire.request("https://pay-hub.in/payhub%20api/v1/home_api.php",method(for: <#T##Selector!#>) headers: headers)
-        Alamofire.request(
-            URL(string: "https://pay-hub.in/payhub%20api/v1/home_api.php")!,
-            method: .get,
-            parameters: nil,
-            headers: HEADERS
-            )
-            .validate()
-            
-            .responseJSON { response in
-                debugPrint(response)
-                
-    
-                if let json = response.result.value {
-                    let dict = json as! NSDictionary
-                    print("Converted Dictionary is \(dict)")
-                    let backgroundimage = dict.value(forKeyPath: "Response.data.bg_image")
-                    print("Background Image URL is \(String(describing: backgroundimage))")
-                    
-                }
-
-        // Do any additional setup after loading the view.
-    
-        }
+      
     }
+    
+    
+    
     
     func menubuttonpressed() {
         self.performSegue(withIdentifier: "Menugroups", sender: self)
@@ -70,6 +97,42 @@ class HomeScreenViewController: UIViewController {
         
     }
     
+    
+    func updatelabelsandimage() {
+        
+        
+        var dict1 : NSDictionary = menuitems[0] as! NSDictionary
+        var text1 : String = dict1.value(forKey: "menu_title") as! String
+        label1.text = text1
+        
+        dict1 = menuitems[1] as! NSDictionary
+        text1 = dict1.value(forKey: "menu_title") as! String
+        label2.text = text1
+        
+        dict1 = menuitems[2] as! NSDictionary
+        text1 = dict1.value(forKey: "menu_title") as! String
+        label3.text = text1
+        
+        dict1 = menuitems[3] as! NSDictionary
+        text1 = dict1.value(forKey: "menu_title") as! String
+        label4.text = text1
+        
+        dict1 = menuitems[4] as! NSDictionary
+        text1 = dict1.value(forKey: "menu_title") as! String
+        label5.text = text1
+        
+        dict1 = menuitems[5] as! NSDictionary
+        text1 = dict1.value(forKey: "menu_title") as! String
+        label6.text = text1
+        
+        dict1 = menuitems[6] as! NSDictionary
+        text1 = dict1.value(forKey: "menu_title") as! String
+        label7.text = text1
+        
+self.viewDidLoad() 
+        
+        
+    }
 
   
     
