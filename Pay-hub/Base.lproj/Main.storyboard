@@ -127,8 +127,9 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeScreenCircle" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2D-wQ-iuB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeScreenCircle" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2D-wQ-iuB">
                                 <rect key="frame" x="0.0" y="114" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -138,10 +139,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="noodles" translatesAutoresizingMaskIntoConstraints="NO" id="w07-HX-UpZ">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="tiP-Tt-TRu"/>
-                                            <constraint firstAttribute="width" constant="50" id="zO0-jg-TD8"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Noodles" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zRG-L7-P6T">
                                         <rect key="frame" x="0.0" y="50" width="50" height="12"/>
@@ -157,10 +154,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Combos" translatesAutoresizingMaskIntoConstraints="NO" id="EyH-3F-uRc">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="OBl-u1-XCw"/>
-                                            <constraint firstAttribute="width" constant="50" id="dKo-5j-TEp"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Coffee" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZaO-Fn-6Sz">
                                         <rect key="frame" x="0.0" y="50" width="50" height="12"/>
@@ -172,14 +165,10 @@
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t8q-Gy-cPT">
                                 <rect key="frame" x="272" y="258" width="50" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="pizza" translatesAutoresizingMaskIntoConstraints="NO" id="dN3-Oe-NAb">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="Cy3-Ks-c0c"/>
-                                            <constraint firstAttribute="height" constant="50" id="VA7-MQ-hJy"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pizza" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqf-nA-0DA">
                                         <rect key="frame" x="0.0" y="50" width="50" height="12"/>
@@ -195,10 +184,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Combos" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-2K-hPl">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="GwV-PY-rxJ"/>
-                                            <constraint firstAttribute="height" constant="50" id="hjK-VP-lHP"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Combos" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ZH-86-4nA">
                                         <rect key="frame" x="0.0" y="50" width="50" height="12"/>
@@ -214,10 +199,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="doughnut" translatesAutoresizingMaskIntoConstraints="NO" id="OMD-gS-tiu">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="oW0-yf-eJH"/>
-                                            <constraint firstAttribute="width" constant="50" id="txj-w5-UVZ"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Doughnut" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JWT-JO-0Vx">
                                         <rect key="frame" x="0.0" y="50" width="50" height="12"/>
@@ -233,10 +214,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sandwich" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-AD-rjd">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="EKp-IX-3hQ"/>
-                                            <constraint firstAttribute="height" constant="50" id="kPP-zz-OMd"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sandwich" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="dtC-fi-7Up">
                                         <rect key="frame" x="0.0" y="50" width="50" height="12"/>
@@ -246,8 +223,9 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MenuHomeicon60*60" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-Gv-Ijl">
-                                <rect key="frame" x="157" y="271.5" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MenuHomeicon60*60" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-Gv-Ijl">
+                                <rect key="frame" x="157" y="272" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-Zj-0fK">
@@ -256,10 +234,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sandwich" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-fO-OaH">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="BFU-vp-vku"/>
-                                            <constraint firstAttribute="width" constant="50" id="dIc-N1-88k"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Breads" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="knG-Y3-T55">
                                         <rect key="frame" x="0.0" y="50" width="50" height="12"/>
@@ -271,16 +245,6 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="t0M-Gv-Ijl" firstAttribute="centerX" secondItem="fqi-ue-JwL" secondAttribute="centerX" id="4Ka-hO-gPx"/>
-                            <constraint firstItem="I2D-wQ-iuB" firstAttribute="leading" secondItem="fqi-ue-JwL" secondAttribute="leading" id="9Nt-oe-ueR"/>
-                            <constraint firstItem="t0M-Gv-Ijl" firstAttribute="centerY" secondItem="fqi-ue-JwL" secondAttribute="centerY" id="9Q3-wm-TFa"/>
-                            <constraint firstItem="I2D-wQ-iuB" firstAttribute="centerY" secondItem="fqi-ue-JwL" secondAttribute="centerY" id="FPq-Td-Aic"/>
-                            <constraint firstItem="I2D-wQ-iuB" firstAttribute="centerX" secondItem="fqi-ue-JwL" secondAttribute="centerX" id="ZGf-I0-oK8"/>
-                            <constraint firstAttribute="trailing" secondItem="I2D-wQ-iuB" secondAttribute="trailing" id="jR6-l0-yxL"/>
-                            <constraint firstItem="s5y-0B-TZc" firstAttribute="top" secondItem="I2D-wQ-iuB" secondAttribute="bottom" constant="114" id="tdI-br-f6q"/>
-                            <constraint firstItem="I2D-wQ-iuB" firstAttribute="top" secondItem="g4B-c6-8Db" secondAttribute="bottom" constant="114" id="utv-rL-9Ga"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6KC-oE-cDe"/>
                     <connections>
@@ -674,10 +638,10 @@
             </objects>
             <point key="canvasLocation" x="304.80000000000001" y="670.61469265367316"/>
         </scene>
-        <!--View Controller-->
+        <!--Myprofile View Controller-->
         <scene sceneID="ZyZ-cp-l4a">
             <objects>
-                <viewController id="53K-UB-WdI" sceneMemberID="viewController">
+                <viewController id="53K-UB-WdI" customClass="MyprofileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tm1-De-LfD"/>
                         <viewControllerLayoutGuide type="bottom" id="IPj-D2-L8l"/>
@@ -694,13 +658,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92210584880000002" green="0.36051332949999998" blue="0.20089876649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="naK-70-roR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMI-AD-9Qo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1191.2" y="1415.4422788605698"/>
+            <point key="canvasLocation" x="1244" y="1415"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S2J-JD-2AY">
