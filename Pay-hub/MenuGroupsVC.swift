@@ -27,41 +27,43 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         
         
-        let script = GetDatafromAPI()
+//        let script = GetDatafromAPI()
        
-        let dict1 = script.getDataofGETcall(URLString: "https://pay-hub.in/payhub%20api/v1/menu_group.php")
-        print("Dictionary is \(String(describing: dict1))")
-        self.menugroups = (dict1?.value(forKeyPath: "Response.data.menu") as? NSArray)!
-        self.CollectionViewMenuGroups.reloadData()
-//        let HEADERS: HTTPHeaders = [
-//            "Token": "d75542712c868c1690110db641ba01a",
-//            "Accept": "application/json",
-//            "user_name" : "admin",
-//            "user_id" : "3"
-//        ]
-//        Alamofire.request(
-//            URL(string: "https://pay-hub.in/payhub%20api/v1/menu_group.php")!,
-//            method: .get,
-//            parameters: nil,
-//            headers: HEADERS
-//            )
-//            .validate()
-//            
-//            .responseJSON { response in
-//                debugPrint(response)
-//                
-//                
-//                if let json = response.result.value {
-//                    let dict = json as! NSDictionary
-//                    print("Converted Dictionary is \(dict)")
-//                    self.menugroups = dict.value(forKeyPath: "Response.data.menu") as! NSArray
-//                    print("Menu group list is \(String(describing: self.menugroups))")
-//                    self.CollectionViewMenuGroups.reloadData()
-//                    
-//                }
-//                
-//        }
-//
+        
+        
+//        let dict1 = script.getDataofGETcall(URLString: "https://pay-hub.in/payhub%20api/v1/menu_group.php")
+//        print("Dictionary is \(String(describing: dict1))")
+//        self.menugroups = (dict1?.value(forKeyPath: "Response.data.menu") as? NSArray)!
+//        self.CollectionViewMenuGroups.reloadData()
+        let HEADERS: HTTPHeaders = [
+            "Token": "d75542712c868c1690110db641ba01a",
+            "Accept": "application/json",
+            "user_name" : "admin",
+            "user_id" : "3"
+        ]
+        Alamofire.request(
+            URL(string: "https://pay-hub.in/payhub%20api/v1/menu_group.php")!,
+            method: .get,
+            parameters: nil,
+            headers: HEADERS
+            )
+            .validate()
+            
+            .responseJSON { response in
+                debugPrint(response)
+                
+                
+                if let json = response.result.value {
+                    let dict = json as! NSDictionary
+                    print("Converted Dictionary is \(dict)")
+                    self.menugroups = dict.value(forKeyPath: "Response.data.menu") as! NSArray
+                    print("Menu group list is \(String(describing: self.menugroups))")
+                    self.CollectionViewMenuGroups.reloadData()
+                    
+                }
+                
+        }
+
         
     }
     
