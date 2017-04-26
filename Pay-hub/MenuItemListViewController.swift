@@ -9,9 +9,56 @@
 import UIKit
 import Alamofire
 import SDWebImage
+import GMStepper
+
 
 class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var CollectionViewList: UICollectionView!
+    var badgenumber : Int = 0
+    
+    
+    
+    
+    
+    @IBAction func ValueChanged(_ sender: GMStepper) {
+        print("Value changed )")
+        
+        let pos = sender.convert(CGPoint.zero, to: CollectionViewList)
+        let indexPath = CollectionViewList.indexPathForItem(at: pos)!
+        let cell: MenuItemCollectionViewCell = CollectionViewList.cellForItem(at: indexPath) as! MenuItemCollectionViewCell
+
+            let value = String(Int(cell.itemGMStepper.value))
+        let value2 = String(Int(cell.itemGMStepper.hashValue))
+        print("Changed Value is \(value)")
+        print("Value 2 is \(value2)")
+       
+        if badgenumber > Int(cell.itemGMStepper.value)  {
+            badgenumber = badgenumber - 1
+        }
+        else {
+            badgenumber = badgenumber + 1
+        }
+        
+           let item = itemArray[indexPath.row]
+   //        (item as AnyObject).value[3] = value
+//            cart[indexPath.row] = item
+//      
+        print("Changed Value is \(value)")
+        
+        var i : String = "0"
+      //  i = i + (cell.itemGMStepper.value as? String)!
+        tabBarController?.tabBar.items![1].badgeValue =  "\(badgenumber)"
+        
+        
+
+        
+                    
+    }
+    
+    func updateBadgeNumberonTab() {
+        
+    }
+    
     public var selectedGroup: NSDictionary = [:]
     var itemArray : NSArray = []
 
@@ -38,8 +85,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
             "user_id" : "3"
         ]
         
-        let MenuID = selectedGroup.value(forKey: "menu_id") as! String
-        let Parameters = ["menu_id":MenuID] as Dictionary<String, String>
+        let MenuID : String = selectedGroup.value(forKey: "menu_id") as! String
+        let Parameters = ["menu_id":MenuID] 
         
         //create the url with URL
         Alamofire.request(
@@ -57,6 +104,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                 if let json = response.result.value {
                     let dict = json as! NSDictionary
                     self.itemArray = (dict.value(forKeyPath: "Response.data.item") as? NSArray)!
+                    print("Response Time  of Item is \(response.timeline)")
                     self.CollectionViewList.reloadData()
                    
                     
@@ -86,6 +134,11 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         let imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         cell.itemImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         
+        cell.itemGMStepper.addTarget(self, action: #selector(MenuItemListViewController.Steppervaluechanged), for: UIControlEvents.touchUpInside)
+        
+        
+        
+        
         
 //        let imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
 //        let url = NSURL(string:imageURL)
@@ -100,10 +153,17 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         cell.priceLabel.text = pricestring
         return cell
         
+    }
+    
+    func Steppervaluechanged () {
+        print("Stepper value is changed")
         
-     
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-       
         
     }
     

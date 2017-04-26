@@ -12,7 +12,7 @@ class PageViewMenuGroupsImagesVC: UIPageViewController, UIPageViewControllerData
 
     var pages = [UIViewController]()
     var timerofOffers : Timer?
-   
+    public var URLAraay : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,9 @@ class PageViewMenuGroupsImagesVC: UIPageViewController, UIPageViewControllerData
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
-        
+        if (URLAraay.count != 0) {
+        print("First URL is \(URLAraay[0])")
+        }
         
         
         setViewControllers([page1], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)

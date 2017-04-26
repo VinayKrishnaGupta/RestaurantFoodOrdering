@@ -8,7 +8,6 @@ pod 'SideMenuController'
 pod 'Alamofire', '~> 4.4'
 pod "GMStepper" 
 pod 'SDWebImage', '~>3.8'
-
  # Pods for Pay-hub
 
   target 'Pay-hubTests' do

@@ -12,14 +12,26 @@ import Alamofire
 
 
 class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var ContainerView: UIView!
     @IBOutlet weak var CollectionViewMenuGroups: UICollectionView!
     var menugroups : NSArray = []
+    var bannerImageURls : NSArray = []
     var SelectedMenuGroup : NSDictionary = [:]
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         CollectionViewMenuGroups.dataSource = self
         CollectionViewMenuGroups.delegate = self
         self.navigationItem.title = "Menu"
+//        let controller = storyboard?.instantiateViewController(withIdentifier: "BannerImages") as! PageViewMenuGroupsImagesVC
+//        
+//        addChildViewController(controller)
+//        ContainerView.addSubview(controller.view)
+//        didMove(toParentViewController: controller)
+//        controller.oneURL = "Hello World"
+        
         // Do any additional setup after loading the view.
     }
     
@@ -57,15 +69,30 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                     let dict = json as! NSDictionary
                     print("Converted Dictionary is \(dict)")
                     self.menugroups = dict.value(forKeyPath: "Response.data.menu") as! NSArray
+                    self.bannerImageURls = dict.value(forKeyPath: "Response.data.menu_banner.menu_banner") as! NSArray
+                    
                     print("Menu group list is \(String(describing: self.menugroups))")
+                    print("Response Time of Menu Group is \(response.timeline)")
+                    
+                    
+                    self.reLoadPageView()
                     self.CollectionViewMenuGroups.reloadData()
                     
-                }
-                
         }
 
         
     }
+    }
+    func reLoadPageView()
+    {
+                    let controller = storyboard?.instantiateViewController(withIdentifier: "BannerImages") as! PageViewMenuGroupsImagesVC
+            
+                    addChildViewController(controller)
+                    ContainerView.addSubview(controller.view)
+                    didMove(toParentViewController: controller)
+                    controller.URLAraay = self.bannerImageURls as! [String]
+            
+        }
     
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -85,7 +112,8 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
         
         
         SelectedMenuGroup = menugroups[indexPath.row] as! NSDictionary
@@ -99,10 +127,18 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemDetails" {
-            if let nextViewController = segue.destination as? MenuItemListViewController{
-             nextViewController.selectedGroup = SelectedMenuGroup
+            if let nextViewController = segue.destination as? ItemsTabBarViewController{
+                let destinationViewController = nextViewController.viewControllers?[0] as! MenuItemListViewController
+                destinationViewController.selectedGroup = SelectedMenuGroup
             }
             
+        }
+        else if segue.identifier == "BannerImages" {
+            if let nextViewController = segue.destination as? PageViewMenuGroupsImagesVC{
+                nextViewController.URLAraay = bannerImageURls as! [String] 
+                
+                
+        }
         }
         
         

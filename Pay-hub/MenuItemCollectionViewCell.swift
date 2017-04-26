@@ -17,6 +17,7 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemdescripion: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemGMStepper: GMStepper!
+  
     
     
     override func awakeFromNib() {
