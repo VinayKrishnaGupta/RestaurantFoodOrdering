@@ -119,13 +119,14 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         }
         SavedIndexpath = indexPath.row
         
-        cell.itemGMStepper.value = Double(numberofItems[indexPath.row])
+      //  cell.itemGMStepper.value = Double(numberofItems[indexPath.row])
+        
+        let SharedInstance = CartManager.sharedInstance
+        SharedInstance.MyCartItems = SelectedItems
         
         print("Selected Items are \(SelectedItems)")
         print("Number of Items are \(numberofItems)")
-        let image = UIImage.init(named: "chapati")
-        let imageDataDict:[String: UIImage] = ["image": image!]
-       let addedvalue : [String : NSDictionary] = ["SelectedItem" : SelectedItems[indexPath.row] as! NSDictionary]
+        let addedvalue : [String : NSDictionary] = ["SelectedItem" : SelectedItems[indexPath.row] as! NSDictionary]
     //    NotificationCenter.default.post(name: Notification.Name("NumberofaddedItems"), object: numberofItems,)
       //  NotificationCenter.default.post(name: Notification.Name("NumberofaddedItems"), object: nil, userInfo: addedvalue)
          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: addedvalue)
@@ -155,8 +156,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
 
     
     override func viewWillAppear(_ animated: Bool) {
-        SelectedItems.removeAll()
-        numberofItems.removeAll()
+       // SelectedItems.removeAll()
+        //numberofItems.removeAll()
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",

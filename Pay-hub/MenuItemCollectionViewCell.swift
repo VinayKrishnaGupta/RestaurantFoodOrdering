@@ -53,10 +53,10 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.itemtName.text = ""
-        self.itemImageView.image = UIImage.init(named: "")
-        self.itemGMStepper.value = 0
-        self.itemdescripion.text = ""
+//        self.itemtName.text = ""
+//        self.itemImageView.image = UIImage.init(named: "")
+//        self.itemGMStepper.value = 0
+//        self.itemdescripion.text = ""
         
     }
     

@@ -11,8 +11,7 @@ import UIKit
 class CartManager: NSObject {
 
     var strSample = NSString()
-    var MyCartItems = NSArray()
-    
+    var MyCartItems = Array<Any>()
     
     static let sharedInstance:CartManager = {
         let instance = CartManager ()
@@ -25,6 +24,10 @@ class CartManager: NSObject {
         // initialized with variable or property
         strSample = "My String"
         MyCartItems = []
+    }
+    
+    func getCartItems() -> NSArray {
+        return MyCartItems as NSArray
     }
     
     

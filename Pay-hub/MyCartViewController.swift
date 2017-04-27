@@ -12,6 +12,12 @@ class MyCartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let SharedInstance = CartManager.sharedInstance
+        let itemsfromSingleton : Array = SharedInstance.MyCartItems
+        
+        print("Seleced Item array from Singleton is \(itemsfromSingleton.count)")
+        
+        
 
         // Do any additional setup after loading the view.
     }
