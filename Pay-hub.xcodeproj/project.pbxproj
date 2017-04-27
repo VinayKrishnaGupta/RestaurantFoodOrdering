@@ -14,6 +14,7 @@
 		2F104F731EAB7FB30054DB64 /* MyprofileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F104F721EAB7FB30054DB64 /* MyprofileViewController.m */; };
 		2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2179861EADF329001CCB91 /* MyCartViewController.swift */; };
 		2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */; };
+		2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21798C1EB1FDD1001CCB91 /* CartManager.swift */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
 		2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */; };
 		2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */; };
@@ -65,6 +66,7 @@
 		2F104F721EAB7FB30054DB64 /* MyprofileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyprofileViewController.m; sourceTree = "<group>"; };
 		2F2179861EADF329001CCB91 /* MyCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCartViewController.swift; sourceTree = "<group>"; };
 		2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTabBarViewController.swift; sourceTree = "<group>"; };
+		2F21798C1EB1FDD1001CCB91 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
 		2FEEC6C61E9CA24E00CBE471 /* Pay-hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pay-hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				2FEEC6FC1E9F64F000CBE471 /* SideMenuViewController.swift */,
 				2FEEC7041EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift */,
 				2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */,
+				2F21798C1EB1FDD1001CCB91 /* CartManager.swift */,
 				2F2179861EADF329001CCB91 /* MyCartViewController.swift */,
 				2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */,
 				2F104F6B1EAB7F400054DB64 /* Experiment */,
@@ -529,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FEEC70B1EA5FC1C00CBE471 /* MenuItemCollectionViewCell.swift in Sources */,
+				2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */,
 				2FEEC7011E9F8F1900CBE471 /* CustomSideMenuController.swift in Sources */,
 				2F104F6F1EAB7F8D0054DB64 /* secondViewController.m in Sources */,
 				2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */,

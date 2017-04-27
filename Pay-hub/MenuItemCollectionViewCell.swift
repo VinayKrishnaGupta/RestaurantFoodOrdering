@@ -19,6 +19,10 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemGMStepper: GMStepper!
   
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+    
     
     override func awakeFromNib() {
         let topColor = UIColor.clear
@@ -41,10 +45,21 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
         
         
         self.itemImageView.layer.insertSublayer(gradientLayer, at: 0)
+        
+        
 
 
         
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.itemtName.text = ""
+        self.itemImageView.image = UIImage.init(named: "")
+        self.itemGMStepper.value = 0
+        self.itemdescripion.text = ""
+        
+    }
+    
     
     
     

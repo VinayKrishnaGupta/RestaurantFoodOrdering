@@ -73,6 +73,9 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "homescreenbg")?.draw(in: self.view.bounds)
         

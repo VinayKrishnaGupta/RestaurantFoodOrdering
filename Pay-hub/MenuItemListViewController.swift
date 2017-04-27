@@ -13,46 +13,137 @@ import GMStepper
 
 
 class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    @IBOutlet weak var CollectionViewList: UICollectionView!
+    @IBOutlet var CollectionViewList: UICollectionView!
     var badgenumber : Int = 0
+    var FinalBadgeNumber : Int = 0
+    var SavedIndexpath: Int? = nil
+    var SelectedItems : Array<Any> = []
+    var numberofItems : Array<Int>   = []
     
     
     
-    
-    
-    @IBAction func ValueChanged(_ sender: GMStepper) {
-        print("Value changed )")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.CollectionViewList.dataSource = self
+      //  self.CollectionViewList.delegate = self
         
-        let pos = sender.convert(CGPoint.zero, to: CollectionViewList)
-        let indexPath = CollectionViewList.indexPathForItem(at: pos)!
-        let cell: MenuItemCollectionViewCell = CollectionViewList.cellForItem(at: indexPath) as! MenuItemCollectionViewCell
+        
+        self.navigationItem.title = "Veg Starters"
+        print("Selected Dictionary group is \(selectedGroup)")
+        
+        let sharedInstance1 = CartManager.sharedInstance
+        print("String 1 from Singleton is \(sharedInstance1.strSample)")
+        sharedInstance1.strSample = "Hello Vinay"
+        
+        let sharedInstance2 = CartManager.sharedInstance
+        print("String 2 from singleton 2 is \(sharedInstance2.strSample)")
+        
+        
+        
+        
+        // Do any additional setup after loading the view.
+    }
 
-            let value = String(Int(cell.itemGMStepper.value))
-        let value2 = String(Int(cell.itemGMStepper.hashValue))
+    
+    
+ 
+    
+
+   
+    @IBAction func valueChanged(_ sender: GMStepper) {
+    
+        print("Value changed )")
+        let pos = (sender as AnyObject).convert(CGPoint.zero, to: CollectionViewList)
+        let indexPath = CollectionViewList.indexPathForItem(at: pos)!
+        
+        guard let cell: MenuItemCollectionViewCell = (CollectionViewList.cellForItem(at: indexPath)) as? (MenuItemCollectionViewCell)
+            else
+        {
+            print("Can't deque cells")
+            return
+        }
+
+        
+        
+        let value = String(Int(cell.itemGMStepper.value))
+        let value2 = String(Int(cell.itemGMStepper.stepValue))
         print("Changed Value is \(value)")
-        print("Value 2 is \(value2)")
+        print("Step Value is \(value2)")
+        
+        
+        
+        
+        
+        if SavedIndexpath == indexPath.row
+        {
+            if numberofItems[indexPath.row] >=  Int(cell.itemGMStepper.value)  {
+                
+                FinalBadgeNumber = FinalBadgeNumber - Int(cell.itemGMStepper.stepValue)
+                badgenumber = badgenumber - Int(cell.itemGMStepper.stepValue)
+               // let dict = self.itemArray[indexPath.row]
+                self.numberofItems[indexPath.row] = badgenumber
+               // self.SelectedItems.insert(dict, at: indexPath.row)
+            }
+            else {
+                
+                FinalBadgeNumber = FinalBadgeNumber + Int(cell.itemGMStepper.stepValue)
+                badgenumber = badgenumber + Int(cell.itemGMStepper.stepValue)
+               // let dict = self.itemArray[indexPath.row]
+                self.numberofItems[indexPath.row] = badgenumber
+             //   self.SelectedItems.insert(dict, at: indexPath.row)
+            }
+            
+        }
+        
+        else
+        {
        
-        if badgenumber > Int(cell.itemGMStepper.value)  {
-            badgenumber = badgenumber - 1
+        if numberofItems[indexPath.row] >=  Int(cell.itemGMStepper.value)  {
+            badgenumber = 0
+            FinalBadgeNumber = FinalBadgeNumber - Int(cell.itemGMStepper.stepValue)
+             badgenumber = badgenumber - Int(cell.itemGMStepper.stepValue)
+            let dict = self.itemArray[indexPath.row]
+            self.numberofItems[indexPath.row] = badgenumber
+            self.SelectedItems[indexPath.row] = dict
         }
         else {
-            badgenumber = badgenumber + 1
+             badgenumber = 0
+            FinalBadgeNumber = FinalBadgeNumber + Int(cell.itemGMStepper.stepValue)
+            badgenumber = badgenumber + Int(cell.itemGMStepper.stepValue)
+            let dict = self.itemArray[indexPath.row]
+            self.numberofItems[indexPath.row] = badgenumber
+            self.SelectedItems[indexPath.row] = dict
+            
         }
+            
+        }
+        SavedIndexpath = indexPath.row
         
-           let item = itemArray[indexPath.row]
+        cell.itemGMStepper.value = Double(numberofItems[indexPath.row])
+        
+        print("Selected Items are \(SelectedItems)")
+        print("Number of Items are \(numberofItems)")
+        let image = UIImage.init(named: "chapati")
+        let imageDataDict:[String: UIImage] = ["image": image!]
+       let addedvalue : [String : NSDictionary] = ["SelectedItem" : SelectedItems[indexPath.row] as! NSDictionary]
+    //    NotificationCenter.default.post(name: Notification.Name("NumberofaddedItems"), object: numberofItems,)
+      //  NotificationCenter.default.post(name: Notification.Name("NumberofaddedItems"), object: nil, userInfo: addedvalue)
+         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: addedvalue)
+        
+    //       let item = itemArray[indexPath.row]
    //        (item as AnyObject).value[3] = value
 //            cart[indexPath.row] = item
 //      
-        print("Changed Value is \(value)")
+     //   print("Changed Value is \(value)")
         
-        var i : String = "0"
+     //   var i : String = "0"
       //  i = i + (cell.itemGMStepper.value as? String)!
-        tabBarController?.tabBar.items![1].badgeValue =  "\(badgenumber)"
+        tabBarController?.tabBar.items![1].badgeValue =  "\(FinalBadgeNumber)"
         
         
 
         
-                    
+        
     }
     
     func updateBadgeNumberonTab() {
@@ -62,22 +153,10 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     public var selectedGroup: NSDictionary = [:]
     var itemArray : NSArray = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        CollectionViewList.dataSource = self
-        CollectionViewList.delegate = self
-        
-        
-        self.navigationItem.title = "Veg Starters"
-        print("Selected Dictionary group is \(selectedGroup)")
-        
-        
-        
-
-        // Do any additional setup after loading the view.
-    }
     
     override func viewWillAppear(_ animated: Bool) {
+        SelectedItems.removeAll()
+        numberofItems.removeAll()
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",
@@ -106,7 +185,11 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                     self.itemArray = (dict.value(forKeyPath: "Response.data.item") as? NSArray)!
                     print("Response Time  of Item is \(response.timeline)")
                     self.CollectionViewList.reloadData()
-                   
+                    for _ in 0..<self.itemArray.count {
+                        self.numberofItems.append(0)
+                        self.SelectedItems.append(0)
+                    }
+
                     
                 }
                 
@@ -134,7 +217,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         let imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         cell.itemImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         
-        cell.itemGMStepper.addTarget(self, action: #selector(MenuItemListViewController.Steppervaluechanged), for: UIControlEvents.touchUpInside)
+        
         
         
         
@@ -148,6 +231,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         
         cell.itemtName.text = dict?.value(forKey: "item_name") as? String
         cell.itemdescripion.text = dict?.value(forKey: "item_content") as? String
+        cell.itemGMStepper.value = Double(self.numberofItems[indexPath.row])
+        cell.itemGMStepper.addTarget(self, action: #selector(valueChanged(_:)), for: UIControlEvents.valueChanged)
         
         let pricestring = String(format: " ₹ %@", (dict?.value(forKey: "item_price") as? String)!)
         cell.priceLabel.text = pricestring
@@ -155,10 +240,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         
     }
     
-    func Steppervaluechanged () {
-        print("Stepper value is changed")
-        
-    }
+    
     
     
     

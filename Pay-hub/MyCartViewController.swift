@@ -15,7 +15,44 @@ class MyCartViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getselectedItems(_:)), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+    //    NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NumberofaddedItems"), object: nil)
+        
 
+    }
+    func getselectedItems(_ notification: NSNotification) {
+        
+        
+        
+        print("Notification Recieved")
+        let dict : NSDictionary = (notification.userInfo?["SelectedItem"] as? NSDictionary)!
+        print("Notification selected Dict is \(dict)")
+        
+//        if (notification.userInfo?["image"] as? UIImage) != nil {
+//            print("Notification 2 Recieved")
+//        }
+//        if let image : NSDictionary = notification.userInfo?["image"] as? NSDictionary {
+//            // do something with your image
+//        }
+    }
+    
+    
+    func methodOfReceivedNotification(notification: NSNotification){
+        print("Notification received")
+        if let addeditem = notification.userInfo?["SelectedItem"] as? NSDictionary {
+            print("Selected Dict in Notification is \(addeditem)")
+        }
+        //let addeditems  = notification.object as? Array<Any>
+       // print("Number of Items is Notification is \(String(describing: addeditems?.count))" as Any)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
