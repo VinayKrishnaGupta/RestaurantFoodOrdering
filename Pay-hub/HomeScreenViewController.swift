@@ -115,49 +115,49 @@ class HomeScreenViewController: UIViewController {
 //        cell.itemImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         
         var dict1 : NSDictionary = menuitems[0] as! NSDictionary
-        var text1 : String = dict1.value(forKey: "menu_title") as! String
+        var text1 : String = dict1.value(forKey: "menu_short_name") as! String
         var imageaddress   = dict1.value(forKey: "menu_image") as! String
         var imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         image1.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         label1.text = text1
         
         dict1 = menuitems[1] as! NSDictionary
-        text1 = dict1.value(forKey: "menu_title") as! String
+        text1 = dict1.value(forKey: "menu_short_name") as! String
         imageaddress  = dict1.value(forKey: "menu_image") as! String
         imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         image2.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         label2.text = text1
         
         dict1 = menuitems[2] as! NSDictionary
-        text1 = dict1.value(forKey: "menu_title") as! String
+        text1 = dict1.value(forKey: "menu_short_name") as! String
         imageaddress  = dict1.value(forKey: "menu_image") as! String
         imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         image3.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         label3.text = text1
         
         dict1 = menuitems[3] as! NSDictionary
-        text1 = dict1.value(forKey: "menu_title") as! String
+        text1 = dict1.value(forKey: "menu_short_name") as! String
         imageaddress  = dict1.value(forKey: "menu_image") as! String
         imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         image4.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         label4.text = text1
         
         dict1 = menuitems[4] as! NSDictionary
-        text1 = dict1.value(forKey: "menu_title") as! String
+        text1 = dict1.value(forKey: "menu_short_name") as! String
         imageaddress  = dict1.value(forKey: "menu_image") as! String
         imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         image5.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         label5.text = text1
         
         dict1 = menuitems[5] as! NSDictionary
-        text1 = dict1.value(forKey: "menu_title") as! String
+        text1 = dict1.value(forKey: "menu_short_name") as! String
         imageaddress  = dict1.value(forKey: "menu_image") as! String
         imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         image6.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         label6.text = text1
         
         dict1 = menuitems[6] as! NSDictionary
-        text1 = dict1.value(forKey: "menu_title") as! String
+        text1 = dict1.value(forKey: "menu_short_name") as! String
         imageaddress  = dict1.value(forKey: "menu_image") as! String
         imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
         image7.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))

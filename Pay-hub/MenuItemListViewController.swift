@@ -15,7 +15,7 @@ import GMStepper
 class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var CollectionViewList: UICollectionView!
     var badgenumber : Int = 0
-    var FinalBadgeNumber : Int = 0
+    var FinalBadgeNumber : Int = 0 
     var SavedIndexpath: Int? = nil
     var SelectedItems : Array<Any> = []
     var numberofItems : Array<Int>   = []
@@ -27,8 +27,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         self.CollectionViewList.dataSource = self
       //  self.CollectionViewList.delegate = self
         
-        
-        self.navigationItem.title = "Veg Starters"
+       // navigationItem.title = "Hello"
+    //    self.navigationItem.title = selectedGroup.value(forKey: "menu_title") as? String
         print("Selected Dictionary group is \(selectedGroup)")
         
         let sharedInstance1 = CartManager.sharedInstance
@@ -140,6 +140,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
      //   var i : String = "0"
       //  i = i + (cell.itemGMStepper.value as? String)!
         tabBarController?.tabBar.items![1].badgeValue =  "\(FinalBadgeNumber)"
+        tabBarController?.tabBar.items![1].badgeColor = UIColor.black
+       
         
         
 
@@ -158,6 +160,9 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
        // SelectedItems.removeAll()
         //numberofItems.removeAll()
+        let navigationtitle : String = (selectedGroup.value(forKey: "menu_title") as? String)!
+        self.title = navigationtitle
+        
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",

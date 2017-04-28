@@ -177,7 +177,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t8q-Gy-cPT">
-                                <rect key="frame" x="309" y="250" width="50" height="62"/>
+                                <rect key="frame" x="292" y="250" width="50" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dN3-Oe-NAb">
@@ -198,7 +198,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fxy-cp-yFK">
-                                <rect key="frame" x="246" y="400" width="50" height="62"/>
+                                <rect key="frame" x="246" y="379" width="50" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-2K-hPl">
@@ -244,27 +244,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-Zj-0fK">
-                                <rect key="frame" x="16" y="250" width="50" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-fO-OaH">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="ll1-fO-OaH" secondAttribute="height" multiplier="1:1" id="gga-U1-cSe"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Breads" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="knG-Y3-T55">
-                                        <rect key="frame" x="0.0" y="50" width="50" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="knG-Y3-T55" firstAttribute="width" secondItem="ll1-fO-OaH" secondAttribute="width" id="a1N-gH-b3Z"/>
-                                </constraints>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Nf-uN-SAw">
                                 <rect key="frame" x="41" y="366" width="50" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -284,6 +263,27 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="dtC-fi-7Up" firstAttribute="width" secondItem="g8w-AD-rjd" secondAttribute="width" id="syu-ZN-Ghb"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-Zj-0fK">
+                                <rect key="frame" x="28" y="250" width="50" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ll1-fO-OaH">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ll1-fO-OaH" secondAttribute="height" multiplier="1:1" id="gga-U1-cSe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Breads" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="knG-Y3-T55">
+                                        <rect key="frame" x="0.0" y="50" width="50" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="knG-Y3-T55" firstAttribute="width" secondItem="ll1-fO-OaH" secondAttribute="width" id="a1N-gH-b3Z"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -393,7 +393,7 @@
             </objects>
             <point key="canvasLocation" x="1912.8" y="-43.628185907046479"/>
         </scene>
-        <!--Menu Items-->
+        <!--Menu-->
         <scene sceneID="q8H-SU-aax">
             <objects>
                 <viewController id="1Qp-tD-KDV" customClass="MenuItemListViewController" customModule="Pay_hub" customModuleProvider="target" sceneMemberID="viewController">
@@ -402,11 +402,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ePd-o5-rTM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OOj-Ub-wag">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="muw-XF-MFQ">
-                                <rect key="frame" x="0.0" y="8" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="7" width="375" height="539"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9vn-Hl-lMM">
@@ -502,14 +502,17 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Menu Items" id="cLj-aL-drA"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="fast-food" id="5Dp-wh-utz">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="OdC-LO-NUd"/>
                     <connections>
                         <outlet property="CollectionViewList" destination="muw-XF-MFQ" id="jfy-bu-8fK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrE-Ug-1xN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3972" y="-40.029985007496258"/>
+            <point key="canvasLocation" x="4911.1999999999998" y="-40.029985007496258"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -823,13 +826,17 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4w3-2b-6O1" customClass="ItemsTabBarViewController" customModule="Pay_hub" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="fKJ-KQ-2by">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="fill" id="fKJ-KQ-2by">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.92210584880000002" green="0.36051332949999998" blue="0.20089876649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="1Qp-tD-KDV" kind="relationship" relationship="viewControllers" id="vq2-m4-GOO"/>
-                        <segue destination="ycb-Nz-Azs" kind="relationship" relationship="viewControllers" id="fuw-I3-3G8"/>
+                        <segue destination="1Qp-tD-KDV" kind="relationship" relationship="viewControllers" id="afS-eg-O9P"/>
+                        <segue destination="ycb-Nz-Azs" kind="relationship" relationship="viewControllers" id="MzN-Hm-Qm7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHW-vB-2VW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -845,11 +852,13 @@
                         <viewControllerLayoutGuide type="bottom" id="tvr-Qf-31R"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ziM-Xd-oiF">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Cart" id="5Qo-ut-DfJ"/>
+                    <tabBarItem key="tabBarItem" title="My Cart" image="empty-shopping-cart" id="5Qo-ut-DfJ">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbG-6d-16C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -860,6 +869,8 @@
         <image name="HomeScreenCircle" width="900" height="900"/>
         <image name="MenuHomeicon60*60" width="60" height="60"/>
         <image name="Page3" width="375" height="200"/>
+        <image name="empty-shopping-cart" width="32" height="32"/>
+        <image name="fast-food" width="32" height="32"/>
         <image name="homescreenbg" width="374" height="600"/>
         <image name="page0" width="375" height="200"/>
         <image name="page2" width="375" height="200"/>

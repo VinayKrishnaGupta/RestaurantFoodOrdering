@@ -29,6 +29,7 @@ class MyCartViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
     //    NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NumberofaddedItems"), object: nil)
         
 
