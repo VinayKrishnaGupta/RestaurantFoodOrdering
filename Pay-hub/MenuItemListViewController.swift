@@ -82,6 +82,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                 badgenumber = badgenumber - Int(cell.itemGMStepper.stepValue)
                // let dict = self.itemArray[indexPath.row]
                 self.numberofItems[indexPath.row] = badgenumber
+                print("number 1 of items at indexpath is \(numberofItems[indexPath.row])")
                // self.SelectedItems.insert(dict, at: indexPath.row)
             }
             else {
@@ -90,6 +91,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                 badgenumber = badgenumber + Int(cell.itemGMStepper.stepValue)
                // let dict = self.itemArray[indexPath.row]
                 self.numberofItems[indexPath.row] = badgenumber
+                print("number 2 of items at indexpath is \(numberofItems[indexPath.row])")
              //   self.SelectedItems.insert(dict, at: indexPath.row)
             }
             
@@ -103,7 +105,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
             FinalBadgeNumber = FinalBadgeNumber - Int(cell.itemGMStepper.stepValue)
              badgenumber = badgenumber - Int(cell.itemGMStepper.stepValue)
             let dict = self.itemArray[indexPath.row]
-            self.numberofItems[indexPath.row] = badgenumber
+            self.numberofItems[indexPath.row] = Int(cell.itemGMStepper.value)
+            print("number 3 of items at indexpath is \(numberofItems[indexPath.row])")
             self.SelectedItems[indexPath.row] = dict
         }
         else {
@@ -112,6 +115,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
             badgenumber = badgenumber + Int(cell.itemGMStepper.stepValue)
             let dict = self.itemArray[indexPath.row]
             self.numberofItems[indexPath.row] = badgenumber
+            print("number 4 of items at indexpath is \(numberofItems[indexPath.row])")
             self.SelectedItems[indexPath.row] = dict
             
         }
@@ -250,10 +254,11 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     
     
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        let SharedInstance = CartManager.sharedInstance
+//        SharedInstance.addproduct(product: SelectedItems)
+//        
+//    }
     
 
 }

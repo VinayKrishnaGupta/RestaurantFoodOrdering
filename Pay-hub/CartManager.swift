@@ -12,6 +12,7 @@ class CartManager: NSObject {
 
     var strSample = NSString()
     var MyCartItems = Array<Any>()
+    var productsarray = Array<NSDictionary>()
     
     static let sharedInstance:CartManager = {
         let instance = CartManager ()
@@ -27,7 +28,20 @@ class CartManager: NSObject {
     }
     
     func getCartItems() -> NSArray {
+        
+        
+        
         return MyCartItems as NSArray
+    }
+    
+    func addproduct(product : NSDictionary) {
+        productsarray.append(product)
+        print("Product Array from singalton class is \(productsarray)")
+        
+    }
+    
+    func getcartitemarray() -> Array<Any> {
+        return [productsarray]
     }
     
     

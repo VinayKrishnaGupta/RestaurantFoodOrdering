@@ -8,14 +8,18 @@
 
 import UIKit
 
-class MyCartViewController: UIViewController {
+class MyCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let SharedInstance = CartManager.sharedInstance
-        let itemsfromSingleton : Array = SharedInstance.MyCartItems
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        print("Seleced Item array from Singleton is \(itemsfromSingleton.count)")
+        let SharedInstance = CartManager.sharedInstance
+       let AddedItems = SharedInstance.getCartItems()
+        
+        print("Seleced Item array from Singleton is \(AddedItems)")
         
         
 
@@ -42,6 +46,9 @@ class MyCartViewController: UIViewController {
         let dict : NSDictionary = (notification.userInfo?["SelectedItem"] as? NSDictionary)!
         print("Notification selected Dict is \(dict)")
         
+        
+        let SharedInstance = CartManager.sharedInstance
+        SharedInstance.addproduct(product: dict)
 //        if (notification.userInfo?["image"] as? UIImage) != nil {
 //            print("Notification 2 Recieved")
 //        }
@@ -60,10 +67,45 @@ class MyCartViewController: UIViewController {
        // print("Number of Items is Notification is \(String(describing: addeditems?.count))" as Any)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3;
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 1 {
+            return 3
+        }
+        else {
+            return 1
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        
+       
+        if indexPath.section == 0 {
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: "CartTitle", for: indexPath) as! MyCartTitleCell
+            return cell1
+        }
+            
+        if indexPath.section == 1 {
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "CartItems", for: indexPath) as! MyCartCellTableViewCell
+            return cell2
+        }
+        
+        else {
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "TaxCell", for: indexPath) 
+            return cell3
+        }
+       
+    }
+    
+    
+    
+    
     
 
     /*

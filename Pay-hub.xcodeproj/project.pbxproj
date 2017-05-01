@@ -35,6 +35,8 @@
 		2FEEC70D1EA6133A00CBE471 /* MenuItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */; };
 		2FEEC70F1EA6356100CBE471 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEEC70E1EA6356100CBE471 /* Alamofire.framework */; };
 		2FEEC7121EA638C400CBE471 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC7111EA638C400CBE471 /* Alamofire.swift */; };
+		2FEEF7971EB7005B008ACEE3 /* MyCartCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEF7961EB7005B008ACEE3 /* MyCartCellTableViewCell.swift */; };
+		2FEEF79A1EB7189C008ACEE3 /* MyCartTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEF7991EB7189C008ACEE3 /* MyCartTitleCell.swift */; };
 		D34E2F6F9DE3A4D6E0B9117E /* Pods_Pay_hubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB510F34008B707500181149 /* Pods_Pay_hubTests.framework */; };
 		FF55140D5F1619B364964005 /* Pods_Pay_hubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8141CD5A59D610B84CBCA50 /* Pods_Pay_hubUITests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +95,8 @@
 		2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemListViewController.swift; sourceTree = "<group>"; };
 		2FEEC70E1EA6356100CBE471 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Pay-hub-dcmsrvzwqdvbarehvtvqhcywirdq/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		2FEEC7111EA638C400CBE471 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		2FEEF7961EB7005B008ACEE3 /* MyCartCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCartCellTableViewCell.swift; sourceTree = "<group>"; };
+		2FEEF7991EB7189C008ACEE3 /* MyCartTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCartTitleCell.swift; sourceTree = "<group>"; };
 		48220A4F2E0DF9C944E8A6E2 /* Pods-Pay-hubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pay-hubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pay-hubTests/Pods-Pay-hubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C73A40A118492F42E51195B /* Pods_Pay_hub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pay_hub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519F0AC5F9FDD1B9910C21A2 /* Pods-Pay-hubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pay-hubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pay-hubUITests/Pods-Pay-hubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,9 +188,8 @@
 				2FEEC6FC1E9F64F000CBE471 /* SideMenuViewController.swift */,
 				2FEEC7041EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift */,
 				2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */,
-				2F21798C1EB1FDD1001CCB91 /* CartManager.swift */,
-				2F2179861EADF329001CCB91 /* MyCartViewController.swift */,
 				2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */,
+				2FEEF7981EB701E0008ACEE3 /* My Cart */,
 				2F104F6B1EAB7F400054DB64 /* Experiment */,
 				2FEEC7101EA638AE00CBE471 /* Models */,
 				2FEEC6D01E9CA24E00CBE471 /* Assets.xcassets */,
@@ -220,6 +223,17 @@
 				2FEEC7111EA638C400CBE471 /* Alamofire.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		2FEEF7981EB701E0008ACEE3 /* My Cart */ = {
+			isa = PBXGroup;
+			children = (
+				2F21798C1EB1FDD1001CCB91 /* CartManager.swift */,
+				2F2179861EADF329001CCB91 /* MyCartViewController.swift */,
+				2FEEF7961EB7005B008ACEE3 /* MyCartCellTableViewCell.swift */,
+				2FEEF7991EB7189C008ACEE3 /* MyCartTitleCell.swift */,
+			);
+			name = "My Cart";
 			sourceTree = "<group>";
 		};
 		3DF049259C084978089A5499 /* Frameworks */ = {
@@ -537,6 +551,8 @@
 				2F104F6F1EAB7F8D0054DB64 /* secondViewController.m in Sources */,
 				2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */,
 				2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */,
+				2FEEF79A1EB7189C008ACEE3 /* MyCartTitleCell.swift in Sources */,
+				2FEEF7971EB7005B008ACEE3 /* MyCartCellTableViewCell.swift in Sources */,
 				2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */,
 				2FEEC6FB1E9F643100CBE471 /* HomeScreenViewController.swift in Sources */,
 				2F104F731EAB7FB30054DB64 /* MyprofileViewController.m in Sources */,
