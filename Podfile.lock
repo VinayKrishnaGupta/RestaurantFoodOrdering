@@ -1,23 +1,32 @@
 PODS:
   - Alamofire (4.4.0)
   - GMStepper (2.0.0)
+  - libjingle_peerconnection (11177.2.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SideMenuController (0.2.4)
+  - SinchRTC (3.11.0)
+  - SocketRocket (0.5.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - GMStepper
+  - libjingle_peerconnection
   - SDWebImage (~> 3.8)
   - SideMenuController
+  - SinchRTC
+  - SocketRocket
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   GMStepper: 6aff0c881afac2f432e5c9b0df71e44e14110a06
+  libjingle_peerconnection: 3458f646ddd61f08a9f3a0c43fb01fff5c165eb8
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SideMenuController: b463d2b3aa58e2afe57f57a07938fa9a647894ca
+  SinchRTC: 68b940110104f8ccc7a42076e5ee75450d2e3456
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: 6e18eeeddfb7d813d5b46f996a5406b096e2b331
+PODFILE CHECKSUM: fbd5d0cd2071d8b656a1d1a2d157db3ecc6f7a0d
 
 COCOAPODS: 1.2.1

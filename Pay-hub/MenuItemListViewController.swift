@@ -65,10 +65,10 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
 
         
         
-        let value = String(Int(cell.itemGMStepper.value))
-        let value2 = String(Int(cell.itemGMStepper.stepValue))
-        print("Changed Value is \(value)")
-        print("Step Value is \(value2)")
+//        let value = String(Int(cell.itemGMStepper.value))
+//        let value2 = String(Int(cell.itemGMStepper.stepValue))
+//        print("Changed Value is \(value)")
+//        print("Step Value is \(value2)")
         
         
         
@@ -143,8 +143,16 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         
      //   var i : String = "0"
       //  i = i + (cell.itemGMStepper.value as? String)!
-        tabBarController?.tabBar.items![1].badgeValue =  "\(FinalBadgeNumber)"
-        tabBarController?.tabBar.items![1].badgeColor = UIColor.black
+        
+        let SharedInstance1 = CartManager.sharedInstance
+        let numberOfIteminCartManager = SharedInstance1.numberofItemsinCartManager()
+        let CartNumber = numberOfIteminCartManager
+        tabBarController?.tabBar.items![1].badgeValue =  "\(CartNumber)"
+        if #available(iOS 10.0, *) {
+            tabBarController?.tabBar.items![1].badgeColor = UIColor.black
+        } else {
+            // Fallback on earlier versions
+        }
        
         
         
@@ -164,8 +172,18 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
        // SelectedItems.removeAll()
         //numberofItems.removeAll()
-        let navigationtitle : String = (selectedGroup.value(forKey: "menu_title") as? String)!
-        self.title = navigationtitle
+     //   let navigationtitle : String = (selectedGroup.value(forKey: "menu_title") as? String)!
+      //  self.title = navigationtitle
+        let SharedInstance1 = CartManager.sharedInstance
+        let numberOfItem = SharedInstance1.numberofItemsinCartManager()
+        
+        tabBarController?.tabBar.items![1].badgeValue =  "\(numberOfItem)"
+        if #available(iOS 10.0, *) {
+            tabBarController?.tabBar.items![1].badgeColor = UIColor.black
+        } else {
+            // Fallback on earlier versions
+        }
+        
         
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",

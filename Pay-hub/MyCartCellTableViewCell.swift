@@ -9,6 +9,9 @@
 import UIKit
 
 class MyCartCellTableViewCell: UITableViewCell {
+    @IBOutlet weak var numberlabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

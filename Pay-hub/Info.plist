@@ -55,5 +55,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>voip</string>
+	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Using Microphone for Calling</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Using Camera </string>
 </dict>
 </plist>

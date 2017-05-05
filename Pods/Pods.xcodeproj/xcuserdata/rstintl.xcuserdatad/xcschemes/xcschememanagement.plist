@@ -39,9 +39,24 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>106258EBCBF1B13D779B2C6B0C7D16E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1DAF32BCA82A76A3882C9525B171FD0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6DB34ADEAC543008FDA771D13AE6F534</key>
 		<dict>
 			<key>primary</key>
@@ -62,17 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D685A57573255101F2C917FCAF0053A9</key>
+		<key>C6FED09239F9847D7F0AE356FC40D6D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F7731BA0A1C78FBBCA4E51492F017B2C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FE0F02293B0A0698AC77D12AF2A19299</key>
+		<key>EE5DF1EB192E622284CAC40EEECB6C2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

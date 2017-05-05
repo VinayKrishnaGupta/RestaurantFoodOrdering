@@ -24,7 +24,9 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         super.viewDidLoad()
         CollectionViewMenuGroups.dataSource = self
         CollectionViewMenuGroups.delegate = self
-        self.navigationItem.title = "Menu"
+        
+      
+    
 //        let controller = storyboard?.instantiateViewController(withIdentifier: "BannerImages") as! PageViewMenuGroupsImagesVC
 //        
 //        addChildViewController(controller)
@@ -38,7 +40,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewWillAppear(_ animated: Bool) {
         
         
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
 //        let script = GetDatafromAPI()
        
         
@@ -75,8 +77,8 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                     print("Response Time of Menu Group is \(response.timeline)")
                     
                     
-                    self.reLoadPageView()
-                    self.CollectionViewMenuGroups.reloadData()
+                  //  self.reLoadPageView()
+                   self.CollectionViewMenuGroups.reloadData()
                     
         }
 
@@ -127,9 +129,9 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemDetails" {
-            if let nextViewController = segue.destination as? ItemsTabBarViewController{
-                let destinationViewController = nextViewController.viewControllers?[0] as! MenuItemListViewController
-                destinationViewController.selectedGroup = SelectedMenuGroup
+            if let nextViewController = segue.destination as? MenuItemListViewController{
+              //  let destinationViewController = nextViewController.viewControllers?[0] as! MenuItemListViewController
+                nextViewController.selectedGroup = SelectedMenuGroup
             }
             
         }
@@ -142,6 +144,12 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         }
         
         
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+       self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 

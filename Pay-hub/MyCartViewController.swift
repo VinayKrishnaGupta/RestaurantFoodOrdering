@@ -11,16 +11,21 @@ import UIKit
 class MyCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    var addedproducts : NSArray = []
+    let TaxNames = ["VAT(14.5%)", "Service Tax(5%)", "Delivery Fee"]
+    let TaxAmounts = ["₹ 112", "₹ 52", "₹ 50"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         
-        let SharedInstance = CartManager.sharedInstance
-       let AddedItems = SharedInstance.getCartItems()
         
-        print("Seleced Item array from Singleton is \(AddedItems)")
         
+      //  print("Seleced Item array from Singleton is \(addedproducts)")
+        
+        
+    //    self.tableView.reloadData()
         
 
         // Do any additional setup after loading the view.
@@ -33,7 +38,10 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(true)
+        let SharedInstance = CartManager.sharedInstance
+        addedproducts = SharedInstance.getcartitemarray() as NSArray
+        self.tableView.reloadData()
     //    NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NumberofaddedItems"), object: nil)
         
 
@@ -75,7 +83,10 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 1 {
-            return 3
+            return addedproducts.count
+        }
+        if section == 2 {
+            return TaxNames.count
         }
         else {
             return 1
@@ -93,11 +104,23 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
             
         if indexPath.section == 1 {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "CartItems", for: indexPath) as! MyCartCellTableViewCell
+            print("added products indexpath \(addedproducts[indexPath.row])")
+            let dict : NSDictionary  = self.addedproducts[indexPath.row] as! NSDictionary
+            cell2.numberlabel.text = "1"
+            let pricestring  = String.init(format: "₹ %@", dict.value(forKey: "item_price") as! String)
+            cell2.priceLabel.text = pricestring
+            cell2.titleLabel.text = (dict.value(forKey: "item_name") as! String)
+            
+            
             return cell2
         }
         
         else {
-            let cell3 = tableView.dequeueReusableCell(withIdentifier: "TaxCell", for: indexPath) 
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: "TaxCell", for: indexPath)
+            if indexPath.section == 2 {
+            cell3.textLabel?.text = TaxNames[indexPath.row]
+            cell3.detailTextLabel?.text = TaxAmounts[indexPath.row]
+            }
             return cell3
         }
        
