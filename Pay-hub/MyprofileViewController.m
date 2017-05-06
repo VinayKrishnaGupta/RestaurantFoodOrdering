@@ -8,8 +8,6 @@
 
 #import "MyprofileViewController.h"
 #import "secondViewController.h"
-#import "ARTCRoomViewController.h"
-
 
 
 @interface MyprofileViewController ()
@@ -20,21 +18,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    /*
+    
     secondViewController *modalViewController = [[secondViewController alloc] init];
     modalViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:modalViewController animated:YES completion:nil];
-    */
+    
     // Do any additional setup after loading the view.
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    UIStoryboard *storyboard1 = [UIStoryboard storyboardWithName:@"WebRTCNavigation" bundle:nil];
-    ARTCRoomViewController *vc = (ARTCRoomViewController *)[storyboard1 instantiateViewControllerWithIdentifier:@"WebRTCVC"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-    
+        
     
     
 }
