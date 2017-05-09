@@ -19,6 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+            let VisitReference : String = "N"
+            UserDefaults.standard.set(VisitReference, forKey: "VisitReferenceNumber")
+        } else {
+            print("First launch, setting UserDefault.")
+            let VisitReference : String = "N"
+            UserDefaults.standard.set(VisitReference, forKey: "VisitReferenceNumber")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        
         
         // Override point for customization after application launch.
         return true

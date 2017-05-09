@@ -16,6 +16,9 @@
 		2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */; };
 		2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21798C1EB1FDD1001CCB91 /* CartManager.swift */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
+		2FEC664B1EC198C300BACDCF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEC664A1EC198C300BACDCF /* Auth.storyboard */; };
+		2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */; };
+		2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */; };
 		2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */; };
 		2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */; };
 		2FEEC6CF1E9CA24E00CBE471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEEC6CD1E9CA24E00CBE471 /* Main.storyboard */; };
@@ -74,6 +77,9 @@
 		2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTabBarViewController.swift; sourceTree = "<group>"; };
 		2F21798C1EB1FDD1001CCB91 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
+		2FEC664A1EC198C300BACDCF /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupoptionsViewController.swift; sourceTree = "<group>"; };
 		2FEEC6C61E9CA24E00CBE471 /* Pay-hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pay-hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +184,23 @@
 			name = Experiment;
 			sourceTree = "<group>";
 		};
+		2FEC66461EC197ED00BACDCF /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Delivery;
+			sourceTree = "<group>";
+		};
+		2FEC66491EC198A000BACDCF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2FEC664A1EC198C300BACDCF /* Auth.storyboard */,
+				2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */,
+				2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
 		2FEEC6BD1E9CA24E00CBE471 = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +241,8 @@
 				2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */,
 				2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */,
 				2FEEF7981EB701E0008ACEE3 /* My Cart */,
+				2FEC66461EC197ED00BACDCF /* Delivery */,
+				2FEC66491EC198A000BACDCF /* Authentication */,
 				2F104F6B1EAB7F400054DB64 /* Experiment */,
 				2FEEC7101EA638AE00CBE471 /* Models */,
 				2FEEC6D01E9CA24E00CBE471 /* Assets.xcassets */,
@@ -430,6 +455,7 @@
 			files = (
 				2F104F701EAB7F8D0054DB64 /* secondViewController.xib in Resources */,
 				2FEEC6D41E9CA24E00CBE471 /* LaunchScreen.storyboard in Resources */,
+				2FEC664B1EC198C300BACDCF /* Auth.storyboard in Resources */,
 				2FEEC6D11E9CA24E00CBE471 /* Assets.xcassets in Resources */,
 				2FEEC6CF1E9CA24E00CBE471 /* Main.storyboard in Resources */,
 			);
@@ -601,6 +627,7 @@
 				2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */,
 				2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */,
 				2FEEF79A1EB7189C008ACEE3 /* MyCartTitleCell.swift in Sources */,
+				2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */,
 				2FEEF7971EB7005B008ACEE3 /* MyCartCellTableViewCell.swift in Sources */,
 				2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */,
 				2FEEC6FB1E9F643100CBE471 /* HomeScreenViewController.swift in Sources */,
@@ -609,6 +636,7 @@
 				2FEEC70D1EA6133A00CBE471 /* MenuItemListViewController.swift in Sources */,
 				2FEEC7121EA638C400CBE471 /* Alamofire.swift in Sources */,
 				2FEEC7051EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift in Sources */,
+				2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */,
 				2FEEC6F81E9CE00500CBE471 /* CuisineGroupsViewController.swift in Sources */,
 				2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */,
 				2FEEC7071EA5D54A00CBE471 /* MenuGroupsCollectionViewCell.swift in Sources */,

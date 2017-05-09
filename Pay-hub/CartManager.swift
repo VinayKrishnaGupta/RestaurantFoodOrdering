@@ -13,6 +13,7 @@ class CartManager: NSObject {
     var strSample = NSString()
     var MyCartItems = Array<Any>()
     var productsarray : NSMutableArray = []
+    var NumberofIteminCart : Int = 0
     
     static let sharedInstance:CartManager = {
         let instance = CartManager ()
@@ -45,10 +46,13 @@ class CartManager: NSObject {
         return productsarray
     }
     
-    func numberofItemsinCartManager() -> Int {
-        print("Number of Items in product array is \(productsarray.count)")
-        return productsarray.count
+    func numberofItemsinCartManager(Change:Int) -> Int {
+    NumberofIteminCart = NumberofIteminCart + Change
+        
+        return NumberofIteminCart
     }
+    
+   
     
     
     

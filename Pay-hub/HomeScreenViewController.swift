@@ -91,8 +91,6 @@ class HomeScreenViewController: UIViewController {
         menuicon.isUserInteractionEnabled = true;
         
         
-        
-        
       
     }
     

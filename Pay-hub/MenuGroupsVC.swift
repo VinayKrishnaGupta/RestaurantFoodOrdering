@@ -41,6 +41,11 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        let SharedInstance1 = CartManager.sharedInstance
+        let numberOfItem = SharedInstance1.numberofItemsinCartManager(Change: 0)
+        
+        tabBarController?.tabBar.items![1].badgeValue =  "\(numberOfItem)"
+         tabBarController?.tabBar.items![1].badgeColor = UIColor.black
 //        let script = GetDatafromAPI()
        
         
@@ -149,7 +154,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-       self.navigationController?.setNavigationBarHidden(false, animated: true)
+       self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
 

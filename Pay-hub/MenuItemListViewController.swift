@@ -19,6 +19,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     var SavedIndexpath: Int? = nil
     var SelectedItems : Array<Any> = []
     var numberofItems : Array<Int>   = []
+    var ItemIDofSelected : String = ""
     
     
     
@@ -55,6 +56,9 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         print("Value changed )")
         let pos = (sender as AnyObject).convert(CGPoint.zero, to: CollectionViewList)
         let indexPath = CollectionViewList.indexPathForItem(at: pos)!
+        let dict = itemArray[indexPath.row] as? NSDictionary
+        ItemIDofSelected = (dict?.value(forKey: "item_id") as? String)!
+        
         
         guard let cell: MenuItemCollectionViewCell = (CollectionViewList.cellForItem(at: indexPath)) as? (MenuItemCollectionViewCell)
             else
@@ -83,6 +87,10 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                // let dict = self.itemArray[indexPath.row]
                 self.numberofItems[indexPath.row] = badgenumber
                 print("number 1 of items at indexpath is \(numberofItems[indexPath.row])")
+                let SharedInstance1 = CartManager.sharedInstance
+                SharedInstance1.numberofItemsinCartManager(Change: -1)
+                self.ItemUpdateonServer(PlusorMinus: "minus")
+                
                // self.SelectedItems.insert(dict, at: indexPath.row)
             }
             else {
@@ -92,6 +100,10 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                // let dict = self.itemArray[indexPath.row]
                 self.numberofItems[indexPath.row] = badgenumber
                 print("number 2 of items at indexpath is \(numberofItems[indexPath.row])")
+                let SharedInstance1 = CartManager.sharedInstance
+                SharedInstance1.numberofItemsinCartManager(Change: 1)
+                self.ItemUpdateonServer(PlusorMinus: "plus")
+                
              //   self.SelectedItems.insert(dict, at: indexPath.row)
             }
             
@@ -108,6 +120,9 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
             self.numberofItems[indexPath.row] = Int(cell.itemGMStepper.value)
             print("number 3 of items at indexpath is \(numberofItems[indexPath.row])")
             self.SelectedItems[indexPath.row] = dict
+            let SharedInstance1 = CartManager.sharedInstance
+            SharedInstance1.numberofItemsinCartManager(Change: -1)
+            self.ItemUpdateonServer(PlusorMinus: "minus")
         }
         else {
              badgenumber = 0
@@ -117,6 +132,9 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
             self.numberofItems[indexPath.row] = badgenumber
             print("number 4 of items at indexpath is \(numberofItems[indexPath.row])")
             self.SelectedItems[indexPath.row] = dict
+            let SharedInstance1 = CartManager.sharedInstance
+            SharedInstance1.numberofItemsinCartManager(Change: 1)
+            self.ItemUpdateonServer(PlusorMinus: "plus")
             
         }
             
@@ -145,7 +163,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
       //  i = i + (cell.itemGMStepper.value as? String)!
         
         let SharedInstance1 = CartManager.sharedInstance
-        let numberOfIteminCartManager = SharedInstance1.numberofItemsinCartManager()
+        let numberOfIteminCartManager = SharedInstance1.numberofItemsinCartManager(Change: 0)
         let CartNumber = numberOfIteminCartManager
         tabBarController?.tabBar.items![1].badgeValue =  "\(CartNumber)"
         if #available(iOS 10.0, *) {
@@ -174,8 +192,10 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         //numberofItems.removeAll()
      //   let navigationtitle : String = (selectedGroup.value(forKey: "menu_title") as? String)!
       //  self.title = navigationtitle
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+      
         let SharedInstance1 = CartManager.sharedInstance
-        let numberOfItem = SharedInstance1.numberofItemsinCartManager()
+        let numberOfItem = SharedInstance1.numberofItemsinCartManager(Change: 0)
         
         tabBarController?.tabBar.items![1].badgeValue =  "\(numberOfItem)"
         if #available(iOS 10.0, *) {
@@ -191,18 +211,22 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
             "user_name" : "admin",
             "user_id" : "3"
         ]
+        let VisitReference : String = UserDefaults.standard.object(forKey: "VisitReferenceNumber") as! String
+        
+        
+        
         
         let MenuID : String = selectedGroup.value(forKey: "menu_id") as! String
-        let Parameters = ["menu_id":MenuID] 
+        let parameters = ["menu_id":MenuID ,"visit_ref" : VisitReference ]
         
         //create the url with URL
         Alamofire.request(
             URL(string: "https://pay-hub.in/payhub%20api/v1/item_detail.php")!,
             method: .post,
-            parameters: Parameters,
+            parameters: parameters,
             headers: HEADERS
             )
-            .validate()
+            
             
             .responseJSON { response in
                 debugPrint(response)
@@ -217,7 +241,10 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                         self.numberofItems.append(0)
                         self.SelectedItems.append(0)
                     }
-
+                    let Dict2 = self.itemArray.firstObject as! NSDictionary
+                    let VisitReferencefromServer = Dict2.value(forKey: "visit_ref")
+                    UserDefaults.standard.set(VisitReferencefromServer, forKey: "VisitReferenceNumber")
+                    UserDefaults.standard.synchronize()
                     
                 }
                 
@@ -269,6 +296,51 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     
+    
+    
+    func ItemUpdateonServer(PlusorMinus : String) {
+        let currentDate : String  = getCurrentDate()
+        
+        let MerchantID  = "3"
+        let UserID = "N"
+        let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
+        let parameters2 = ["merchant_id": MerchantID , "date" : currentDate, "type" : PlusorMinus, "id": ItemIDofSelected, "visit_ref" : VisitReference, "user_id":UserID] as [String : Any]
+        
+        let HEADERS: HTTPHeaders = [
+            "Token": "d75542712c868c1690110db641ba01a",
+            "Accept": "application/json",
+            "user_name" : "admin",
+            "user_id" : "3"
+        ]
+        
+        Alamofire.request( URL(string: "https://pay-hub.in/payhub%20api/v1/add_to_cart.php")!, method: .post, parameters: parameters2, headers: HEADERS )
+            
+            
+            .responseJSON { response in
+                debugPrint(response)
+                
+                
+                if let json = response.result.value {
+                    let dict = json as! NSDictionary
+                    print("Response from Updateitems APi is \(dict)")
+                    }
+                
+        }
+        
+
+        
+       
+        }
+        
+    
+    
+    func getCurrentDate() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let currentDate = formatter.string(from: date)
+        return currentDate
+    }
     
     
     
