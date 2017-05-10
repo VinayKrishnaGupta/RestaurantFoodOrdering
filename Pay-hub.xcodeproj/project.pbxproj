@@ -19,6 +19,8 @@
 		2FEC664B1EC198C300BACDCF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEC664A1EC198C300BACDCF /* Auth.storyboard */; };
 		2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */; };
 		2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */; };
+		2FEC66511EC1EEC200BACDCF /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC66501EC1EEC200BACDCF /* SigninViewController.swift */; };
+		2FEC66531EC1EEE100BACDCF /* ContinueAsGuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC66521EC1EEE100BACDCF /* ContinueAsGuestViewController.swift */; };
 		2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */; };
 		2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */; };
 		2FEEC6CF1E9CA24E00CBE471 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEEC6CD1E9CA24E00CBE471 /* Main.storyboard */; };
@@ -80,6 +82,8 @@
 		2FEC664A1EC198C300BACDCF /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupoptionsViewController.swift; sourceTree = "<group>"; };
+		2FEC66501EC1EEC200BACDCF /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		2FEC66521EC1EEE100BACDCF /* ContinueAsGuestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueAsGuestViewController.swift; sourceTree = "<group>"; };
 		2FEEC6C61E9CA24E00CBE471 /* Pay-hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pay-hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEEC6C91E9CA24E00CBE471 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FEEC6CB1E9CA24E00CBE471 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				2FEC664A1EC198C300BACDCF /* Auth.storyboard */,
 				2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */,
 				2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */,
+				2FEC66501EC1EEC200BACDCF /* SigninViewController.swift */,
+				2FEC66521EC1EEE100BACDCF /* ContinueAsGuestViewController.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 				2FEEC6FB1E9F643100CBE471 /* HomeScreenViewController.swift in Sources */,
 				2F104F731EAB7FB30054DB64 /* MyprofileViewController.m in Sources */,
 				2FEEC7091EA5D5D200CBE471 /* MenuGroupsVC.swift in Sources */,
+				2FEC66511EC1EEC200BACDCF /* SigninViewController.swift in Sources */,
 				2FEEC70D1EA6133A00CBE471 /* MenuItemListViewController.swift in Sources */,
 				2FEEC7121EA638C400CBE471 /* Alamofire.swift in Sources */,
 				2FEEC7051EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift in Sources */,
@@ -641,6 +648,7 @@
 				2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */,
 				2FEEC7071EA5D54A00CBE471 /* MenuGroupsCollectionViewCell.swift in Sources */,
 				2FEEC6FD1E9F64F000CBE471 /* SideMenuViewController.swift in Sources */,
+				2FEC66531EC1EEE100BACDCF /* ContinueAsGuestViewController.swift in Sources */,
 				2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
