@@ -92,6 +92,19 @@ class SignupViewController: UIViewController {
         let currentDate = formatter.string(from: date)
         return currentDate
     }
+    @IBAction func signinscreen(_ sender: UIButton) {
+        
+        
+    }
+    
+    
+    @IBAction func continueAsGuestButton(_ sender: UIButton) {
+        
+        
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
