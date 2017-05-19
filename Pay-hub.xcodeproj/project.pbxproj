@@ -15,6 +15,7 @@
 		2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2179861EADF329001CCB91 /* MyCartViewController.swift */; };
 		2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */; };
 		2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21798C1EB1FDD1001CCB91 /* CartManager.swift */; };
+		2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
 		2FEC664B1EC198C300BACDCF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEC664A1EC198C300BACDCF /* Auth.storyboard */; };
 		2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */; };
@@ -78,6 +79,7 @@
 		2F2179861EADF329001CCB91 /* MyCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCartViewController.swift; sourceTree = "<group>"; };
 		2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTabBarViewController.swift; sourceTree = "<group>"; };
 		2F21798C1EB1FDD1001CCB91 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
 		2FEC664A1EC198C300BACDCF /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */,
 				2FEC66501EC1EEC200BACDCF /* SigninViewController.swift */,
 				2FEC66521EC1EEE100BACDCF /* ContinueAsGuestViewController.swift */,
+				2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				2FEEC70B1EA5FC1C00CBE471 /* MenuItemCollectionViewCell.swift in Sources */,
 				2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */,
 				2FEEC7011E9F8F1900CBE471 /* CustomSideMenuController.swift in Sources */,
+				2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */,
 				2F104F6F1EAB7F8D0054DB64 /* secondViewController.m in Sources */,
 				2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */,
 				2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */,

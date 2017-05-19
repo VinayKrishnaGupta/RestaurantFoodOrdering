@@ -40,7 +40,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewWillAppear(_ animated: Bool) {
         
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+       // self.navigationController?.setNavigationBarHidden(true, animated: true)
         let SharedInstance1 = CartManager.sharedInstance
         let numberOfItem = SharedInstance1.numberofItemsinCartManager(Change: 0)
         

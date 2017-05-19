@@ -1,24 +1,27 @@
 //
-//  SigninViewController.swift
+//  VerifyOTPViewController.swift
 //  Pay-hub
 //
-//  Created by RSTI E-Services on 09/05/17.
+//  Created by RSTI E-Services on 19/05/17.
 //  Copyright © 2017 RSTI E-Services. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-class SigninViewController: UIViewController {
-    @IBOutlet weak var emailTextField: UITextField!
+class VerifyOTPViewController: UIViewController {
+    public var mobilenumberfromsignup : String = ""
+    public var type : String = "active"
+    @IBOutlet weak var otpTextField: UITextField!
 
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBAction func verifyOTPButton(_ sender: UIButton) {
+        self.VerifyOTPwithServer()
+        
+        
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SigninViewController.dismissKeyboard))
-        
-        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
@@ -27,37 +30,22 @@ class SigninViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
-    @IBAction func loginButton(_ sender: UIButton) {
-        if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
-            let alert = UIAlertController(title: "All Fields are Mandetory", message: "Please fill Email ID and Password", preferredStyle: UIAlertControllerStyle.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-        else {
-            self.loginAPI()
-            
-        }
-        
-    }
     
+
     
-    func loginAPI() {
-     
+    func VerifyOTPwithServer() {
+        
         let currentDate : String  = getCurrentDate()
         
         let MerchantID  = "3"
         let MerchantUsername = "admin"
         // let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
-        let username = self.emailTextField.text
-        let password = passwordTextField.text
+        let otptext = self.otpTextField.text
+        let mobilenumber = self.mobilenumberfromsignup
+        let guesttype : String = "N"
+        let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
         
-        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "date" : currentDate, "user" : username , "pass":password] as! [String:String]
+        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "date" : currentDate, "otp" : otptext, "otp_for": mobilenumber, "guest":guesttype,"visit_ref" : VisitReference, "type": type] as! [String:String]
         
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
@@ -66,7 +54,7 @@ class SigninViewController: UIViewController {
             "user_id" : "3"
         ]
         
-        Alamofire.request( URL(string: "https://pay-hub.in/payhub%20api/v1/login.php")!, method: .post, parameters: parameters2, headers: HEADERS )
+        Alamofire.request( URL(string: "https://pay-hub.in/payhub%20api/v1/opt_verify.php")!, method: .post, parameters: parameters2, headers: HEADERS )
             
             
             .responseJSON { response in
@@ -75,8 +63,8 @@ class SigninViewController: UIViewController {
                 
                 if let json = response.result.value {
                     let dict = json as! NSDictionary
-                    let type : String = dict.value(forKeyPath: "Response.data.login_success.type") as! String
-                    let message : String = dict.value(forKeyPath: "Response.data.login_success.message") as! String
+                    let type : String = dict.value(forKeyPath: "Response.data.type") as! String
+                    let message : String = dict.value(forKeyPath: "Response.data.message") as! String
                     if type == "success" {
                         print(message)
                     }
@@ -89,7 +77,6 @@ class SigninViewController: UIViewController {
                         // show the alert
                         self.present(alert, animated: true, completion: nil)
                     }
-                    print("Response from Signin \(dict)")
                 }
                 
         }
@@ -110,13 +97,6 @@ class SigninViewController: UIViewController {
         let currentDate = formatter.string(from: date)
         return currentDate
     }
-    
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-    
-    
 
     /*
     // MARK: - Navigation

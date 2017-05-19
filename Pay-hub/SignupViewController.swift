@@ -20,6 +20,11 @@ class SignupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
@@ -29,14 +34,43 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func createAccountButton(_ sender: UIButton) {
-        self.perform(#selector(signup), with: self)
+        if (firstNameTextfield.text?.isEmpty)! || (lastNameTextField.text?.isEmpty)! || (countryCodeTextField.text?.isEmpty)! || (mobileTextField.text?.isEmpty)! || (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! || (repeatPassword.text?.isEmpty)!
+        {
+            let alert = UIAlertController(title: "All Fields are Mandetory", message: "Please fill all the information then continue", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)        }
+        else
+        {
+            if (passwordTextField.text == repeatPassword.text) {
+                self.perform(#selector(signup), with: self)
+            }
+            else {
+                let alert = UIAlertController(title: "Password doesn't match", message: "Password and Confirm password should be same, Please try again", preferredStyle: UIAlertControllerStyle.alert)
+                
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func LoginButton(_ sender: UIButton) {
+        
+     self.performSegue(withIdentifier: "loginview", sender: self)
+        
     }
 
-    @IBAction func ContinueAsguestButtpn(_ sender: UIButton) {
+    @IBAction func ContinueAsGuest(_ sender: UIButton) {
+    self.performSegue(withIdentifier: "continueasguest", sender: self)
+        
     }
+    
     
     func signup() {
         
@@ -52,8 +86,9 @@ class SignupViewController: UIViewController {
         let CountryCode = self.countryCodeTextField.text
         let MobileNumber = self.mobileTextField.text
         let Email = self.emailTextField.text
+        let password = self.passwordTextField.text
         
-        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "date" : currentDate, "fname" : Firstname, "lname": LastName, "guest" : "N", "code":CountryCode, "mobile" : MobileNumber, "email" : Email] as! [String:String]
+        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "date" : currentDate, "fname" : Firstname, "lname": LastName, "guest" : "N", "code":CountryCode, "mobile" : MobileNumber, "email" : Email, "pass":password] as! [String:String]
         
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
@@ -69,19 +104,32 @@ class SignupViewController: UIViewController {
                 debugPrint(response)
                 
                 
+                
                 if let json = response.result.value {
                     let dict = json as! NSDictionary
-                    print("Response from Signup \(dict)")
+                    let type : String = dict.value(forKeyPath: "Response.data.type") as! String
+                    let message : String = dict.value(forKeyPath: "Response.data.message") as! String
+                    if type == "success" {
+                        self.performSegue(withIdentifier: "toOTPvcfromsignup", sender: self)
+                        print(message)
+                    }
+                    else {
+                        let alert = UIAlertController(title: "Try Again", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        // add an action (button)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        
+                        // show the alert
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    print("Response from Signin \(dict)")
                 }
                 
+        
+        
+        
+        
         }
-        
-        
-        
-        
-        
-        
-       
         
     }
     
@@ -92,19 +140,20 @@ class SignupViewController: UIViewController {
         let currentDate = formatter.string(from: date)
         return currentDate
     }
-    @IBAction func signinscreen(_ sender: UIButton) {
-        
-        
+
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
-    
-    @IBAction func continueAsGuestButton(_ sender: UIButton) {
-        
-        
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toOTPvcfromsignup"  {
+            if let otpVC = segue.destination as? VerifyOTPViewController {
+                otpVC.mobilenumberfromsignup = self.mobileTextField.text!
+                
+            }
+        }
     }
-    
-    
     /*
     // MARK: - Navigation
 

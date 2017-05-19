@@ -13,13 +13,16 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     @IBOutlet weak var tableView: UITableView!
-    var TitleList : Array = ["Home", "Location", "My Profile"]
+    var TitleList : Array = ["Home", "Location", "My Profile", "Call Support"]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+      
+        
         
         // Do any additional setup after loading the view.
     }
@@ -29,7 +32,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TitleList[indexPath.row], for: indexPath) as UITableViewCell
@@ -38,11 +41,28 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        sideMenuController?.performSegue(withIdentifier: TitleList[indexPath.row], sender: nil)
+        if indexPath.row < 3 {
+             sideMenuController?.performSegue(withIdentifier: TitleList[indexPath.row], sender: nil)
+        }
+        else if indexPath.row == 3 {
+            callNumber(phoneNumber: "+918436299719")
+            }
+        }
         
         
-    }
     
+    
+    
+    private func callNumber(phoneNumber:String) {
+        
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

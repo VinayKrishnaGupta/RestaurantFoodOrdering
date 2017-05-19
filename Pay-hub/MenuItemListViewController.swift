@@ -241,11 +241,23 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                         self.numberofItems.append(0)
                         self.SelectedItems.append(0)
                     }
+                    if (self.itemArray.count) > 0 {
                     let Dict2 = self.itemArray.firstObject as! NSDictionary
                     let VisitReferencefromServer = Dict2.value(forKey: "visit_ref")
                     UserDefaults.standard.set(VisitReferencefromServer, forKey: "VisitReferenceNumber")
                     UserDefaults.standard.synchronize()
-                    
+                    }
+                    else {
+                    self.CollectionViewList.isHidden = true
+                        
+                        let alert = UIAlertController(title: "No Items in this Category", message: "Please go back and check in other categories", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        // add an action (button)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        
+                        // show the alert
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
                 
         }

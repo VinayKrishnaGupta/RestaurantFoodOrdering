@@ -188,12 +188,12 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func proceedToCheckoutButton(_ sender: UIButton) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Auth", bundle: nil)
-        let vc : SignupViewController = storyboard.instantiateViewController(withIdentifier: "signupVC") as! SignupViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "AuthNavigation") 
        // vc.teststring = "hello"
         
       //  let navigationController = UINavigationController(rootViewController: vc)
         
-       self.navigationController?.pushViewController(vc, animated: true)
+       self.present(vc, animated: true, completion: nil)
         
         
     }
