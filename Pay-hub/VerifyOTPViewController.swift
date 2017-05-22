@@ -67,6 +67,9 @@ class VerifyOTPViewController: UIViewController {
                     let message : String = dict.value(forKeyPath: "Response.data.message") as! String
                     if type == "success" {
                         print(message)
+                        let storyboard : UIStoryboard = UIStoryboard(name: "Checkout", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "Deliverytype")
+                        self.navigationController?.pushViewController(vc, animated: true)
                     }
                     else {
                         let alert = UIAlertController(title: "Try Again", message: message, preferredStyle: UIAlertControllerStyle.alert)

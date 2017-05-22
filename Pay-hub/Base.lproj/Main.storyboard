@@ -1051,7 +1051,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2jM-bY-F21">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2jM-bY-F21">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1077,7 +1077,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="idQ-gj-3Q8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="idQ-gj-3Q8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.92210584880000002" green="0.36051332949999998" blue="0.20089876649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

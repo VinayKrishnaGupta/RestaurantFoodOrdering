@@ -75,10 +75,14 @@ class SigninViewController: UIViewController {
                 
                 if let json = response.result.value {
                     let dict = json as! NSDictionary
-                    let type : String = dict.value(forKeyPath: "Response.data.login_success.type") as! String
-                    let message : String = dict.value(forKeyPath: "Response.data.login_success.message") as! String
+                    let type : String = dict.value(forKeyPath: "Response.data.type") as! String
+                    let message : String = dict.value(forKeyPath: "Response.data.message") as! String
                     if type == "success" {
                         print(message)
+                        let storyboard : UIStoryboard = UIStoryboard(name: "Checkout", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "Deliverytype")
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        
                     }
                     else {
                         let alert = UIAlertController(title: "Try Again", message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -89,7 +93,7 @@ class SigninViewController: UIViewController {
                         // show the alert
                         self.present(alert, animated: true, completion: nil)
                     }
-                    print("Response from Signin \(dict)")
+                   
                 }
                 
         }

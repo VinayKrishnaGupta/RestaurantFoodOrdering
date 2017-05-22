@@ -47,6 +47,8 @@
 		2FEEF7D61EBC6B6A008ACEE3 /* libicucore.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEEF7D41EBC6B6A008ACEE3 /* libicucore.A.tbd */; };
 		2FEEF7D71EBC6B6A008ACEE3 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEEF7D51EBC6B6A008ACEE3 /* libicucore.tbd */; };
 		2FEEF7DD1EBC6B7F008ACEE3 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEEF7DA1EBC6B7F008ACEE3 /* libc++abi.tbd */; };
+		2FEF826E1ED2A85700FF9803 /* DeliveryTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF826D1ED2A85700FF9803 /* DeliveryTypeViewController.swift */; };
+		2FEF82701ED2A87500FF9803 /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEF826F1ED2A87500FF9803 /* Checkout.storyboard */; };
 		D34E2F6F9DE3A4D6E0B9117E /* Pods_Pay_hubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB510F34008B707500181149 /* Pods_Pay_hubTests.framework */; };
 		FF55140D5F1619B364964005 /* Pods_Pay_hubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8141CD5A59D610B84CBCA50 /* Pods_Pay_hubUITests.framework */; };
 /* End PBXBuildFile section */
@@ -133,6 +135,8 @@
 		2FEEF7D81EBC6B7F008ACEE3 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		2FEEF7D91EBC6B7F008ACEE3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		2FEEF7DA1EBC6B7F008ACEE3 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		2FEF826D1ED2A85700FF9803 /* DeliveryTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTypeViewController.swift; sourceTree = "<group>"; };
+		2FEF826F1ED2A87500FF9803 /* Checkout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
 		48220A4F2E0DF9C944E8A6E2 /* Pods-Pay-hubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pay-hubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pay-hubTests/Pods-Pay-hubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C73A40A118492F42E51195B /* Pods_Pay_hub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pay_hub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519F0AC5F9FDD1B9910C21A2 /* Pods-Pay-hubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pay-hubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pay-hubUITests/Pods-Pay-hubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				2FEEF7981EB701E0008ACEE3 /* My Cart */,
 				2FEC66461EC197ED00BACDCF /* Delivery */,
 				2FEC66491EC198A000BACDCF /* Authentication */,
+				2FEF826C1ED2A81D00FF9803 /* Checkout */,
 				2F104F6B1EAB7F400054DB64 /* Experiment */,
 				2FEEC7101EA638AE00CBE471 /* Models */,
 				2FEEC6D01E9CA24E00CBE471 /* Assets.xcassets */,
@@ -296,6 +301,15 @@
 				2FEEF7991EB7189C008ACEE3 /* MyCartTitleCell.swift */,
 			);
 			name = "My Cart";
+			sourceTree = "<group>";
+		};
+		2FEF826C1ED2A81D00FF9803 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				2FEF826D1ED2A85700FF9803 /* DeliveryTypeViewController.swift */,
+				2FEF826F1ED2A87500FF9803 /* Checkout.storyboard */,
+			);
+			name = Checkout;
 			sourceTree = "<group>";
 		};
 		3DF049259C084978089A5499 /* Frameworks */ = {
@@ -466,6 +480,7 @@
 				2FEEC6D41E9CA24E00CBE471 /* LaunchScreen.storyboard in Resources */,
 				2FEC664B1EC198C300BACDCF /* Auth.storyboard in Resources */,
 				2FEEC6D11E9CA24E00CBE471 /* Assets.xcassets in Resources */,
+				2FEF82701ED2A87500FF9803 /* Checkout.storyboard in Resources */,
 				2FEEC6CF1E9CA24E00CBE471 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +654,7 @@
 				2FEEF79A1EB7189C008ACEE3 /* MyCartTitleCell.swift in Sources */,
 				2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */,
 				2FEEF7971EB7005B008ACEE3 /* MyCartCellTableViewCell.swift in Sources */,
+				2FEF826E1ED2A85700FF9803 /* DeliveryTypeViewController.swift in Sources */,
 				2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */,
 				2FEEC6FB1E9F643100CBE471 /* HomeScreenViewController.swift in Sources */,
 				2F104F731EAB7FB30054DB64 /* MyprofileViewController.m in Sources */,

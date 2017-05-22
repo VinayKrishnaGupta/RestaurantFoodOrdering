@@ -45,7 +45,11 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
              sideMenuController?.performSegue(withIdentifier: TitleList[indexPath.row], sender: nil)
         }
         else if indexPath.row == 3 {
-            callNumber(phoneNumber: "+918436299719")
+            let storyboard : UIStoryboard = UIStoryboard(name: "Checkout", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "Deliverytype")
+            //self.navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: true, completion: nil)
+          //  callNumber(phoneNumber: "+918436299719")
             }
         }
         
