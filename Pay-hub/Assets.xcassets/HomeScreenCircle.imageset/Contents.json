@@ -2,15 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "HomeScreenCircle Cropped.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "home-screen.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "home-screen-1.png",
       "scale" : "3x"
     }
   ],
