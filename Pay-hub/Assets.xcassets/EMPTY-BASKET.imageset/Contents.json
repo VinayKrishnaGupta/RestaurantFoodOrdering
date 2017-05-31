@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "iphone-120X40.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iphone-180X60.png",
+      "filename" : "EMPTY-BASKET.png",
       "scale" : "2x"
     },
     {
