@@ -8,14 +8,64 @@
 
 import UIKit
 
-class ThankYouPageViewController: UIViewController {
 
+class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
+    var ordernumber = "" 
+
+    @IBOutlet weak var paymentWebview: UIWebView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        paymentWebview.delegate = self
+        if let url = URL(string: "https://pay-hub.in/tpl/demo/admin/3/payment-page") {
+            var request = URLRequest(url: url)
+            request.addValue("app", forHTTPHeaderField: "source")
+            request.addValue(ordernumber, forHTTPHeaderField: "order")
+            
+            paymentWebview.loadRequest(request)
 
         // Do any additional setup after loading the view.
     }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+     
+        
+    }
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        print("Webview start load")
+    }
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        print("Webview finish load")
+    }
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        print("Webview failed")
+    }
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        print("Webview should start")
+        if navigationType == UIWebViewNavigationType.linkClicked  {
+            paymentWebview.removeFromSuperview()
+        }
+        let redirectURL = URL(string: "https://pay-hub.in/tpl/demo/admin/3/thankyou")
+        if request.url == redirectURL {
+            
+            //self.perform(#selector(redirect), with: self, afterDelay: 5)
+            return true
+            
+        }
+        
+            
+            
 
+    
+        return true
+    }
+
+    func redirect() {
+        paymentWebview.removeFromSuperview()
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

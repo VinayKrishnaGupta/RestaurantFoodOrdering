@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class PickUpViewController: UIViewController {
+    @IBOutlet weak var mapview: MKMapView!
+   let annotation = MKPointAnnotation()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let locationCorodinate = CLLocationCoordinate2D(latitude: 28.448996, longitude: 77.040409)
+        annotation.coordinate = locationCorodinate
+        let myregion = MKCoordinateRegionMakeWithDistance(locationCorodinate, 2000, 2000)
+        mapview.addAnnotation(annotation)
+        mapview.region = myregion
+        
+        
         // Do any additional setup after loading the view.
     }
 

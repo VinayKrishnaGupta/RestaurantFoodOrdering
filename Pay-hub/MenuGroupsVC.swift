@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import SDWebImage
+import SVProgressHUD
 
 
 
@@ -17,13 +19,19 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     var menugroups : NSArray = []
     var bannerImageURls : NSArray = []
     var SelectedMenuGroup : NSDictionary = [:]
+    var SelectedShortcutfromHome : NSDictionary = [:]
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
+        SVProgressHUD.setRingRadius(25)
         CollectionViewMenuGroups.dataSource = self
         CollectionViewMenuGroups.delegate = self
+        self.ContainerView.isHidden = true
+        self.navigationController?.navigationBar.isHidden = false
+        self.addBackButton()
         
       
     
@@ -38,7 +46,19 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
         
+        if SelectedShortcutfromHome.count != 0 {
+            ContainerView.isHidden = true
+            CollectionViewMenuGroups.isHidden = true
+            print("Selected shortcut is \(self.SelectedShortcutfromHome)")
+            SelectedMenuGroup = SelectedShortcutfromHome
+            self.performSegue(withIdentifier: "itemDetails", sender: self)
+            SelectedShortcutfromHome = [:]
+        }
+        else {
+        
+        CollectionViewMenuGroups.isHidden = false
         
        // self.navigationController?.setNavigationBarHidden(true, animated: true)
         let SharedInstance1 = CartManager.sharedInstance
@@ -84,11 +104,14 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                     
                   //  self.reLoadPageView()
                    self.CollectionViewMenuGroups.reloadData()
+                    SVProgressHUD.dismiss(withDelay: 1)
+                    self.ContainerView.isHidden = false
                     
         }
 
         
     }
+        }
     }
     func reLoadPageView()
     {
@@ -112,8 +135,11 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "MenuGroupsCollectionViewCell", for: indexPath) as! MenuGroupsCollectionViewCell
         let dict : NSDictionary = menugroups[indexPath.row] as! NSDictionary
-        cell.cellImageView.image = UIImage.init(named: "MenuGroupssample")
+       // cell.cellImageView.image = UIImage.init(named: "MenuGroupssample")
         cell.titleLabel.text = dict.value(forKey: "menu_title") as? String
+        let imageaddress  = dict.value(forKey: "menu_image") as! String
+        let imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
+        cell.cellImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "MenuGroupssample"))
         
         
         return cell
@@ -123,6 +149,8 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     {
         
         
+        SVProgressHUD.show()
+        SVProgressHUD.setRingRadius(25)
         SelectedMenuGroup = menugroups[indexPath.row] as! NSDictionary
         self.performSegue(withIdentifier: "itemDetails", sender: self)
       
@@ -153,8 +181,25 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-       self.navigationController?.setNavigationBarHidden(true, animated: true)
+        super.viewWillDisappear(false)
+        SVProgressHUD.dismiss()
+       self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    
+    func addBackButton() {
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: "BackButton"), for: .normal) // Image can be downloaded from here below link
+        backButton.setTitle("Back", for: .normal)
+      //  backButton.setTitleColor(backButton., for: .normal) // You can change the TitleColor
+        backButton.addTarget(self, action: #selector(self.backAction(_:)), for: .touchUpInside)
+        
+       self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+      //  self.navigationController?.navigationItem.leftBarButtonItem =  UIBarButtonItem(customView: backButton)
+    }
+    
+    @IBAction func backAction(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
     }
     
 

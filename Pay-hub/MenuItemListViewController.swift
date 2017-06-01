@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SDWebImage
 import GMStepper
+import SVProgressHUD
 
 
 class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -25,6 +26,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
+        SVProgressHUD.setRingRadius(25)
         self.CollectionViewList.dataSource = self
       //  self.CollectionViewList.delegate = self
         
@@ -192,7 +195,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         //numberofItems.removeAll()
      //   let navigationtitle : String = (selectedGroup.value(forKey: "menu_title") as? String)!
       //  self.title = navigationtitle
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        super.viewWillAppear(false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
       
         let SharedInstance1 = CartManager.sharedInstance
         let numberOfItem = SharedInstance1.numberofItemsinCartManager(Change: 0)
@@ -246,6 +250,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                     let VisitReferencefromServer = Dict2.value(forKey: "visit_ref")
                     UserDefaults.standard.set(VisitReferencefromServer, forKey: "VisitReferenceNumber")
                     UserDefaults.standard.synchronize()
+                    SVProgressHUD.dismiss()
                     }
                     else {
                     self.CollectionViewList.isHidden = true
@@ -314,7 +319,16 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         let currentDate : String  = getCurrentDate()
         
         let MerchantID  = "3"
-        let UserID = "N"
+        var UserID = "N"
+        if (UserDefaults.standard.dictionary(forKey: "LoggedInUser")) != nil {
+            let userDict : NSDictionary = UserDefaults.standard.dictionary(forKey: "LoggedInUser")! as NSDictionary
+            UserID = userDict.value(forKey: "enduser_id") as! String
+        }
+        else {
+            UserID = "N"
+            
+        }
+        
         let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
         let parameters2 = ["merchant_id": MerchantID , "date" : currentDate, "type" : PlusorMinus, "id": ItemIDofSelected, "visit_ref" : VisitReference, "user_id":UserID] as [String : Any]
         
@@ -354,7 +368,9 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         return currentDate
     }
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
+    }
     
 //    override func viewWillDisappear(_ animated: Bool) {
 //        let SharedInstance = CartManager.sharedInstance

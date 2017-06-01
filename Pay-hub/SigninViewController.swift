@@ -79,6 +79,10 @@ class SigninViewController: UIViewController {
                     let message : String = dict.value(forKeyPath: "Response.data.message") as! String
                     if type == "success" {
                         print(message)
+                        let userdetail = dict.value(forKeyPath: "Response.data.login_user")
+                        UserDefaults.standard.set(userdetail, forKey: "LoggedInUser")
+                        UserDefaults.standard.synchronize()
+                        
                         let storyboard : UIStoryboard = UIStoryboard(name: "Checkout", bundle: nil)
                         let vc = storyboard.instantiateViewController(withIdentifier: "Deliverytype")
                         self.navigationController?.pushViewController(vc, animated: true)
@@ -121,6 +125,12 @@ class SigninViewController: UIViewController {
     }
     
     
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "forgotpassword", sender: nil)
+        
+        
+    }
 
     /*
     // MARK: - Navigation

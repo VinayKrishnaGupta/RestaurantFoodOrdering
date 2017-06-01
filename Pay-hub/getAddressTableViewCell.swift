@@ -9,6 +9,11 @@
 import UIKit
 
 class getAddressTableViewCell: UITableViewCell {
+    @IBOutlet weak var address1label: UILabel!
+    @IBOutlet weak var address2label: UILabel!
+    @IBOutlet weak var address3label: UILabel!
+    @IBOutlet weak var editAddress: UIButton!
+    @IBOutlet weak var deleteAddress: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

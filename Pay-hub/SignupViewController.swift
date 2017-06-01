@@ -17,6 +17,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPassword: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +151,9 @@ class SignupViewController: UIViewController {
         if segue.identifier == "toOTPvcfromsignup"  {
             if let otpVC = segue.destination as? VerifyOTPViewController {
                 otpVC.mobilenumberfromsignup = self.mobileTextField.text!
+                otpVC.guestType = "N"
+                otpVC.type = "active"
+                
                 
             }
         }

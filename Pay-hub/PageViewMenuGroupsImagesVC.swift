@@ -24,9 +24,9 @@ class PageViewMenuGroupsImagesVC: UIPageViewController, UIPageViewControllerData
         pages.append(page1)
         pages.append(page2)
         pages.append(page3)
-        if (URLAraay.count != 0) {
-        print("First URL is \(URLAraay[0])")
-        }
+        
+        print("First URL is \(URLAraay)")
+        
         
         
         setViewControllers([page1], direction: UIPageViewControllerNavigationDirection.forward, animated: false, completion: nil)

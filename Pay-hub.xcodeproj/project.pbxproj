@@ -17,6 +17,7 @@
 		2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21798C1EB1FDD1001CCB91 /* CartManager.swift */; };
 		2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
+		2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */; };
 		2FEC664B1EC198C300BACDCF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEC664A1EC198C300BACDCF /* Auth.storyboard */; };
 		2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */; };
 		2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */; };
@@ -49,6 +50,14 @@
 		2FEEF7DD1EBC6B7F008ACEE3 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEEF7DA1EBC6B7F008ACEE3 /* libc++abi.tbd */; };
 		2FEF826E1ED2A85700FF9803 /* DeliveryTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF826D1ED2A85700FF9803 /* DeliveryTypeViewController.swift */; };
 		2FEF82701ED2A87500FF9803 /* Checkout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEF826F1ED2A87500FF9803 /* Checkout.storyboard */; };
+		2FEF82721ED4031300FF9803 /* GetAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF82711ED4031300FF9803 /* GetAddressViewController.swift */; };
+		2FEF82741ED4032300FF9803 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF82731ED4032300FF9803 /* AddAddressViewController.swift */; };
+		2FEF82761ED40AA800FF9803 /* getAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF82751ED40AA800FF9803 /* getAddressTableViewCell.swift */; };
+		2FEF82781ED5936500FF9803 /* ReviewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF82771ED5936500FF9803 /* ReviewOrderViewController.swift */; };
+		2FEF827A1ED6F3F800FF9803 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF82791ED6F3F800FF9803 /* PaymentViewController.swift */; };
+		2FEF827C1ED7039300FF9803 /* ThankYouPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF827B1ED7039300FF9803 /* ThankYouPageViewController.swift */; };
+		2FF509C01EDC192900538B85 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF509BF1EDC192900538B85 /* ForgotPasswordViewController.swift */; };
+		2FF509C21EDD721300538B85 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF509C11EDD721300538B85 /* SVProgressHUD.framework */; };
 		D34E2F6F9DE3A4D6E0B9117E /* Pods_Pay_hubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB510F34008B707500181149 /* Pods_Pay_hubTests.framework */; };
 		FF55140D5F1619B364964005 /* Pods_Pay_hubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8141CD5A59D610B84CBCA50 /* Pods_Pay_hubUITests.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +92,7 @@
 		2F21798C1EB1FDD1001CCB91 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
+		2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpViewController.swift; sourceTree = "<group>"; };
 		2FEC664A1EC198C300BACDCF /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupoptionsViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +147,14 @@
 		2FEEF7DA1EBC6B7F008ACEE3 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
 		2FEF826D1ED2A85700FF9803 /* DeliveryTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTypeViewController.swift; sourceTree = "<group>"; };
 		2FEF826F1ED2A87500FF9803 /* Checkout.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkout.storyboard; sourceTree = "<group>"; };
+		2FEF82711ED4031300FF9803 /* GetAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAddressViewController.swift; sourceTree = "<group>"; };
+		2FEF82731ED4032300FF9803 /* AddAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
+		2FEF82751ED40AA800FF9803 /* getAddressTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getAddressTableViewCell.swift; sourceTree = "<group>"; };
+		2FEF82771ED5936500FF9803 /* ReviewOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewOrderViewController.swift; sourceTree = "<group>"; };
+		2FEF82791ED6F3F800FF9803 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		2FEF827B1ED7039300FF9803 /* ThankYouPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThankYouPageViewController.swift; sourceTree = "<group>"; };
+		2FF509BF1EDC192900538B85 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		2FF509C11EDD721300538B85 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/SVProgressHUD/SVProgressHUD.framework"; sourceTree = "<group>"; };
 		48220A4F2E0DF9C944E8A6E2 /* Pods-Pay-hubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pay-hubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pay-hubTests/Pods-Pay-hubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C73A40A118492F42E51195B /* Pods_Pay_hub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pay_hub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519F0AC5F9FDD1B9910C21A2 /* Pods-Pay-hubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pay-hubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pay-hubUITests/Pods-Pay-hubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FF509C21EDD721300538B85 /* SVProgressHUD.framework in Frameworks */,
 				2FEEF7DD1EBC6B7F008ACEE3 /* libc++abi.tbd in Frameworks */,
 				2FEEF7D61EBC6B6A008ACEE3 /* libicucore.A.tbd in Frameworks */,
 				2FEEF7D71EBC6B6A008ACEE3 /* libicucore.tbd in Frameworks */,
@@ -210,6 +229,7 @@
 				2FEC66501EC1EEC200BACDCF /* SigninViewController.swift */,
 				2FEC66521EC1EEE100BACDCF /* ContinueAsGuestViewController.swift */,
 				2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */,
+				2FF509BF1EDC192900538B85 /* ForgotPasswordViewController.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -308,6 +328,13 @@
 			children = (
 				2FEF826D1ED2A85700FF9803 /* DeliveryTypeViewController.swift */,
 				2FEF826F1ED2A87500FF9803 /* Checkout.storyboard */,
+				2FEF82711ED4031300FF9803 /* GetAddressViewController.swift */,
+				2FEF82751ED40AA800FF9803 /* getAddressTableViewCell.swift */,
+				2FEF82731ED4032300FF9803 /* AddAddressViewController.swift */,
+				2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */,
+				2FEF82771ED5936500FF9803 /* ReviewOrderViewController.swift */,
+				2FEF82791ED6F3F800FF9803 /* PaymentViewController.swift */,
+				2FEF827B1ED7039300FF9803 /* ThankYouPageViewController.swift */,
 			);
 			name = Checkout;
 			sourceTree = "<group>";
@@ -315,6 +342,7 @@
 		3DF049259C084978089A5499 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FF509C11EDD721300538B85 /* SVProgressHUD.framework */,
 				2FEEF7D81EBC6B7F008ACEE3 /* libc++.1.tbd */,
 				2FEEF7D91EBC6B7F008ACEE3 /* libc++.tbd */,
 				2FEEF7DA1EBC6B7F008ACEE3 /* libc++abi.tbd */,
@@ -435,7 +463,7 @@
 				TargetAttributes = {
 					2FEEC6C51E9CA24E00CBE471 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = MXU6HC5F88;
+						DevelopmentTeam = XVB5V247FL;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -646,6 +674,7 @@
 			files = (
 				2FEEC70B1EA5FC1C00CBE471 /* MenuItemCollectionViewCell.swift in Sources */,
 				2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */,
+				2FF509C01EDC192900538B85 /* ForgotPasswordViewController.swift in Sources */,
 				2FEEC7011E9F8F1900CBE471 /* CustomSideMenuController.swift in Sources */,
 				2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */,
 				2F104F6F1EAB7F8D0054DB64 /* secondViewController.m in Sources */,
@@ -653,23 +682,30 @@
 				2FEEC6CC1E9CA24E00CBE471 /* ViewController.swift in Sources */,
 				2FEEF79A1EB7189C008ACEE3 /* MyCartTitleCell.swift in Sources */,
 				2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */,
+				2FEF82781ED5936500FF9803 /* ReviewOrderViewController.swift in Sources */,
 				2FEEF7971EB7005B008ACEE3 /* MyCartCellTableViewCell.swift in Sources */,
+				2FEF82761ED40AA800FF9803 /* getAddressTableViewCell.swift in Sources */,
 				2FEF826E1ED2A85700FF9803 /* DeliveryTypeViewController.swift in Sources */,
 				2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */,
 				2FEEC6FB1E9F643100CBE471 /* HomeScreenViewController.swift in Sources */,
 				2F104F731EAB7FB30054DB64 /* MyprofileViewController.m in Sources */,
+				2FEF82721ED4031300FF9803 /* GetAddressViewController.swift in Sources */,
 				2FEEC7091EA5D5D200CBE471 /* MenuGroupsVC.swift in Sources */,
 				2FEC66511EC1EEC200BACDCF /* SigninViewController.swift in Sources */,
 				2FEEC70D1EA6133A00CBE471 /* MenuItemListViewController.swift in Sources */,
+				2FEF827C1ED7039300FF9803 /* ThankYouPageViewController.swift in Sources */,
 				2FEEC7121EA638C400CBE471 /* Alamofire.swift in Sources */,
 				2FEEC7051EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift in Sources */,
 				2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */,
 				2FEEC6F81E9CE00500CBE471 /* CuisineGroupsViewController.swift in Sources */,
+				2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */,
+				2FEF827A1ED6F3F800FF9803 /* PaymentViewController.swift in Sources */,
 				2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */,
 				2FEEC7071EA5D54A00CBE471 /* MenuGroupsCollectionViewCell.swift in Sources */,
 				2FEEC6FD1E9F64F000CBE471 /* SideMenuViewController.swift in Sources */,
 				2FEC66531EC1EEE100BACDCF /* ContinueAsGuestViewController.swift in Sources */,
 				2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */,
+				2FEF82741ED4032300FF9803 /* AddAddressViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,7 +801,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -811,7 +847,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/rstintl/Desktop/Xcode/Pay-hub/Pay-hub/Pay-hub-Bridging-Header.h";
@@ -827,11 +863,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = MXU6HC5F88;
+				DEVELOPMENT_TEAM = XVB5V247FL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
+				);
 				INFOPLIST_FILE = "Pay-hub/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rstintl.pay-hub.Pay-hub";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rstintl.Pay-Hub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -845,11 +885,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = MXU6HC5F88;
+				DEVELOPMENT_TEAM = XVB5V247FL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
+				);
 				INFOPLIST_FILE = "Pay-hub/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rstintl.pay-hub.Pay-hub";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rstintl.Pay-Hub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

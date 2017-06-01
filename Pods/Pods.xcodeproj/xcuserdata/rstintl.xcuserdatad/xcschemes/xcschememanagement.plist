@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DropDown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GMStepper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SideMenuController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +57,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5F919E43A465A9C346FDC9595E251E2B</key>
+		<key>5168099F2EBFC99A707C03C9EADE01A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D74AACE3223F7765606AD6D54BD7F41</key>
+		<key>5BCA7F33E31E6661034CB72A02FF2FB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6DB34ADEAC543008FDA771D13AE6F534</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7378C130D3EDA37640E04530D45341AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C988109DE93828DCE8FAF6167DD63F5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DCD7F1B2C4323D15E09BC09E400D2794</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F6A77E2753C279F67F70C5C21D6FAE15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F74E3143B254A2A61EFCE4BCBD3C930B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

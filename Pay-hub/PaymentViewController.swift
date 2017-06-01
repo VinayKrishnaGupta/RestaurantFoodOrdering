@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import DLRadioButton
 
 class PaymentViewController: UIViewController {
+    @IBOutlet weak var radioButton: DLRadioButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +22,16 @@ class PaymentViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
+    
     
 
+    @IBAction func confirmOrderButton(_ sender: UIButton) {
+        let str = radioButton.selected()?.currentTitle
+        print("Current Title is \(String(describing: str))")
+        self.performSegue(withIdentifier: "ThankYouPage", sender: self)
+        
+    }
     /*
     // MARK: - Navigation
 

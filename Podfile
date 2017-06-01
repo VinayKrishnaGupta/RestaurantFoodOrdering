@@ -8,6 +8,8 @@ pod 'Alamofire', '~> 4.4'
 pod "GMStepper" 
 pod 'SDWebImage', '~>3.8'
 pod 'DLRadioButton', '~> 1.4'
+pod 'SVProgressHUD'
+pod 'DropDown'
 #pod 'SinchRTC'
 #pod 'libjingle_peerconnection'
 #pod 'SocketRocket'

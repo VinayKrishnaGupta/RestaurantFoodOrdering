@@ -13,7 +13,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     @IBOutlet weak var tableView: UITableView!
-    var TitleList : Array = ["Home", "Location", "My Profile", "Call Support"]
+    var TitleList : Array = ["Home", "About Us", "My Account", "Contact Us", "Sign Out"]
     
 
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return 5;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TitleList[indexPath.row], for: indexPath) as UITableViewCell
@@ -45,13 +45,30 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
              sideMenuController?.performSegue(withIdentifier: TitleList[indexPath.row], sender: nil)
         }
         else if indexPath.row == 3 {
-            let storyboard : UIStoryboard = UIStoryboard(name: "Checkout", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "Deliverytype")
-            //self.navigationController?.pushViewController(vc, animated: true)
-            self.present(vc, animated: true, completion: nil)
-          //  callNumber(phoneNumber: "+918436299719")
+            
+        callNumber(phoneNumber: "+918436299719")
             }
+        else if indexPath.row == 4 {
+            let alert = UIAlertController(title: "Sign out", message: "Are you sure to sign out ?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+            let button2 = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: logout)
+            alert.addAction(button2)
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
         }
+        
+        }
+    func logout(action:UIAlertAction) {
+        UserDefaults.standard.removeObject(forKey: "LoggedInUser")
+        UserDefaults.standard.synchronize()
+        sideMenuController?.performSegue(withIdentifier: "Home", sender: nil)
+        print("Logged Out")
+        
+    }
         
         
     

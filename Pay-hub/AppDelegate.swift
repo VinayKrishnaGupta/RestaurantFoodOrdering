@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenuController
+import DropDown
 
 
 
@@ -30,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(VisitReference, forKey: "VisitReferenceNumber")
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
-        
+        DropDown.startListeningToKeyboard()
         
         // Override point for customization after application launch.
         return true

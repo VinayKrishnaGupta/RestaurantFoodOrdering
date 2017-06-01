@@ -10,6 +10,8 @@ import UIKit
 import SideMenuController
 import Alamofire
 import SDWebImage
+import SVProgressHUD
+
 
 class HomeScreenViewController: UIViewController {
     @IBOutlet weak var menuicon: UIImageView!
@@ -25,8 +27,8 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var label5: UILabel!
     @IBOutlet weak var image6: UIImageView!
     @IBOutlet weak var label6: UILabel!
-    @IBOutlet weak var image7: UIImageView!
-    @IBOutlet weak var label7: UILabel!
+   
+    var selectedShortcut :NSDictionary = [:]
     
     
     
@@ -73,6 +75,17 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
+        SVProgressHUD.show(withStatus: "Loading Payhub")
+        SVProgressHUD.setRingRadius(40)
+        let VisitReference : String = "N"
+        UserDefaults.standard.set(VisitReference, forKey: "VisitReferenceNumber")
+        
+        let logo = UIBarButtonItem(image: UIImage (named: "payhubLogo"), style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        
+        
+        self.navigationItem.leftBarButtonItem = logo
+       
         
         
         
@@ -84,11 +97,37 @@ class HomeScreenViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         self.view.backgroundColor = UIColor(patternImage: image)
-        self.navigationItem.title = "PayHub"
+       
         
         let Menutapguesture = UITapGestureRecognizer(target: self, action: #selector(menubuttonpressed))
         menuicon.addGestureRecognizer(Menutapguesture)
-        menuicon.isUserInteractionEnabled = true;
+        menuicon.isUserInteractionEnabled = true
+        
+        let itemdetailTapGuesture1 = UITapGestureRecognizer(target: self, action: #selector(itemIconsClicked1))
+        let itemdetailTapGuesture2 = UITapGestureRecognizer(target: self, action: #selector(itemIconsClicked2))
+        let itemdetailTapGuesture3 = UITapGestureRecognizer(target: self, action: #selector(itemIconsClicked3))
+        let itemdetailTapGuesture4 = UITapGestureRecognizer(target: self, action: #selector(itemIconsClicked4))
+        let itemdetailTapGuesture5 = UITapGestureRecognizer(target: self, action: #selector(itemIconsClicked5))
+        let itemdetailTapGuesture6 = UITapGestureRecognizer(target: self, action: #selector(itemIconsClicked6))
+        
+        image1.addGestureRecognizer(itemdetailTapGuesture1)
+        image2.addGestureRecognizer(itemdetailTapGuesture2)
+        image3.addGestureRecognizer(itemdetailTapGuesture3)
+        image4.addGestureRecognizer(itemdetailTapGuesture4)
+        image5.addGestureRecognizer(itemdetailTapGuesture5)
+        image6.addGestureRecognizer(itemdetailTapGuesture6)
+       
+        
+        image1.isUserInteractionEnabled = true
+        image2.isUserInteractionEnabled = true
+        image3.isUserInteractionEnabled = true
+        image4.isUserInteractionEnabled = true
+        image5.isUserInteractionEnabled = true
+        image6.isUserInteractionEnabled = true
+        
+        
+        
+        
         
         
       
@@ -102,6 +141,39 @@ class HomeScreenViewController: UIViewController {
         
         
     }
+    
+    func itemIconsClicked1(){
+        selectedShortcut = menuitems[0] as! NSDictionary
+        self.performSegue(withIdentifier: "Menugroups", sender: self)
+        
+    }
+    func itemIconsClicked2(){
+        selectedShortcut = menuitems[1] as! NSDictionary
+        self.performSegue(withIdentifier: "Menugroups", sender: self)
+        
+        
+    }
+    func itemIconsClicked3(){
+        selectedShortcut = menuitems[2] as! NSDictionary
+        self.performSegue(withIdentifier: "Menugroups", sender: self)
+        
+    }
+    func itemIconsClicked4(){
+        selectedShortcut = menuitems[3] as! NSDictionary
+        self.performSegue(withIdentifier: "Menugroups", sender: self)
+        
+    }
+    func itemIconsClicked5(){
+        selectedShortcut = menuitems[4] as! NSDictionary
+        self.performSegue(withIdentifier: "Menugroups", sender: self)
+        
+    }
+    func itemIconsClicked6(){
+        selectedShortcut = menuitems[5] as! NSDictionary
+        self.performSegue(withIdentifier: "Menugroups", sender: self)
+        
+    }
+    
     
     
     func updatelabelsandimage() {
@@ -154,16 +226,32 @@ class HomeScreenViewController: UIViewController {
         image6.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
         label6.text = text1
         
-        dict1 = menuitems[6] as! NSDictionary
-        text1 = dict1.value(forKey: "menu_short_name") as! String
-        imageaddress  = dict1.value(forKey: "menu_image") as! String
-        imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
-        image7.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "loading"))
-        label7.text = text1
-        
-self.viewDidLoad() 
         
         
+self.viewDidLoad()
+        SVProgressHUD.dismiss(withDelay: 1)
+        
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Menugroups" {
+            
+            if selectedShortcut.count != 0 {
+                let nextVC = segue.destination as! ItemsTabBarViewController
+                let destinationViewController = nextVC.viewControllers?[0] as! UINavigationController
+                let MenuVC = destinationViewController.topViewController as! MenuGroupsVC
+                
+                
+                MenuVC.SelectedShortcutfromHome = selectedShortcut
+                
+
+            }
+            
+            
+        }
+
     }
 
   

@@ -11,19 +11,41 @@ import Alamofire
 
 class VerifyOTPViewController: UIViewController {
     public var mobilenumberfromsignup : String = ""
-    public var type : String = "active"
+    public var type : String = ""
+    public var guestType : String = ""
+    public var OTPtype : String = ""
     @IBOutlet weak var otpTextField: UITextField!
 
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBAction func verifyOTPButton(_ sender: UIButton) {
-        self.VerifyOTPwithServer()
-        
+       
+        if (otpTextField.text?.isEmpty)!
+        {
+            let alert = UIAlertController(title: "OTP is Mandetory", message: "Please check inbox in your phone's message to get OTP", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)        }
+        else
+        {
+            self.perform(#selector(VerifyOTPwithServer), with: nil)
+        }
         
     }
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(false)
+    descriptionLabel.text = "we sent you an SMS with your verification code to mobile number " +  (mobilenumberfromsignup)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,10 +64,9 @@ class VerifyOTPViewController: UIViewController {
         // let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
         let otptext = self.otpTextField.text
         let mobilenumber = self.mobilenumberfromsignup
-        let guesttype : String = "N"
         let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
         
-        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "date" : currentDate, "otp" : otptext, "otp_for": mobilenumber, "guest":guesttype,"visit_ref" : VisitReference, "type": type] as! [String:String]
+        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "date" : currentDate, "otp" : otptext, "otp_for": mobilenumber, "guest":guestType,"visit_ref" : VisitReference, "type": type] as! [String:String]
         
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
