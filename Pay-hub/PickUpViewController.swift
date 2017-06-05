@@ -19,6 +19,7 @@ class PickUpViewController: UIViewController {
         super.viewDidLoad()
         let locationCorodinate = CLLocationCoordinate2D(latitude: 28.448996, longitude: 77.040409)
         annotation.coordinate = locationCorodinate
+        annotation.title = "PayHub Office"
         let myregion = MKCoordinateRegionMakeWithDistance(locationCorodinate, 2000, 2000)
         mapview.addAnnotation(annotation)
         mapview.region = myregion
@@ -32,6 +33,22 @@ class PickUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    @IBAction func reviewOrder(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "revieworder", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "revieworder" {
+            if let nextViewController = segue.destination as? ReviewOrderViewController{
+                //  let destinationViewController = nextViewController.viewControllers?[0] as! MenuItemListViewController
+                //nextViewController.selectedAddress = "Pick up from Restaurant"
+            }
+            
+        }
+    }
 
     /*
     // MARK: - Navigation

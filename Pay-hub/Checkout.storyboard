@@ -59,6 +59,9 @@
                                         <color key="value" red="0.92210584880000002" green="0.36051332949999998" blue="0.20089876649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="otherButtons" destination="1ye-uS-tV2" id="WiN-2R-hwr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQn-X5-IB2">
                                 <rect key="frame" x="16" y="533" width="343" height="50"/>
@@ -119,31 +122,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Y0-jS-13P" customClass="DropDown" customModule="DropDown">
-                                <rect key="frame" x="16" y="478" width="343" height="47"/>
-                                <color key="backgroundColor" red="0.92210584880000002" green="0.36051332949999998" blue="0.20089876649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.34697499869999998" green="0.69968587159999995" blue="0.47443854810000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="zth-h3-bh1"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="LQn-X5-IB2" secondAttribute="leading" id="Dn2-cN-zzV"/>
                             <constraint firstItem="0yO-WC-RyQ" firstAttribute="top" secondItem="LQn-X5-IB2" secondAttribute="bottom" constant="20" id="PPl-4b-zDv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LQn-X5-IB2" secondAttribute="trailing" id="UzB-VE-aWQ"/>
-                            <constraint firstItem="LQn-X5-IB2" firstAttribute="top" secondItem="1Y0-jS-13P" secondAttribute="bottom" constant="8" id="h6D-Om-YZ4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1Y0-jS-13P" secondAttribute="trailing" id="q3d-jT-Lu9"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="1Y0-jS-13P" secondAttribute="leading" id="wZQ-d7-8X8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K4V-ZZ-l0F"/>
                     <connections>
-                        <outlet property="DeliveryButton" destination="1ye-uS-tV2" id="nev-9z-q6m"/>
+                        <outlet property="DeliveryButton" destination="1ye-uS-tV2" id="fca-lq-BhL"/>
+                        <outlet property="PickUpButton" destination="kzh-Xs-1uP" id="lXT-Fy-vFq"/>
                         <outlet property="deliverytime" destination="hVi-cH-0J7" id="Lfg-by-XSS"/>
                         <outlet property="deliverytimeView" destination="pa6-yB-fwI" id="gvZ-P4-43e"/>
-                        <outlet property="pickertestview" destination="1Y0-jS-13P" id="UHd-ct-W3F"/>
+                        <outlet property="laterButton" destination="N39-fQ-b4K" id="TkK-LI-dii"/>
                         <outlet property="timetextfield" destination="Sm7-G3-eCJ" id="9Pb-j7-OrU"/>
                         <segue destination="AnG-ng-5yC" kind="show" identifier="chooseDeliveryAddress" id="y1H-wt-Lqc"/>
                         <segue destination="0f4-SB-dec" kind="show" identifier="pickUp" id="VlF-kW-qrX"/>
@@ -290,15 +283,8 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Flat No./House No." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ldc-g3-UUh">
-                                <rect key="frame" x="16" y="66" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kGY-B0-I4k">
-                                <rect key="frame" x="16" y="181" width="343" height="30"/>
+                                <rect key="frame" x="16" y="59" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -329,6 +315,13 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Flat No./House No." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ldc-g3-UUh">
+                                <rect key="frame" x="16" y="187" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -402,6 +395,9 @@ PLOT NO B-25, INSTITUTIONAL AREA, SECTOR-32, GURUGRAM, 122003, HARYANA, INDIA</s
                                 <state key="normal" title="Review Order">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="reviewOrder:" destination="0f4-SB-dec" eventType="touchUpInside" id="nNl-NS-mmJ"/>
+                                </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SGJ-AC-NAf">
                                 <rect key="frame" x="16" y="258" width="343" height="217"/>
@@ -412,7 +408,7 @@ PLOT NO B-25, INSTITUTIONAL AREA, SECTOR-32, GURUGRAM, 122003, HARYANA, INDIA</s
                     </view>
                     <connections>
                         <outlet property="mapview" destination="SGJ-AC-NAf" id="XKa-5J-imw"/>
-                        <segue destination="yER-Y4-iVw" kind="show" identifier="ReviewOrder" id="zlq-iN-LBo"/>
+                        <segue destination="yER-Y4-iVw" kind="show" identifier="revieworder" id="zlq-iN-LBo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GO-Xw-WVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -476,7 +472,7 @@ PLOT NO B-25, INSTITUTIONAL AREA, SECTOR-32, GURUGRAM, 122003, HARYANA, INDIA</s
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="₹ 120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMn-fx-FPJ">
-                                                    <rect key="frame" x="283" y="6" width="40" height="21"/>
+                                                    <rect key="frame" x="282" y="5" width="41" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

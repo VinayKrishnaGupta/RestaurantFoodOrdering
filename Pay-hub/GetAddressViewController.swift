@@ -49,6 +49,13 @@ class GetAddressViewController: UIViewController, UITableViewDataSource, UITable
         cell.address1label.text = (dict.value(forKey: "name") as! String)
         cell.address2label.text = (dict.value(forKey: "address") as! String)
         cell.address3label.text = (dict.value(forKey: "Phone") as! String)
+        let selected : String = dict.value(forKey: "selected") as! String
+        if selected == "1" {
+            cell.accessoryType = .checkmark
+            cell.setSelected(true, animated: false)
+            self.AddressSelected = dict
+        }
+        
         
         
         return cell

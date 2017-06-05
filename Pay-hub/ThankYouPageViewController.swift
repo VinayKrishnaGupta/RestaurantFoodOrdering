@@ -10,14 +10,15 @@ import UIKit
 
 
 class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
-    var ordernumber = "" 
+    var ordernumber = ""
+    var PaymentURL = ""
 
     @IBOutlet weak var paymentWebview: UIWebView!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         paymentWebview.delegate = self
-        if let url = URL(string: "https://pay-hub.in/tpl/demo/admin/3/payment-page") {
+        if let url = URL(string: PaymentURL) {
             var request = URLRequest(url: url)
             request.addValue("app", forHTTPHeaderField: "source")
             request.addValue(ordernumber, forHTTPHeaderField: "order")

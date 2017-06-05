@@ -44,8 +44,9 @@ class HomeScreenViewController: UIViewController {
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",
-            "user_name" : "admin",
-            "user_id" : "3"
+            "Merchantname" : "admin",
+            "Merchantid" : "3",
+            "Connection" : "close"
         ]
         Alamofire.request(
             URL(string: "https://pay-hub.in/payhub%20api/v1/home_api.php")!,

@@ -18,6 +18,10 @@
 		2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
 		2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */; };
+		2FB53F8F1EE1289600322EF7 /* EditCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */; };
+		2FB53F911EE128B500322EF7 /* EditCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F901EE128B500322EF7 /* EditCartTableViewCell.swift */; };
+		2FB53F941EE5621500322EF7 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F931EE5621500322EF7 /* MyOrdersViewController.swift */; };
+		2FB53F961EE566BB00322EF7 /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F951EE566BB00322EF7 /* MyOrdersTableViewCell.swift */; };
 		2FEC664B1EC198C300BACDCF /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEC664A1EC198C300BACDCF /* Auth.storyboard */; };
 		2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */; };
 		2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */; };
@@ -93,6 +97,10 @@
 		2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
 		2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpViewController.swift; sourceTree = "<group>"; };
+		2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCartViewController.swift; sourceTree = "<group>"; };
+		2FB53F901EE128B500322EF7 /* EditCartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCartTableViewCell.swift; sourceTree = "<group>"; };
+		2FB53F931EE5621500322EF7 /* MyOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
+		2FB53F951EE566BB00322EF7 /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		2FEC664A1EC198C300BACDCF /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		2FEC664C1EC198EB00BACDCF /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		2FEC664E1EC1994900BACDCF /* SignupoptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupoptionsViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +221,17 @@
 			name = Experiment;
 			sourceTree = "<group>";
 		};
+		2FB53F921EE561B300322EF7 /* SideMenus */ = {
+			isa = PBXGroup;
+			children = (
+				2FEEC7001E9F8F1900CBE471 /* CustomSideMenuController.swift */,
+				2FEEC6FC1E9F64F000CBE471 /* SideMenuViewController.swift */,
+				2FB53F931EE5621500322EF7 /* MyOrdersViewController.swift */,
+				2FB53F951EE566BB00322EF7 /* MyOrdersTableViewCell.swift */,
+			);
+			name = SideMenus;
+			sourceTree = "<group>";
+		};
 		2FEC66461EC197ED00BACDCF /* Delivery */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,11 +287,10 @@
 				2FEEC7081EA5D5D200CBE471 /* MenuGroupsVC.swift */,
 				2FEEC7061EA5D54A00CBE471 /* MenuGroupsCollectionViewCell.swift */,
 				2FEEC70A1EA5FC1C00CBE471 /* MenuItemCollectionViewCell.swift */,
-				2FEEC7001E9F8F1900CBE471 /* CustomSideMenuController.swift */,
-				2FEEC6FC1E9F64F000CBE471 /* SideMenuViewController.swift */,
 				2FEEC7041EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift */,
 				2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */,
 				2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */,
+				2FB53F921EE561B300322EF7 /* SideMenus */,
 				2FEEF7981EB701E0008ACEE3 /* My Cart */,
 				2FEC66461EC197ED00BACDCF /* Delivery */,
 				2FEC66491EC198A000BACDCF /* Authentication */,
@@ -319,6 +337,8 @@
 				2F2179861EADF329001CCB91 /* MyCartViewController.swift */,
 				2FEEF7961EB7005B008ACEE3 /* MyCartCellTableViewCell.swift */,
 				2FEEF7991EB7189C008ACEE3 /* MyCartTitleCell.swift */,
+				2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */,
+				2FB53F901EE128B500322EF7 /* EditCartTableViewCell.swift */,
 			);
 			name = "My Cart";
 			sourceTree = "<group>";
@@ -693,12 +713,14 @@
 				2FEEC7091EA5D5D200CBE471 /* MenuGroupsVC.swift in Sources */,
 				2FEC66511EC1EEC200BACDCF /* SigninViewController.swift in Sources */,
 				2FEEC70D1EA6133A00CBE471 /* MenuItemListViewController.swift in Sources */,
+				2FB53F911EE128B500322EF7 /* EditCartTableViewCell.swift in Sources */,
 				2FEF827C1ED7039300FF9803 /* ThankYouPageViewController.swift in Sources */,
 				2FEEC7121EA638C400CBE471 /* Alamofire.swift in Sources */,
 				2FEEC7051EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift in Sources */,
 				2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */,
 				2FEEC6F81E9CE00500CBE471 /* CuisineGroupsViewController.swift in Sources */,
 				2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */,
+				2FB53F941EE5621500322EF7 /* MyOrdersViewController.swift in Sources */,
 				2FEF827A1ED6F3F800FF9803 /* PaymentViewController.swift in Sources */,
 				2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */,
 				2FEEC7071EA5D54A00CBE471 /* MenuGroupsCollectionViewCell.swift in Sources */,
@@ -706,6 +728,8 @@
 				2FEC66531EC1EEE100BACDCF /* ContinueAsGuestViewController.swift in Sources */,
 				2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */,
 				2FEF82741ED4032300FF9803 /* AddAddressViewController.swift in Sources */,
+				2FB53F961EE566BB00322EF7 /* MyOrdersTableViewCell.swift in Sources */,
+				2FB53F8F1EE1289600322EF7 /* EditCartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ import SVProgressHUD
 class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var ContainerView: UIView!
     @IBOutlet weak var CollectionViewMenuGroups: UICollectionView!
+    @IBOutlet weak var bannerImageView: UIImageView!
     var menugroups : NSArray = []
     var bannerImageURls : NSArray = []
     var SelectedMenuGroup : NSDictionary = [:]
@@ -29,9 +30,17 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         SVProgressHUD.setRingRadius(25)
         CollectionViewMenuGroups.dataSource = self
         CollectionViewMenuGroups.delegate = self
-        self.ContainerView.isHidden = true
+      //  self.ContainerView.isHidden = true
         self.navigationController?.navigationBar.isHidden = false
-        self.addBackButton()
+       
+        let backButton1 = UIBarButtonItem.init(image: UIImage.init(named: "BackButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(backAction(_:)))
+        
+      
+        
+        self.navigationItem.leftBarButtonItem = backButton1
+        
+
+       // self.addBackButton()
         
       
     
@@ -48,8 +57,22 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
+        var imagesListArray = [UIImage]()
+        
+        
+        
+        
+         imagesListArray.append(UIImage(named: "page0.png")!)
+         imagesListArray.append(UIImage(named: "page1.png")!)
+         imagesListArray.append(UIImage(named: "page2.png")!)
+         imagesListArray.append(UIImage(named: "Page3.png")!)
+        self.bannerImageView.animationImages = imagesListArray
+        self.bannerImageView.animationDuration = 4.0
+        self.bannerImageView.startAnimating()
+        
+        
         if SelectedShortcutfromHome.count != 0 {
-            ContainerView.isHidden = true
+         //   ContainerView.isHidden = true
             CollectionViewMenuGroups.isHidden = true
             print("Selected shortcut is \(self.SelectedShortcutfromHome)")
             SelectedMenuGroup = SelectedShortcutfromHome
@@ -58,7 +81,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         }
         else {
         
-        CollectionViewMenuGroups.isHidden = false
+      //  CollectionViewMenuGroups.isHidden = false
         
        // self.navigationController?.setNavigationBarHidden(true, animated: true)
         let SharedInstance1 = CartManager.sharedInstance
@@ -74,16 +97,29 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
 //        print("Dictionary is \(String(describing: dict1))")
 //        self.menugroups = (dict1?.value(forKeyPath: "Response.data.menu") as? NSArray)!
 //        self.CollectionViewMenuGroups.reloadData()
-        let HEADERS: HTTPHeaders = [
-            "Token": "d75542712c868c1690110db641ba01a",
-            "Accept": "application/json",
-            "user_name" : "admin",
-            "user_id" : "3"
-        ]
+            let HEADERS: HTTPHeaders = [
+                "Token": "d75542712c868c1690110db641ba01a",
+                "Accept": "application/json",
+                "Merchantname" : "admin",
+                "Merchantid" : "3",
+                "Connection" : "close"
+            ]
+            var UserID = "N"
+            if (UserDefaults.standard.dictionary(forKey: "LoggedInUser")) != nil {
+                let userDict : NSDictionary = UserDefaults.standard.dictionary(forKey: "LoggedInUser")! as NSDictionary
+                UserID = userDict.value(forKey: "enduser_id") as! String
+            }
+            else {
+                UserID = "N"
+                
+            }
+            
+            let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
+            let parameters2 = ["visit_ref" : VisitReference, "user_id":UserID] as [String : Any]
         Alamofire.request(
             URL(string: "https://pay-hub.in/payhub%20api/v1/menu_group.php")!,
-            method: .get,
-            parameters: nil,
+            method: .post,
+            parameters: parameters2,
             headers: HEADERS
             )
             .validate()
@@ -97,6 +133,10 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                     print("Converted Dictionary is \(dict)")
                     self.menugroups = dict.value(forKeyPath: "Response.data.menu") as! NSArray
                     self.bannerImageURls = dict.value(forKeyPath: "Response.data.menu_banner.menu_banner") as! NSArray
+                    let VisitReferencefromServer : String = dict.value(forKeyPath: "Response.data.visit_ref") as! String
+                    UserDefaults.standard.set(VisitReferencefromServer, forKey: "VisitReferenceNumber")
+                    UserDefaults.standard.synchronize()
+
                     
                     print("Menu group list is \(String(describing: self.menugroups))")
                     print("Response Time of Menu Group is \(response.timeline)")
@@ -105,7 +145,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                   //  self.reLoadPageView()
                    self.CollectionViewMenuGroups.reloadData()
                     SVProgressHUD.dismiss(withDelay: 1)
-                    self.ContainerView.isHidden = false
+                 //   self.ContainerView.isHidden = false
                     
         }
 
@@ -189,7 +229,9 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     func addBackButton() {
         let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage(named: "BackButton"), for: .normal) // Image can be downloaded from here below link
+        backButton.setImage(UIImage(named: "BackButton.png"), for: .normal)
+       
+        // Image can be downloaded from here below link
         backButton.setTitle("Back", for: .normal)
       //  backButton.setTitleColor(backButton., for: .normal) // You can change the TitleColor
         backButton.addTarget(self, action: #selector(self.backAction(_:)), for: .touchUpInside)

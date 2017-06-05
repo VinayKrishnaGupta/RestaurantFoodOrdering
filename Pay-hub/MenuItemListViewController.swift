@@ -21,6 +21,9 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     var SelectedItems : Array<Any> = []
     var numberofItems : Array<Int>   = []
     var ItemIDofSelected : String = ""
+    public var selectedGroup: NSDictionary = [:]
+    var itemArray : NSArray = []
+
     
     
     
@@ -149,12 +152,12 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         let SharedInstance = CartManager.sharedInstance
         SharedInstance.MyCartItems = SelectedItems
         
-        print("Selected Items are \(SelectedItems)")
-        print("Number of Items are \(numberofItems)")
-        let addedvalue : [String : NSDictionary] = ["SelectedItem" : SelectedItems[indexPath.row] as! NSDictionary]
+//        print("Selected Items are \(SelectedItems)")
+//        print("Number of Items are \(numberofItems)")
+//        let addedvalue : [String : NSDictionary] = ["SelectedItem" : SelectedItems[indexPath.row] as! NSDictionary]
     //    NotificationCenter.default.post(name: Notification.Name("NumberofaddedItems"), object: numberofItems,)
       //  NotificationCenter.default.post(name: Notification.Name("NumberofaddedItems"), object: nil, userInfo: addedvalue)
-         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: addedvalue)
+//         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: addedvalue)
         
     //       let item = itemArray[indexPath.row]
    //        (item as AnyObject).value[3] = value
@@ -182,13 +185,11 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         
     }
     
-    func updateBadgeNumberonTab() {
-        
-    }
+//    func updateBadgeNumberonTab() {
+//        
+//    }
     
-    public var selectedGroup: NSDictionary = [:]
-    var itemArray : NSArray = []
-
+   
     
     override func viewWillAppear(_ animated: Bool) {
        // SelectedItems.removeAll()
@@ -212,16 +213,26 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",
-            "user_name" : "admin",
-            "user_id" : "3"
+            "Merchantname" : "admin",
+            "Merchantid" : "3",
+            "Connection" : "close"
         ]
-        let VisitReference : String = UserDefaults.standard.object(forKey: "VisitReferenceNumber") as! String
-        
+        let VisitReference : String  = UserDefaults.standard.object(forKey: "VisitReferenceNumber") as! String
+        var UserID = "N"
+        if (UserDefaults.standard.dictionary(forKey: "LoggedInUser")) != nil {
+            let userDict : NSDictionary = UserDefaults.standard.dictionary(forKey: "LoggedInUser")! as NSDictionary
+            UserID = userDict.value(forKey: "enduser_id") as! String
+        }
+        else {
+            UserID = "N"
+            
+        }
+
         
         
         
         let MenuID : String = selectedGroup.value(forKey: "menu_id") as! String
-        let parameters = ["menu_id":MenuID ,"visit_ref" : VisitReference ]
+        let parameters = ["menu_id":MenuID ,"visit_ref" : VisitReference, "user_id":UserID]
         
         //create the url with URL
         Alamofire.request(
@@ -303,8 +314,11 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         
         cell.itemtName.text = dict?.value(forKey: "item_name") as? String
         cell.itemdescripion.text = dict?.value(forKey: "item_content") as? String
-        cell.itemGMStepper.value = Double(self.numberofItems[indexPath.row])
-        cell.itemGMStepper.addTarget(self, action: #selector(valueChanged(_:)), for: UIControlEvents.valueChanged)
+        let itemquantity = dict?.value(forKey: "item_quantity") as! String
+        cell.itemGMStepper.value = Double(itemquantity)!
+        numberofItems.append(Int(itemquantity)!)
+//        cell.itemGMStepper.value = Double(self.numberofItems[indexPath.row])
+//        cell.itemGMStepper.addTarget(self, action: #selector(valueChanged(_:)), for: UIControlEvents.valueChanged)
         
         let pricestring = String(format: " ₹ %@", (dict?.value(forKey: "item_price") as? String)!)
         cell.priceLabel.text = pricestring
@@ -370,6 +384,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     
     override func viewWillDisappear(_ animated: Bool) {
         SVProgressHUD.dismiss()
+        numberofItems.removeAll()
     }
     
 //    override func viewWillDisappear(_ animated: Bool) {

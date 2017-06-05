@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import GMStepper
 
 class EditCartTableViewCell: UITableViewCell {
+    @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var itemCountStepper: GMStepper!
 
     override func awakeFromNib() {
         super.awakeFromNib()

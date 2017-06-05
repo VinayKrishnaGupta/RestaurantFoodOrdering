@@ -55,14 +55,16 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
         
         }
         
+        
         let VisitReference : String = UserDefaults.standard.value(forKey: "VisitReferenceNumber") as! String
-        let parameters2 = ["merchant_id": MerchantID , "merchant_username" : MerchantUserName, "visit_ref" : VisitReference, "user_id":UserID] as [String : Any]
+        let parameters2 = ["merchant_id": MerchantID , "merchant_username" : MerchantUserName, "visit_ref" : VisitReference, "user_id":UserID] as [String : String]
         
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",
-            "user_name" : "admin",
-            "user_id" : "3"
+            "Merchantname" : "admin",
+            "Merchantid" : "3",
+            "Connection" : "close"
         ]
         
         Alamofire.request( URL(string: "https://pay-hub.in/payhub%20api/v1/get_cart.php")!, method: .post, parameters: parameters2, headers: HEADERS )
@@ -172,7 +174,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
             let dict : NSDictionary  = self.addedproducts[indexPath.row] as! NSDictionary
             cell2.numberlabel.text = (dict.value(forKey: "item_quantity") as? String)! + "x"
             let TotalPricefromAPI : AnyObject = dict.value(forKey: "item_total_price") as AnyObject
-            let TotalPrice : String = String(describing: TotalPricefromAPI)
+            let TotalPrice : String = "₹ " + String(describing: TotalPricefromAPI)
             cell2.priceLabel.text = TotalPrice
             cell2.titleLabel.text = (dict.value(forKey: "item_name") as! String)
             
@@ -183,7 +185,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
         if indexPath.section == 2 {
             let cell3 = tableView.dequeueReusableCell(withIdentifier: "Subtotal", for: indexPath) as! MyCartCellTableViewCell
             cell3.textLabel?.text = "SubTotal"
-            cell3.detailTextLabel?.text = String(describing: subtotalpricefromAPI)
+            cell3.detailTextLabel?.text = "₹ " + String(describing: subtotalpricefromAPI)
             
             
             return cell3
@@ -193,7 +195,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
             let dict4 : NSDictionary = self.TaxesfromAPI[indexPath.row] as! NSDictionary
             cell4.textLabel?.text = (dict4.value(forKeyPath: "tax_name") as! String)
             let taxpricefromAPI : AnyObject = dict4.value(forKeyPath: "tax_price") as AnyObject
-            let taxprice : String = String(describing: taxpricefromAPI)
+            let taxprice : String = "₹ " + String(describing: taxpricefromAPI)
             cell4.detailTextLabel?.text =  taxprice
             
             
@@ -205,7 +207,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
             let cell5 = tableView.dequeueReusableCell(withIdentifier: "TotalPrice", for: indexPath)
             if indexPath.section == 4 {
                 cell5.textLabel?.text = "Total Price"
-                cell5.detailTextLabel?.text = String(describing: totalPricefromAPI)
+                cell5.detailTextLabel?.text = "₹ " + String(describing: totalPricefromAPI)
 
             }
             return cell5
@@ -245,6 +247,11 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    @IBAction func editOrderButton(_ sender: UIButton) {
+        print("Edit Order Button Pressed")
+        self.performSegue(withIdentifier: "editOrder", sender: nil)
+        
+    }
     
 
     /*

@@ -9,16 +9,18 @@
 import UIKit
 import DLRadioButton
 import DropDown
+import Alamofire
 
 class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var deliverytimeView: UIView!
     @IBOutlet weak var DeliveryButton: DLRadioButton!
+    @IBOutlet weak var PickUpButton: DLRadioButton!
     @IBOutlet weak var deliverytime: DLRadioButton!
- //   @IBOutlet weak var laterButton: DLRadioButton!
+    @IBOutlet weak var laterButton: DLRadioButton!
    // @IBOutlet weak var pickupbutton: DLRadioButton!
     @IBOutlet weak var timetextfield: UITextField!
     let dropDown = DropDown()
-    @IBOutlet weak var pickertestview: UIView!
+   
     
   //  @IBOutlet weak var timetextfield: UITextField!
     
@@ -32,9 +34,11 @@ class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
        // self.DeliveryButton.isMultipleSelectionEnabled = true
       //  self.pickUpButton.isMultipleSelectionEnabled = true
         DeliveryButton.addTarget(self, action: #selector(changeButtonState), for: UIControlEvents.touchUpInside)
+        PickUpButton.addTarget(self, action: #selector(changeButtonState), for: UIControlEvents.touchUpInside)
+        
         
         deliverytime.addTarget(self, action: #selector(Changedeliverytimebutton), for: UIControlEvents.touchUpInside)
-    //    laterButton.addTarget(self, action: #selector(Changedeliverytimebutton2), for: UIControlEvents.touchUpInside)
+        laterButton.addTarget(self, action: #selector(Changedeliverytimebutton), for: UIControlEvents.touchUpInside)
         deliverytimeView.isHidden = true
      //   laterButton.isHidden = true
     //    pickupbutton.addTarget(self, action: #selector(changeButtonState2), for: UIControlEvents.touchUpInside)
@@ -52,6 +56,53 @@ class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(true)
+       //https://pay-hub.in/payhub%20api/v1/get_order_type.php
+        
+        let userdict : NSDictionary = UserDefaults.standard.dictionary(forKey: "LoggedInUser")! as NSDictionary
+        
+        let MerchantID  = "3"
+        let MerchantUsername = "admin"
+        
+        
+        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID ] 
+        
+        let HEADERS: HTTPHeaders = [
+            "Token": "d75542712c868c1690110db641ba01a",
+            "Accept": "application/json",
+            "user_name" : "admin",
+            "user_id" : "3"
+        ]
+        
+        Alamofire.request( URL(string: "https://pay-hub.in/payhub%20api/v1/get_order_type.php")!, method: .post, parameters: parameters2, headers: HEADERS )
+            
+            
+            .responseJSON { response in
+                debugPrint(response)
+                
+                
+                if let json = response.result.value {
+                    let dict = json as! NSDictionary
+                    print(dict)
+                    
+                    
+//                    if dict.value(forKeyPath:"Response.data.saved_address") is NSNull
+//                    {
+//                        print("No Added Address")
+//                    }
+//                    else {
+//                       
+//                        
+//                    }
+                    
+                    
+                    
+                }
+                
+        }
+        
+
+        
+        
         
 //        dropDown.anchorView = self.pickertestview // UIView or UIBarButtonItem
 //        
@@ -76,6 +127,7 @@ class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
         let str = DeliveryButton.selected()?.currentTitle
         print("Current Title is \(String(describing: str))")
         
+        
     //  print(String(format: "%@ Delivery button is selected.\n", DeliveryButton.selected()!.currentTitle!))
 
     }
@@ -91,7 +143,15 @@ class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
     func Changedeliverytimebutton() {
        
         print(String(format: "%@ Delivery time is selected.\n", deliverytime.selected()!.currentTitle!))
-        timetextfield.isHidden = true
+        let str = deliverytime.selected()!.currentTitle!
+        if str == "As soon as possible" {
+            timetextfield.isHidden = true
+        }
+        else {
+            timetextfield.isHidden = false
+        }
+        
+        
     }
     
 //    func Changedeliverytimebutton2() {
@@ -106,18 +166,20 @@ class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
     
     func datePickerChanged(sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateStyle = .full
+        formatter.dateStyle = .short
         formatter.timeStyle = .short
         
         timetextfield.text = formatter.string(from: sender.date)
         
-        print("Try this at home")
+        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let datePicker = UIDatePicker()
         textField.inputView = datePicker
         datePicker.minimumDate = Date()
+        datePicker.minuteInterval = 30
+       
         datePicker.addTarget(self, action: #selector(datePickerChanged(sender:)), for: .valueChanged)
 
         

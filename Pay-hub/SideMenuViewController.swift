@@ -13,7 +13,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     @IBOutlet weak var tableView: UITableView!
-    var TitleList : Array = ["Home", "About Us", "My Account", "Contact Us", "Sign Out"]
+    var TitleList : Array = ["Home", "About Us", "My Orders", "Contact Us", "Sign Out"]
     
 
     override func viewDidLoad() {
