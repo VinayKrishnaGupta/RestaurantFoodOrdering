@@ -33,6 +33,13 @@ class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
        // self.DeliveryButton.isMultipleSelectionEnabled = true
       //  self.pickUpButton.isMultipleSelectionEnabled = true
+        let backButton1 = UIBarButtonItem.init(image: UIImage.init(named: "BackButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(backAction(_:)))
+        
+        
+        
+        self.navigationItem.leftBarButtonItem = backButton1
+        
+        
         DeliveryButton.addTarget(self, action: #selector(changeButtonState), for: UIControlEvents.touchUpInside)
         PickUpButton.addTarget(self, action: #selector(changeButtonState), for: UIControlEvents.touchUpInside)
         
@@ -217,6 +224,33 @@ class DeliveryTypeViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
+    @IBAction func backAction(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Cancel Checkout process", message: "Are you sure to go back ?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+        let button2 = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: cancel)
+        alert.addAction(button2)
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+
+func cancel(action:UIAlertAction) {
+    let presentingViewController = self.presentingViewController
+    self.dismiss(animated: false, completion: {
+        presentingViewController!.dismiss(animated: false, completion: {})
+    })
+
+    
+}
+
+
+
     
 
     /*

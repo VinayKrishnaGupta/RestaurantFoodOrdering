@@ -12,11 +12,25 @@ import UIKit
 class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
     var ordernumber = ""
     var PaymentURL = ""
+    var SuccessUrl = ""
+    var FailedURL = ""
 
     @IBOutlet weak var paymentWebview: UIWebView!
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backButton1 = UIBarButtonItem.init(image: UIImage.init(named: "BackButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(backAction(_:)))
+        
+        
+        
+        self.navigationItem.leftBarButtonItem = backButton1
+       
+
+        // Do any additional setup after loading the view.
+    
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
         paymentWebview.delegate = self
         if let url = URL(string: PaymentURL) {
             var request = URLRequest(url: url)
@@ -24,12 +38,7 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
             request.addValue(ordernumber, forHTTPHeaderField: "order")
             
             paymentWebview.loadRequest(request)
-
-        // Do any additional setup after loading the view.
-    }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-     
+        }
         
     }
     func webViewDidStartLoad(_ webView: UIWebView) {
@@ -46,12 +55,23 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
         if navigationType == UIWebViewNavigationType.linkClicked  {
             paymentWebview.removeFromSuperview()
         }
-        let redirectURL = URL(string: "https://pay-hub.in/tpl/demo/admin/3/thankyou")
-        if request.url == redirectURL {
+        
+        let failedURL = URL(string: FailedURL)
+        let successURL = URL(string: SuccessUrl)
+        if request.url == successURL {
             
-            //self.perform(#selector(redirect), with: self, afterDelay: 5)
+            let presentingViewController = self.presentingViewController
+            self.dismiss(animated: false, completion: {
+                presentingViewController!.dismiss(animated: false, completion: {})
+            })
             return true
             
+        }
+        if request.url == failedURL {
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            return true
         }
         
             
@@ -70,6 +90,41 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func backAction(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Cancel Payment Process", message: "You will be redirected to Home ?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+        let button2 = UIAlertAction(title: "Back", style: UIAlertActionStyle.default, handler: cancel)
+        let button3 = UIAlertAction(title: "Go to Home", style: UIAlertActionStyle.default, handler: home)
+        alert.addAction(button2)
+        alert.addAction(button3)
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func cancel(action:UIAlertAction) {
+        
+        
+       self.navigationController?.popViewController(animated: false)
+        
+        
+    }
+    
+    func home(action:UIAlertAction) {
+        
+        
+        let presentingViewController = self.presentingViewController
+        self.dismiss(animated: false, completion: {
+            presentingViewController!.dismiss(animated: false, completion: {})
+        })
+        
+        
     }
     
 

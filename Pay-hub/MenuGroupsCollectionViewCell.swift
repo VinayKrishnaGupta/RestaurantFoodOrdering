@@ -14,6 +14,9 @@ class MenuGroupsCollectionViewCell: UICollectionViewCell {
     
     
     override func awakeFromNib() {
+        
+        self.contentView.autoresizingMask.insert(.flexibleHeight)
+        self.contentView.autoresizingMask.insert(.flexibleWidth)
         let topColor = UIColor.clear
         let bottomColor = UIColor.black
         
@@ -30,7 +33,7 @@ class MenuGroupsCollectionViewCell: UICollectionViewCell {
         gradientLayer.locations = gradientLoactions as [NSNumber]
         
         
-        gradientLayer.frame = self.cellImageView.bounds
+        gradientLayer.frame = self.contentView.frame
         
         
         self.cellImageView.layer.insertSublayer(gradientLayer, at: 0)

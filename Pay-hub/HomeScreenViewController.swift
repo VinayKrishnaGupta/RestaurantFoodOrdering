@@ -69,6 +69,10 @@ class HomeScreenViewController: UIViewController {
                     self.updatelabelsandimage()
                     
                 }
+                else {
+                    self.awakeFromNib()
+                    
+                }
                 
         }
 
@@ -76,6 +80,13 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        print("Screen Sizes are \(screenWidth) and \(screenHeight)")
+        
+        
+        
         SVProgressHUD.show()
         SVProgressHUD.show(withStatus: "Loading Payhub")
         SVProgressHUD.setRingRadius(40)
@@ -253,6 +264,9 @@ self.viewDidLoad()
             
         }
 
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        self.selectedShortcut = [:]
     }
 
   

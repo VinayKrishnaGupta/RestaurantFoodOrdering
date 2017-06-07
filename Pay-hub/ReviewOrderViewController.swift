@@ -18,6 +18,10 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
     var totalPricefromAPI = 0
     var OrderNumber : String = ""
     var PaymentURL : String = ""
+    var DeliveryType : String = ""
+    var AddressId : String = ""
+    var SuccessURL : String = ""
+    var FailedURL : String = ""
    
     public var selectedAddress : NSDictionary = [:]
     
@@ -74,13 +78,24 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
                     self.totalPricefromAPI = dict.value(forKeyPath: "Response.data.cart.total_price") as! Int
                     self.tableView.reloadData()
                     }
+                    
+                    else {
+                        self.viewWillAppear(false)
+                    }
+                    
                 }
                 
         }
         
         
         
-        
+        if selectedAddress.count == 0 {
+            self.AddressId = "0"
+            
+        }
+        else {
+            self.AddressId = selectedAddress.value(forKey: "id") as! String
+        }
         
         
         
@@ -179,11 +194,21 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
     
 
     @IBAction func createOrderButton(_ sender: UIButton) {
-        self.createorder()
+        let alert = UIAlertController(title: "Connect to Our Secure Payment Gateway", message: "Cash on Delivery and other options might be availble there", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+        let button2 = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: createorder)
+        alert.addAction(button2)
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+       
         
     }
     
-    func createorder() {
+    func createorder(action:UIAlertAction) {
         
         let userdict : NSDictionary = UserDefaults.standard.dictionary(forKey: "LoggedInUser")! as NSDictionary
         let currentDate : String  = getCurrentDate()
@@ -204,15 +229,14 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
 
         let MobileNumber = userdict.value(forKey: "enduser_mobile")
         
-        var addressCode : String = ""
         if selectedAddress.value(forKey: "id") != nil {
-            addressCode = selectedAddress.value(forKey: "id") as! String
+            AddressId = selectedAddress.value(forKey: "id") as! String
         }
         else {
-            addressCode = "0"
+            AddressId = "0"
         }
         
-        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "enduser_id" : UserID, "enduser_mobile": MobileNumber, "type" : "delivery", "type_sub": "asap", "ddate":"2017-06-06", "dtime":"3#10", "date": currentDate, "address": selectedAddress.value(forKey: "id")] as [String:AnyObject]
+        let parameters2 = ["merchant_username": MerchantUsername, "merchant_id": MerchantID , "enduser_id" : UserID, "enduser_mobile": MobileNumber, "type" : DeliveryType, "type_sub": "asap", "ddate":"2017-06-06", "dtime":"3#10", "date": currentDate, "address": AddressId] as [String:AnyObject]
         
         let HEADERS: HTTPHeaders = [
             "Token": "d75542712c868c1690110db641ba01a",
@@ -235,6 +259,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
                     self.OrderNumber = dict.value(forKeyPath: "Response.data.order") as! String
                     print("Response from Create Order is \(dict)")
                     self.PaymentURL = dict.value(forKeyPath: "Response.data.payment_url") as! String
+                    self.SuccessURL = dict.value(forKeyPath: "Response.data.success_url") as! String
+                    self.FailedURL = dict.value(forKeyPath: "Response.data.failed_url") as! String
                     self.performSegue(withIdentifier: "proceedtopayment", sender: self)
                    // self.processorder()
                     
@@ -299,6 +325,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
             if let nextViewController = segue.destination as? ThankYouPageViewController{
                 nextViewController.ordernumber = self.OrderNumber
                 nextViewController.PaymentURL = self.PaymentURL
+                nextViewController.SuccessUrl = self.SuccessURL
+                nextViewController.FailedURL = self.FailedURL
                 
             }
             

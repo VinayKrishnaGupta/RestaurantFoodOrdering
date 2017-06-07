@@ -13,7 +13,7 @@ import GMStepper
 import SVProgressHUD
 
 
-class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MenuItemListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet var CollectionViewList: UICollectionView!
     var badgenumber : Int = 0
     var FinalBadgeNumber : Int = 0 
@@ -31,8 +31,8 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         super.viewDidLoad()
         SVProgressHUD.show()
         SVProgressHUD.setRingRadius(25)
-        self.CollectionViewList.dataSource = self
-      //  self.CollectionViewList.delegate = self
+        CollectionViewList.dataSource = self
+        CollectionViewList.delegate = self
         
        // navigationItem.title = "Hello"
     //    self.navigationItem.title = selectedGroup.value(forKey: "menu_title") as? String
@@ -275,12 +275,30 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
                         self.present(alert, animated: true, completion: nil)
                     }
                 }
-                
+           
+                else {
+                    self.viewWillAppear(false)
+                    
+                }
         }
+        
+        
         
         
     }
 
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenheight = screenSize.height
+        let Cwidth : CGFloat  = screenWidth-30
+        let Cheight : CGFloat = screenheight/5
+        
+        
+        return CGSize(width: Cwidth, height: Cheight)
+    }
     
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -319,9 +337,31 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         numberofItems.append(Int(itemquantity)!)
 //        cell.itemGMStepper.value = Double(self.numberofItems[indexPath.row])
 //        cell.itemGMStepper.addTarget(self, action: #selector(valueChanged(_:)), for: UIControlEvents.valueChanged)
-        
+        cell.itemGMStepper.labelFont = UIFont(name: "Helvetica", size: 16)!
+        cell.itemGMStepper.buttonsFont = UIFont(name: "Helvetica", size: 16)!
         let pricestring = String(format: " ₹ %@", (dict?.value(forKey: "item_price") as? String)!)
         cell.priceLabel.text = pricestring
+        let topColor = UIColor.clear
+        let bottomColor = UIColor.black
+        
+        
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        
+        let gradientLoactions: [Float] = [0.7, 1.0]
+        
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        gradientLayer.colors = gradientColors
+        
+        gradientLayer.locations = gradientLoactions as [NSNumber]
+        
+        
+        gradientLayer.frame = cell.itemImageView.frame
+        
+        
+        cell.itemImageView.layer.insertSublayer(gradientLayer, at: 0)
+        
         return cell
         
     }

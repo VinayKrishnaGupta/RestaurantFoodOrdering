@@ -110,6 +110,8 @@ class EditCartViewController: UIViewController, UITableViewDataSource, UITableVi
         
         cell.itemNameLabel.text = itemName
         cell.itemCountStepper.value = Double(itemquantity)!
+        cell.itemCountStepper.labelFont = UIFont(name: "Helvetica", size: 16)!
+        cell.itemCountStepper.buttonsFont = UIFont(name: "Helvetica", size: 16)!
         numberofItems.append(Int(itemquantity)!)
         
         return cell

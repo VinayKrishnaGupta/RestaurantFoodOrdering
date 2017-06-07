@@ -25,26 +25,31 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     
     
     override func awakeFromNib() {
-        let topColor = UIColor.clear
-        let bottomColor = UIColor.black
         
-        
-        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
-        
-        let gradientLoactions: [Float] = [0.7, 1.0]
-        
-        
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        
-        gradientLayer.colors = gradientColors
-        
-        gradientLayer.locations = gradientLoactions as [NSNumber]
-        
-        
-        gradientLayer.frame = self.itemImageView.bounds
-        
-        
-        self.itemImageView.layer.insertSublayer(gradientLayer, at: 0)
+        self.contentView.autoresizingMask.insert(.flexibleHeight)
+        self.contentView.autoresizingMask.insert(.flexibleWidth)
+//        let topColor = UIColor.clear
+//        let bottomColor = UIColor.black
+//        
+//        
+//        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+//        
+//        let gradientLoactions: [Float] = [0.6, 1.0]
+//        
+//        
+//        let gradientLayer: CAGradientLayer = CAGradientLayer()
+//        
+//        gradientLayer.colors = gradientColors
+//        
+//        gradientLayer.locations = gradientLoactions as [NSNumber]
+//        
+//        
+//        gradientLayer.frame = self.itemImageView.frame
+//        
+//        
+//        self.itemImageView.layer.insertSublayer(gradientLayer, at: 0)
+       
+
         
         
 

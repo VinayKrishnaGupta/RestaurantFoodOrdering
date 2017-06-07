@@ -13,6 +13,7 @@ import CoreLocation
 class PickUpViewController: UIViewController {
     @IBOutlet weak var mapview: MKMapView!
    let annotation = MKPointAnnotation()
+    let pickUpAddress: String = "PLOT NO B-25, INSTITUTIONAL AREA, SECTOR-32, GURUGRAM, 122003, HARYANA, INDIA"
     
 
     override func viewDidLoad() {
@@ -43,9 +44,14 @@ class PickUpViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "revieworder" {
             if let nextViewController = segue.destination as? ReviewOrderViewController{
-                //  let destinationViewController = nextViewController.viewControllers?[0] as! MenuItemListViewController
-                //nextViewController.selectedAddress = "Pick up from Restaurant"
-            }
+                
+                nextViewController.DeliveryType = "pickup"
+                    
+                }
+                 // let destinationViewController = nextViewController.viewControllers?[0] as! MenuItemListViewController
+            
+            
+            
             
         }
     }

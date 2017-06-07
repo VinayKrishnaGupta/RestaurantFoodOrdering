@@ -148,6 +148,7 @@ class GetAddressViewController: UIViewController, UITableViewDataSource, UITable
             if let nextViewController = segue.destination as? ReviewOrderViewController{
                 //  let destinationViewController = nextViewController.viewControllers?[0] as! MenuItemListViewController
                 nextViewController.selectedAddress = AddressSelected
+                nextViewController.DeliveryType = "delivery"
             }
             
         }

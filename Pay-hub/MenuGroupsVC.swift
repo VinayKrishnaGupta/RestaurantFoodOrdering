@@ -13,7 +13,7 @@ import SVProgressHUD
 
 
 
-class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var ContainerView: UIView!
     @IBOutlet weak var CollectionViewMenuGroups: UICollectionView!
     @IBOutlet weak var bannerImageView: UIImageView!
@@ -81,7 +81,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         }
         else {
         
-      //  CollectionViewMenuGroups.isHidden = false
+        CollectionViewMenuGroups.isHidden = false
         
        // self.navigationController?.setNavigationBarHidden(true, animated: true)
         let SharedInstance1 = CartManager.sharedInstance
@@ -148,9 +148,17 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                  //   self.ContainerView.isHidden = false
                     
         }
+                
+                else {
+                    self.viewWillAppear(false)
+                    
+                }
 
         
     }
+            
+            
+            
         }
     }
     func reLoadPageView()
@@ -163,6 +171,18 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                     controller.URLAraay = self.bannerImageURls as! [String]
             
         }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let Cwidth : CGFloat  = (screenWidth-40)/2
+        
+        return CGSize(width: Cwidth, height: Cwidth)
+    }
+
+    
+    
     
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -184,6 +204,11 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         return cell
     }
+    
+    
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
@@ -223,6 +248,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
         SVProgressHUD.dismiss()
+        self.SelectedShortcutfromHome = [:]
        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     

@@ -19,22 +19,25 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     var totalPricefromAPI = 0
     var EmptyCartimageView : UIImageView = UIImageView()
     
+    @IBOutlet weak var proceedtoCheckOut: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        proceedtoCheckOut.isHidden = true
+      //  self.proceedtoCheckOut.perform(#selector(proceedtoCheckout), with: self, afterDelay: 1)
+        self.proceedtoCheckOut.addTarget(self, action: #selector(proceedtoCheckout), for: UIControlEvents.touchUpInside)
         
         
     
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.getselectedItems(_:)), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
-    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.getselectedItems(_:)), name: NSNotification.Name(rawValue: "notificationName"), object: nil)
+//    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +78,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 SVProgressHUD.show()
                 if let json = response.result.value {
+                    self.proceedtoCheckOut.isHidden = false
                     let dict = json as! NSDictionary
                     print("Response from getCart is \(dict)")
                     if dict.value(forKeyPath: "Response.data.cart.item") != nil {
@@ -90,6 +94,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                     else {
                         print("No Item in cart")
+                        self.proceedtoCheckOut.isHidden = true
                         self.tableView.isHidden = true
                         self.EmptyCartimageView.isHidden = false
                         let imageName = "EMPTY-BASKET.png"
@@ -101,6 +106,11 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
                         
                     }
                                    }
+                
+                
+                else {
+                    self.viewWillAppear(false)
+                }
                 
         }
         
@@ -215,7 +225,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
        
     }
     
-    @IBAction func proceedToCheckoutButton(_ sender: UIButton) {
+    func proceedtoCheckout() {
         
         let userdict  = (UserDefaults.standard.dictionary(forKey: "LoggedInUser"))
         if userdict != nil {
@@ -242,6 +252,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewWillDisappear(_ animated: Bool) {
         self.EmptyCartimageView.isHidden = true
         self.EmptyCartimageView.removeFromSuperview()
+        self.proceedtoCheckOut.isHidden = true
         
         
     }

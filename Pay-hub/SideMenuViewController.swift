@@ -65,6 +65,8 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     func logout(action:UIAlertAction) {
         UserDefaults.standard.removeObject(forKey: "LoggedInUser")
         UserDefaults.standard.synchronize()
+        let sharedInstance = CartManager.sharedInstance
+        sharedInstance.NumberofIteminCart = 0
         sideMenuController?.performSegue(withIdentifier: "Home", sender: nil)
         print("Logged Out")
         
