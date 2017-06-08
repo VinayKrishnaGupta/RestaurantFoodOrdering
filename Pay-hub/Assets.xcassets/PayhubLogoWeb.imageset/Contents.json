@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Back_Button.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "PayhubLogo.png",
       "scale" : "2x"
     },
     {

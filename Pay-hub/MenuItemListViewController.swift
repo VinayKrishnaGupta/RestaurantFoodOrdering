@@ -311,6 +311,9 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        
         let cell = CollectionViewList.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MenuItemCollectionViewCell
         
         let dict = itemArray[indexPath.row] as? NSDictionary
@@ -341,26 +344,26 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         cell.itemGMStepper.buttonsFont = UIFont(name: "Helvetica", size: 16)!
         let pricestring = String(format: " ₹ %@", (dict?.value(forKey: "item_price") as? String)!)
         cell.priceLabel.text = pricestring
-        let topColor = UIColor.clear
-        let bottomColor = UIColor.black
-        
-        
-        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
-        
-        let gradientLoactions: [Float] = [0.7, 1.0]
-        
-        
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        
-        gradientLayer.colors = gradientColors
-        
-        gradientLayer.locations = gradientLoactions as [NSNumber]
-        
-        
-        gradientLayer.frame = cell.itemImageView.frame
-        
-        
-        cell.itemImageView.layer.insertSublayer(gradientLayer, at: 0)
+//        let topColor = UIColor.clear
+//        let bottomColor = UIColor.black
+//        
+//        
+//        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+//        
+//        let gradientLoactions: [Float] = [0.7, 1.0]
+//        
+//        
+//        let gradientLayer: CAGradientLayer = CAGradientLayer()
+//        
+//        gradientLayer.colors = gradientColors
+//        
+//        gradientLayer.locations = gradientLoactions as [NSNumber]
+//        
+//        
+//        gradientLayer.frame = cell.itemImageView.frame
+//        
+//        
+//        cell.itemImageView.layer.insertSublayer(gradientLayer, at: 0)
         
         return cell
         

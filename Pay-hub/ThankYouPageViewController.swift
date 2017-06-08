@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 
 class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
@@ -18,6 +19,7 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var paymentWebview: UIWebView!
    
     override func viewDidLoad() {
+        SVProgressHUD.show()
         super.viewDidLoad()
         let backButton1 = UIBarButtonItem.init(image: UIImage.init(named: "BackButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(backAction(_:)))
         
@@ -41,13 +43,21 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
         }
         
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
+    }
     func webViewDidStartLoad(_ webView: UIWebView) {
         print("Webview start load")
+        SVProgressHUD.show()
     }
     func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss(withDelay: 1)
         print("Webview finish load")
     }
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        
+        SVProgressHUD.dismiss()
         print("Webview failed")
     }
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -56,7 +66,9 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
             paymentWebview.removeFromSuperview()
         }
         
-        let failedURL = URL(string: FailedURL)
+        SVProgressHUD.show()
+        
+        let failedurl = URL(string: FailedURL)
         let successURL = URL(string: SuccessUrl)
         if request.url == successURL {
             
@@ -67,7 +79,7 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
             return true
             
         }
-        if request.url == failedURL {
+        if request.url == failedurl {
             
             self.dismiss(animated: true, completion: nil)
             

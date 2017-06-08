@@ -482,7 +482,7 @@ PLOT NO B-25, INSTITUTIONAL AREA, SECTOR-32, GURUGRAM, 122003, HARYANA, INDIA</s
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="₹ 120" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMn-fx-FPJ">
-                                                    <rect key="frame" x="227" y="8" width="54" height="22"/>
+                                                    <rect key="frame" x="227" y="7" width="53" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -711,18 +711,19 @@ PLOT NO B-25, INSTITUTIONAL AREA, SECTOR-32, GURUGRAM, 122003, HARYANA, INDIA</s
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QG9-N5-kB8">
-                                <rect key="frame" x="-122" y="269" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <webView contentMode="scaleToFill" paginationMode="topToBottom" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-Wn-vJK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gs6-Wn-vJK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" shipmentTrackingNumber="YES"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gs6-Wn-vJK" secondAttribute="trailing" id="KIN-Hh-Ydr"/>
+                            <constraint firstItem="gs6-Wn-vJK" firstAttribute="leading" secondItem="vs1-fO-ddF" secondAttribute="leading" id="ToR-Za-5Mg"/>
+                            <constraint firstItem="gs6-Wn-vJK" firstAttribute="top" secondItem="lzD-Vo-NSm" secondAttribute="bottom" id="irX-qV-uAH"/>
+                            <constraint firstItem="rPQ-3o-UUQ" firstAttribute="top" secondItem="gs6-Wn-vJK" secondAttribute="bottom" id="l0n-3V-bkY"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="paymentWebview" destination="gs6-Wn-vJK" id="v6L-6M-96G"/>
@@ -730,7 +731,7 @@ PLOT NO B-25, INSTITUTIONAL AREA, SECTOR-32, GURUGRAM, 122003, HARYANA, INDIA</s
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhW-4C-Xwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4813.6000000000004" y="-137.18140929535232"/>
+            <point key="canvasLocation" x="4813.125" y="-137.32394366197184"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

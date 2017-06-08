@@ -13,13 +13,14 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     @IBOutlet weak var tableView: UITableView!
-    var TitleList : Array = ["Home", "About Us", "My Orders", "Contact Us", "Sign Out"]
+    var TitleList : Array = ["Logo", "Home", "About Us", "My Orders", "Contact Us", "Sign Out"]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         
       
         
@@ -32,23 +33,67 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        return 6;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TitleList[indexPath.row], for: indexPath) as UITableViewCell
-        cell.textLabel?.text = TitleList[indexPath.row]
+        
+        if indexPath.row == 0 {
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width-20, height: cell.frame.size.height))
+            //imageView.clipsToBounds = true
+            let image = UIImage(named: "PayhubLogoSideBar")
+            imageView.image = image
+            cell.backgroundView = UIView()
+            
+            cell.backgroundView!.addSubview(imageView)
+            
+//            cell.backgroundView = UIView()
+//            cell.backgroundView?.backgroundColor = UIColor(patternImage: UIImage(named: "PayhubLogoWeb")!)
+
+            cell.textLabel?.isHidden = true
+            cell.accessoryType = .none
+            
+        }
+        else {
+            
+            cell.textLabel?.text = TitleList[indexPath.row]
+        }
+        
+        
         
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row < 3 {
-             sideMenuController?.performSegue(withIdentifier: TitleList[indexPath.row], sender: nil)
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 150
+            
         }
-        else if indexPath.row == 3 {
+        
+        else  {
+            return 50
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row < 4 {
+            if indexPath.row == 0
+            {
+                
+            }
+            else
+            {
+                
+               sideMenuController?.performSegue(withIdentifier: TitleList[indexPath.row], sender: nil)
+            }
+            
+            
+        }
+        else if indexPath.row == 4 {
             
         callNumber(phoneNumber: "+918436299719")
             }
-        else if indexPath.row == 4 {
+        else if indexPath.row == 5 {
             let alert = UIAlertController(title: "Sign out", message: "Are you sure to sign out ?", preferredStyle: UIAlertControllerStyle.alert)
             
             // add an action (button)

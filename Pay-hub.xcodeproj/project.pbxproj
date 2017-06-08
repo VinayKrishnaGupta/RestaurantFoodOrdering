@@ -16,6 +16,7 @@
 		2F2179891EADF71C001CCB91 /* ItemsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */; };
 		2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21798C1EB1FDD1001CCB91 /* CartManager.swift */; };
 		2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */; };
+		2F2E0FC21EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E0FC11EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
 		2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */; };
 		2FB53F8F1EE1289600322EF7 /* EditCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */; };
@@ -95,6 +96,7 @@
 		2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTabBarViewController.swift; sourceTree = "<group>"; };
 		2F21798C1EB1FDD1001CCB91 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
+		2F2E0FC11EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
 		2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpViewController.swift; sourceTree = "<group>"; };
 		2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCartViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				2FEEC70A1EA5FC1C00CBE471 /* MenuItemCollectionViewCell.swift */,
 				2FEEC7041EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift */,
 				2FEEC70C1EA6133A00CBE471 /* MenuItemListViewController.swift */,
+				2F2E0FC11EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift */,
 				2F2179881EADF71C001CCB91 /* ItemsTabBarViewController.swift */,
 				2FB53F921EE561B300322EF7 /* SideMenus */,
 				2FEEF7981EB701E0008ACEE3 /* My Cart */,
@@ -708,6 +711,7 @@
 				2FEF826E1ED2A85700FF9803 /* DeliveryTypeViewController.swift in Sources */,
 				2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */,
 				2FEEC6FB1E9F643100CBE471 /* HomeScreenViewController.swift in Sources */,
+				2F2E0FC21EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift in Sources */,
 				2F104F731EAB7FB30054DB64 /* MyprofileViewController.m in Sources */,
 				2FEF82721ED4031300FF9803 /* GetAddressViewController.swift in Sources */,
 				2FEEC7091EA5D5D200CBE471 /* MenuGroupsVC.swift in Sources */,

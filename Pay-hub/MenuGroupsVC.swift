@@ -21,6 +21,8 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     var bannerImageURls : NSArray = []
     var SelectedMenuGroup : NSDictionary = [:]
     var SelectedShortcutfromHome : NSDictionary = [:]
+     var imagesListArray = [UIImage]()
+    var bannerImageArray = [Any]()
     
     
     
@@ -57,18 +59,18 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-        var imagesListArray = [UIImage]()
-        
-        
-        
-        
-         imagesListArray.append(UIImage(named: "page0.png")!)
-         imagesListArray.append(UIImage(named: "page1.png")!)
-         imagesListArray.append(UIImage(named: "page2.png")!)
-         imagesListArray.append(UIImage(named: "Page3.png")!)
-        self.bannerImageView.animationImages = imagesListArray
-        self.bannerImageView.animationDuration = 4.0
-        self.bannerImageView.startAnimating()
+//        var imagesListArray = [UIImage]()
+//        
+//        
+//        
+//        
+//         imagesListArray.append(UIImage(named: "page0.png")!)
+//         imagesListArray.append(UIImage(named: "page1.png")!)
+//         imagesListArray.append(UIImage(named: "page2.png")!)
+//         imagesListArray.append(UIImage(named: "Page3.png")!)
+//        self.bannerImageView.animationImages = imagesListArray
+//        self.bannerImageView.animationDuration = 4.0
+//        self.bannerImageView.startAnimating()
         
         
         if SelectedShortcutfromHome.count != 0 {
@@ -133,6 +135,11 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                     print("Converted Dictionary is \(dict)")
                     self.menugroups = dict.value(forKeyPath: "Response.data.menu") as! NSArray
                     self.bannerImageURls = dict.value(forKeyPath: "Response.data.menu_banner.menu_banner") as! NSArray
+                    
+                    
+                    
+                   
+                    
                     let VisitReferencefromServer : String = dict.value(forKeyPath: "Response.data.visit_ref") as! String
                     UserDefaults.standard.set(VisitReferencefromServer, forKey: "VisitReferenceNumber")
                     UserDefaults.standard.synchronize()
@@ -144,6 +151,8 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
                     
                   //  self.reLoadPageView()
                    self.CollectionViewMenuGroups.reloadData()
+                    
+                    
                     SVProgressHUD.dismiss(withDelay: 1)
                  //   self.ContainerView.isHidden = false
                     
@@ -173,12 +182,26 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let Cwidth : CGFloat  = (screenWidth-40)/2
         
-        return CGSize(width: Cwidth, height: Cwidth)
+        if indexPath.section == 0 {
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width
+            let screenheight = screenSize.height
+            let Cwidth : CGFloat  = screenWidth - 20
+            let Cheight : CGFloat = screenheight / 4
+            
+            return CGSize(width: Cwidth, height: Cheight)
+        }
+        else {
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width
+            let Cwidth : CGFloat  = (screenWidth-40)/2
+            
+            return CGSize(width: Cwidth, height: Cwidth)
+            
+        }
+        
+        
     }
 
     
@@ -186,38 +209,132 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return menugroups.count
+        if section == 0 {
+            return 1
+        }
+        else {
+            return menugroups.count
+        }
+        
+        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "MenuGroupsCollectionViewCell", for: indexPath) as! MenuGroupsCollectionViewCell
-        let dict : NSDictionary = menugroups[indexPath.row] as! NSDictionary
-       // cell.cellImageView.image = UIImage.init(named: "MenuGroupssample")
-        cell.titleLabel.text = dict.value(forKey: "menu_title") as? String
-        let imageaddress  = dict.value(forKey: "menu_image") as! String
-        let imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
-        cell.cellImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "MenuGroupssample"))
+        if indexPath.section == 0 {
+            let cell1 = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MenuBannerCollectionViewCell
+       
+            
+            
+            
+            
+            
+        
+            
+            
+            
+            
+//            imagesListArray.append(UIImage(named: "page0.png")!)
+//            imagesListArray.append(UIImage(named: "page1.png")!)
+//            imagesListArray.append(UIImage(named: "page2.png")!)
+//            imagesListArray.append(UIImage(named: "Page3.png")!)
+            
+//            
+//            DispatchQueue.global(qos: .userInitiated).async {
+//                cell1.isHidden = true
+//                for item in self.bannerImageURls {
+//                    let imageaddress : String  = item as! String
+//                    let Imageaddressurl = "https://pay-hub.in/tpl/web_admin_3/img/" +  (imageaddress)
+//                    let imageurl : URL = URL(string: Imageaddressurl)!
+//                    let data = try? Data(contentsOf: imageurl)
+//                    let image : UIImage = UIImage.sd_image(with: data)
+//                    self.imagesListArray.append(image)
+//                    cell1.bannerImageView.animationImages = self.imagesListArray
+//                    cell1.bannerImageView.animationDuration = 4.0
+//                    cell1.bannerImageView.startAnimating()
+//                    
+//                    
+//                }
+            
+            for item in self.bannerImageURls {
+                let imageaddress : String  = item as! String
+                let Imageaddressurl = "https://pay-hub.in/tpl/web_admin_3/img/" +  (imageaddress)
+                let imageurl : URL = URL(string: Imageaddressurl)!
+                self.bannerImageArray.append(imageurl)
+                
+                
+            }
+
+            
+            
+            cell1.bannerImageView.sd_setAnimationImages(withURLs: bannerImageArray)
+            cell1.bannerImageView.animationDuration = 5
+            cell1.bannerImageView.startAnimating()
+            
+            
+//                DispatchQueue.main.async {
+                    
+                    
+            
+//                }
+//                
+//            }
+            
+            
+            
+            
+            
+            
+            return cell1
+            
+            
+            
+            
+        }
         
         
-        return cell
+        
+        
+        else {
+            
+            let cell = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "MenuGroupsCollectionViewCell", for: indexPath) as! MenuGroupsCollectionViewCell
+            let dict : NSDictionary = menugroups[indexPath.row] as! NSDictionary
+            // cell.cellImageView.image = UIImage.init(named: "MenuGroupssample")
+            cell.titleLabel.text = dict.value(forKey: "menu_title") as? String
+            let imageaddress  = dict.value(forKey: "menu_image") as! String
+            let imageURL = String(format: "https://pay-hub.in/tpl/web_admin_3/img/%@",imageaddress)
+            cell.cellImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "MenuGroupssample"))
+            
+            
+            return cell
+
+            
+        }
+        
+        
+        
+        
+    
+    
+    
+    
+    
     }
-    
-    
-    
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         
         
-        SVProgressHUD.show()
-        SVProgressHUD.setRingRadius(25)
-        SelectedMenuGroup = menugroups[indexPath.row] as! NSDictionary
-        self.performSegue(withIdentifier: "itemDetails", sender: self)
+        if indexPath.section == 1 {
+            SVProgressHUD.show()
+            SVProgressHUD.setRingRadius(25)
+            SelectedMenuGroup = menugroups[indexPath.row] as! NSDictionary
+            self.performSegue(withIdentifier: "itemDetails", sender: self)
+        }
+        
+        
       
         
         

@@ -58,7 +58,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",
             "Merchantname" : "admin",
-            "Merchantid" : "3"
+            "Merchantid" : "3",
+            "Connection" : "close"
         ]
         
         Alamofire.request( URL(string: "https://pay-hub.in/payhub%20api/v1/get_cart.php")!, method: .post, parameters: parameters2, headers: HEADERS )
@@ -242,7 +243,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
             "Token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",
             "Merchantname" : "admin",
-            "Merchantid" : "3"
+            "Merchantid" : "3",
+            "Connection" : "close"
         ]
         
         

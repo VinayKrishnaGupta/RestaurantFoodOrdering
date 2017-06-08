@@ -17,6 +17,7 @@ class MyOrdersViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         myOrderTableView.dataSource = self
         myOrderTableView.delegate = self
+        self.navigationItem.title = "My Orders"
 
         // Do any additional setup after loading the view.
     }

@@ -88,8 +88,8 @@ class HomeScreenViewController: UIViewController {
         
         
         SVProgressHUD.show()
-        SVProgressHUD.show(withStatus: "Loading Payhub")
-        SVProgressHUD.setRingRadius(40)
+      //  SVProgressHUD.show(withStatus: "Loading Payhub")
+     //   SVProgressHUD.setRingRadius(40)
         let VisitReference : String = "N"
         UserDefaults.standard.set(VisitReference, forKey: "VisitReferenceNumber")
         
