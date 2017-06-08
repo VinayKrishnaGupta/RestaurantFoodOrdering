@@ -23,6 +23,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "My Cart"
         
         tableView.dataSource = self
         tableView.delegate = self

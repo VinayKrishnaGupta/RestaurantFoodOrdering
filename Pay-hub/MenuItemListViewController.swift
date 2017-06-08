@@ -294,7 +294,7 @@ class MenuItemListViewController: UIViewController, UICollectionViewDataSource, 
         let screenWidth = screenSize.width
         let screenheight = screenSize.height
         let Cwidth : CGFloat  = screenWidth-30
-        let Cheight : CGFloat = screenheight/5
+        let Cheight : CGFloat = screenheight/4.5
         
         
         return CGSize(width: Cwidth, height: Cheight)

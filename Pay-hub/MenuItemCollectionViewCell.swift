@@ -17,7 +17,7 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemdescripion: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var itemGMStepper: GMStepper!
-  
+  let gradientLayer: CAGradientLayer = CAGradientLayer()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -34,17 +34,18 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
         
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
         
-        let gradientLoactions: [Float] = [0.6, 1.0]
+        let gradientLoactions: [Float] = [0.6, 0.9]
         
         
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
         
         gradientLayer.colors = gradientColors
         
         gradientLayer.locations = gradientLoactions as [NSNumber]
         
         
-        gradientLayer.frame = self.itemImageView.frame
+        gradientLayer.frame = self.itemImageView.bounds
+       // gradientLayer.masksToBounds = true
         
         
         self.itemImageView.layer.insertSublayer(gradientLayer, at: 0)
@@ -56,6 +57,12 @@ class MenuItemCollectionViewCell: UICollectionViewCell {
 
         
     }
+    
+    
+    override func layoutSubviews() {
+        gradientLayer.frame = self.itemImageView.bounds
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
 //        self.itemtName.text = ""

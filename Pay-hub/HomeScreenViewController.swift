@@ -88,6 +88,8 @@ class HomeScreenViewController: UIViewController {
         
         
         SVProgressHUD.show()
+        SVProgressHUD.resetOffsetFromCenter()
+        
       //  SVProgressHUD.show(withStatus: "Loading Payhub")
      //   SVProgressHUD.setRingRadius(40)
         let VisitReference : String = "N"

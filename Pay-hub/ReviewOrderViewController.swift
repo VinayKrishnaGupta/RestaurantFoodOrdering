@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
 class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -27,6 +28,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       self.navigationItem.title = "Review Order"
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -36,6 +39,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+         SVProgressHUD.show()
+        tableView.isHidden = true
         
         let MerchantID  = "3"
         let MerchantUserName = "admin"
@@ -78,6 +83,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
                     self.subtotalpricefromAPI = dict.value(forKeyPath: "Response.data.cart.subtotal") as! Int
                     self.totalPricefromAPI = dict.value(forKeyPath: "Response.data.cart.total_price") as! Int
                     self.tableView.reloadData()
+                        SVProgressHUD.dismiss()
+                        self.tableView.isHidden = false
                     }
                     
                     else {
@@ -195,6 +202,8 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
     
 
     @IBAction func createOrderButton(_ sender: UIButton) {
+        
+        
         let alert = UIAlertController(title: "Connect to Our Secure Payment Gateway", message: "Cash on Delivery and other options might be availble there", preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
@@ -210,6 +219,7 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func createorder(action:UIAlertAction) {
+        SVProgressHUD.show()
         
         let userdict : NSDictionary = UserDefaults.standard.dictionary(forKey: "LoggedInUser")! as NSDictionary
         let currentDate : String  = getCurrentDate()
@@ -333,6 +343,12 @@ class ReviewOrderViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
         }    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
+        tableView.isHidden = false
+    }
     
     /*
     // MARK: - Navigation
