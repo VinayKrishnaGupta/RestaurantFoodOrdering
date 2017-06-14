@@ -32,6 +32,8 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         SVProgressHUD.setRingRadius(25)
         CollectionViewMenuGroups.dataSource = self
         CollectionViewMenuGroups.delegate = self
+        CollectionViewMenuGroups.bounces = true
+        CollectionViewMenuGroups.alwaysBounceVertical = true
       //  self.ContainerView.isHidden = true
         self.navigationController?.navigationBar.isHidden = false
        
@@ -90,7 +92,11 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         let numberOfItem = SharedInstance1.numberofItemsinCartManager(Change: 0)
         
         tabBarController?.tabBar.items![1].badgeValue =  "\(numberOfItem)"
-         tabBarController?.tabBar.items![1].badgeColor = UIColor.black
+            if #available(iOS 10.0, *) {
+                tabBarController?.tabBar.items![1].badgeColor = UIColor.black
+            } else {
+                // Fallback on earlier versions
+            }
 //        let script = GetDatafromAPI()
        
         
@@ -224,8 +230,42 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
+            
             let cell1 = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MenuBannerCollectionViewCell
-       
+            
+            cell1.bannerImageView.stopAnimating()
+          //  self.bannerImageArray = []
+            
+            
+            if bannerImageArray.count > 0 {
+                print("Already animating")
+                cell1.bannerImageView.startAnimating()
+            }
+            else {
+                print("First Animation")
+                
+                for item in self.bannerImageURls {
+                    let imageaddress : String  = item as! String
+                    let Imageaddressurl = "https://pay-hub.in/tpl/web_admin_3/img/" +  (imageaddress)
+                    let imageurl : URL = URL(string: Imageaddressurl)!
+                    self.bannerImageArray.append(imageurl)
+                    
+                    
+                }
+                
+                
+                
+                cell1.bannerImageView.sd_setAnimationImages(withURLs: bannerImageArray)
+                cell1.bannerImageView.animationDuration = TimeInterval(bannerImageArray.count)
+                //  cell1.bannerImageView.animationRepeatCount = 5
+                cell1.bannerImageView.startAnimating()
+
+                
+                
+                
+            }
+            
+            
             
             
             
@@ -258,20 +298,8 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
 //                    
 //                }
             
-            for item in self.bannerImageURls {
-                let imageaddress : String  = item as! String
-                let Imageaddressurl = "https://pay-hub.in/tpl/web_admin_3/img/" +  (imageaddress)
-                let imageurl : URL = URL(string: Imageaddressurl)!
-                self.bannerImageArray.append(imageurl)
-                
-                
-            }
-
             
             
-            cell1.bannerImageView.sd_setAnimationImages(withURLs: bannerImageArray)
-            cell1.bannerImageView.animationDuration = 5
-            cell1.bannerImageView.startAnimating()
             
             
 //                DispatchQueue.main.async {
@@ -308,6 +336,7 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
             cell.cellImageView.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "MenuGroupssample"))
             
             
+            
             return cell
 
             
@@ -322,6 +351,15 @@ class MenuGroupsVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if indexPath.section == 0 {
+//            let cell1 = CollectionViewMenuGroups.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MenuBannerCollectionViewCell
+//            cell1.bannerImageView.startAnimating()
+//            
+//        }
+//    }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {

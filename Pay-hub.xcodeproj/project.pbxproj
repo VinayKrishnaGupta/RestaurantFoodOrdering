@@ -17,6 +17,7 @@
 		2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21798C1EB1FDD1001CCB91 /* CartManager.swift */; };
 		2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */; };
 		2F2E0FC21EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E0FC11EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift */; };
+		2F6F93E11EF1136500037532 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F93E01EF1136500037532 /* GoogleService-Info.plist */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
 		2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */; };
 		2FB53F8F1EE1289600322EF7 /* EditCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */; };
@@ -97,6 +98,7 @@
 		2F21798C1EB1FDD1001CCB91 /* CartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		2F2E0FC11EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F6F93E01EF1136500037532 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
 		2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpViewController.swift; sourceTree = "<group>"; };
 		2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCartViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,14 @@
 			name = Experiment;
 			sourceTree = "<group>";
 		};
+		2F6F93DF1EF1134A00037532 /* FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				2F6F93E01EF1136500037532 /* GoogleService-Info.plist */,
+			);
+			name = FireBase;
+			sourceTree = "<group>";
+		};
 		2FB53F921EE561B300322EF7 /* SideMenus */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +311,7 @@
 				2F104F6B1EAB7F400054DB64 /* Experiment */,
 				2FEEC7101EA638AE00CBE471 /* Models */,
 				2FEEC6D01E9CA24E00CBE471 /* Assets.xcassets */,
+				2F6F93DF1EF1134A00037532 /* FireBase */,
 				2FEEC6D21E9CA24E00CBE471 /* LaunchScreen.storyboard */,
 				2FEEC6D51E9CA24E00CBE471 /* Info.plist */,
 			);
@@ -533,6 +544,7 @@
 				2FEEC6D11E9CA24E00CBE471 /* Assets.xcassets in Resources */,
 				2FEF82701ED2A87500FF9803 /* Checkout.storyboard in Resources */,
 				2FEEC6CF1E9CA24E00CBE471 /* Main.storyboard in Resources */,
+				2F6F93E11EF1136500037532 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,7 +841,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -875,7 +887,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/rstintl/Desktop/Xcode/Pay-hub/Pay-hub/Pay-hub-Bridging-Header.h";
@@ -897,7 +909,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
 				);
 				INFOPLIST_FILE = "Pay-hub/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rstintl.Pay-Hub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -919,7 +931,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
 				);
 				INFOPLIST_FILE = "Pay-hub/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rstintl.Pay-Hub";
 				PRODUCT_NAME = "$(TARGET_NAME)";

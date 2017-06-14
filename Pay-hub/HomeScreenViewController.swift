@@ -58,7 +58,7 @@ class HomeScreenViewController: UIViewController {
             
             .responseJSON { response in
                 debugPrint(response)
-                
+            //    print("Headers \(String(describing: response.response?.allHeaderFields))")
                 
                 if let json = response.result.value {
                     let dict = json as! NSDictionary

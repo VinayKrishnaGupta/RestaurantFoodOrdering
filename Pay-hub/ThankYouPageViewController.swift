@@ -38,7 +38,6 @@ class ThankYouPageViewController: UIViewController, UIWebViewDelegate {
             var request = URLRequest(url: url)
             request.addValue("app", forHTTPHeaderField: "source")
             request.addValue(ordernumber, forHTTPHeaderField: "order")
-            
             paymentWebview.loadRequest(request)
         }
         
