@@ -18,6 +18,20 @@
 		2F2423D11ECEC0CE00700E31 /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */; };
 		2F2E0FC21EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2E0FC11EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift */; };
 		2F6F93E11EF1136500037532 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F93E01EF1136500037532 /* GoogleService-Info.plist */; };
+		2F6F93E91EF137AC00037532 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F93E21EF137AC00037532 /* Channel.swift */; };
+		2F6F93EA1EF137AC00037532 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F93E31EF137AC00037532 /* LoginViewController.swift */; };
+		2F6F93EB1EF137AC00037532 /* ChannelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F93E41EF137AC00037532 /* ChannelListViewController.swift */; };
+		2F6F93EC1EF137AC00037532 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F93E51EF137AC00037532 /* ChatViewController.swift */; };
+		2F6F93ED1EF137AC00037532 /* ChatMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6F93E61EF137AC00037532 /* ChatMain.storyboard */; };
+		2F6F93EE1EF137AC00037532 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F93E81EF137AC00037532 /* UIImage+Gif.swift */; };
+		2F6F93F61EF13ECC00037532 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F93EF1EF13ECC00037532 /* DLRadioButton.framework */; };
+		2F6F93F71EF13ECC00037532 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F93F01EF13ECC00037532 /* DropDown.framework */; };
+		2F6F93F81EF13ECC00037532 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F93F11EF13ECC00037532 /* GoogleToolboxForMac.framework */; };
+		2F6F93F91EF13ECC00037532 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F93F21EF13ECC00037532 /* GTMSessionFetcher.framework */; };
+		2F6F93FA1EF13ECC00037532 /* JSQMessagesViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F93F31EF13ECC00037532 /* JSQMessagesViewController.framework */; };
+		2F6F93FB1EF13ECC00037532 /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F93F41EF13ECC00037532 /* JSQSystemSoundPlayer.framework */; };
+		2F6F93FC1EF13ECC00037532 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6F93F51EF13ECC00037532 /* SDWebImage.framework */; };
+		2F6F93FE1EF13FBE00037532 /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F93FD1EF13FBE00037532 /* CreateChannelCell.swift */; };
 		2FA0E6961EAA075300A58711 /* MyAPIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */; };
 		2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */; };
 		2FB53F8F1EE1289600322EF7 /* EditCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */; };
@@ -99,6 +113,21 @@
 		2F2423D01ECEC0CE00700E31 /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 		2F2E0FC11EE8140A002C7D3F /* MenuBannerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F6F93E01EF1136500037532 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F6F93E21EF137AC00037532 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		2F6F93E31EF137AC00037532 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2F6F93E41EF137AC00037532 /* ChannelListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListViewController.swift; sourceTree = "<group>"; };
+		2F6F93E51EF137AC00037532 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2F6F93E61EF137AC00037532 /* ChatMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatMain.storyboard; sourceTree = "<group>"; };
+		2F6F93E71EF137AC00037532 /* ChatChat-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChatChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		2F6F93E81EF137AC00037532 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		2F6F93EF1EF13ECC00037532 /* DLRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLRadioButton.framework; path = "Pods/../build/Release-iphoneos/DLRadioButton/DLRadioButton.framework"; sourceTree = "<group>"; };
+		2F6F93F01EF13ECC00037532 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "Pods/../build/Release-iphoneos/DropDown/DropDown.framework"; sourceTree = "<group>"; };
+		2F6F93F11EF13ECC00037532 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = "Pods/../build/Release-iphoneos/GoogleToolboxForMac/GoogleToolboxForMac.framework"; sourceTree = "<group>"; };
+		2F6F93F21EF13ECC00037532 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "Pods/../build/Release-iphoneos/GTMSessionFetcher/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
+		2F6F93F31EF13ECC00037532 /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQMessagesViewController.framework; path = "Pods/../build/Release-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework"; sourceTree = "<group>"; };
+		2F6F93F41EF13ECC00037532 /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = "Pods/../build/Release-iphoneos/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"; sourceTree = "<group>"; };
+		2F6F93F51EF13ECC00037532 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Release-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
+		2F6F93FD1EF13FBE00037532 /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		2FA0E6951EAA075300A58711 /* MyAPIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIHandler.swift; sourceTree = "<group>"; };
 		2FB53F8C1EDFFC8B00322EF7 /* PickUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickUpViewController.swift; sourceTree = "<group>"; };
 		2FB53F8E1EE1289600322EF7 /* EditCartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCartViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +211,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F6F93F61EF13ECC00037532 /* DLRadioButton.framework in Frameworks */,
+				2F6F93F71EF13ECC00037532 /* DropDown.framework in Frameworks */,
+				2F6F93F81EF13ECC00037532 /* GoogleToolboxForMac.framework in Frameworks */,
+				2F6F93F91EF13ECC00037532 /* GTMSessionFetcher.framework in Frameworks */,
+				2F6F93FA1EF13ECC00037532 /* JSQMessagesViewController.framework in Frameworks */,
+				2F6F93FB1EF13ECC00037532 /* JSQSystemSoundPlayer.framework in Frameworks */,
+				2F6F93FC1EF13ECC00037532 /* SDWebImage.framework in Frameworks */,
 				2FF509C21EDD721300538B85 /* SVProgressHUD.framework in Frameworks */,
 				2FEEF7DD1EBC6B7F008ACEE3 /* libc++abi.tbd in Frameworks */,
 				2FEEF7D61EBC6B6A008ACEE3 /* libicucore.A.tbd in Frameworks */,
@@ -228,6 +264,14 @@
 		2F6F93DF1EF1134A00037532 /* FireBase */ = {
 			isa = PBXGroup;
 			children = (
+				2F6F93FD1EF13FBE00037532 /* CreateChannelCell.swift */,
+				2F6F93E21EF137AC00037532 /* Channel.swift */,
+				2F6F93E31EF137AC00037532 /* LoginViewController.swift */,
+				2F6F93E41EF137AC00037532 /* ChannelListViewController.swift */,
+				2F6F93E51EF137AC00037532 /* ChatViewController.swift */,
+				2F6F93E61EF137AC00037532 /* ChatMain.storyboard */,
+				2F6F93E71EF137AC00037532 /* ChatChat-Bridging-Header.h */,
+				2F6F93E81EF137AC00037532 /* UIImage+Gif.swift */,
 				2F6F93E01EF1136500037532 /* GoogleService-Info.plist */,
 			);
 			name = FireBase;
@@ -376,6 +420,13 @@
 		3DF049259C084978089A5499 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F6F93EF1EF13ECC00037532 /* DLRadioButton.framework */,
+				2F6F93F01EF13ECC00037532 /* DropDown.framework */,
+				2F6F93F11EF13ECC00037532 /* GoogleToolboxForMac.framework */,
+				2F6F93F21EF13ECC00037532 /* GTMSessionFetcher.framework */,
+				2F6F93F31EF13ECC00037532 /* JSQMessagesViewController.framework */,
+				2F6F93F41EF13ECC00037532 /* JSQSystemSoundPlayer.framework */,
+				2F6F93F51EF13ECC00037532 /* SDWebImage.framework */,
 				2FF509C11EDD721300538B85 /* SVProgressHUD.framework */,
 				2FEEF7D81EBC6B7F008ACEE3 /* libc++.1.tbd */,
 				2FEEF7D91EBC6B7F008ACEE3 /* libc++.tbd */,
@@ -545,6 +596,7 @@
 				2FEF82701ED2A87500FF9803 /* Checkout.storyboard in Resources */,
 				2FEEC6CF1E9CA24E00CBE471 /* Main.storyboard in Resources */,
 				2F6F93E11EF1136500037532 /* GoogleService-Info.plist in Resources */,
+				2F6F93ED1EF137AC00037532 /* ChatMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +760,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FEEC70B1EA5FC1C00CBE471 /* MenuItemCollectionViewCell.swift in Sources */,
+				2F6F93E91EF137AC00037532 /* Channel.swift in Sources */,
+				2F6F93EA1EF137AC00037532 /* LoginViewController.swift in Sources */,
 				2F21798D1EB1FDD1001CCB91 /* CartManager.swift in Sources */,
 				2FF509C01EDC192900538B85 /* ForgotPasswordViewController.swift in Sources */,
 				2FEEC7011E9F8F1900CBE471 /* CustomSideMenuController.swift in Sources */,
@@ -719,6 +773,7 @@
 				2FEC664F1EC1994900BACDCF /* SignupoptionsViewController.swift in Sources */,
 				2FEF82781ED5936500FF9803 /* ReviewOrderViewController.swift in Sources */,
 				2FEEF7971EB7005B008ACEE3 /* MyCartCellTableViewCell.swift in Sources */,
+				2F6F93EE1EF137AC00037532 /* UIImage+Gif.swift in Sources */,
 				2FEF82761ED40AA800FF9803 /* getAddressTableViewCell.swift in Sources */,
 				2FEF826E1ED2A85700FF9803 /* DeliveryTypeViewController.swift in Sources */,
 				2F2179871EADF329001CCB91 /* MyCartViewController.swift in Sources */,
@@ -733,8 +788,10 @@
 				2FEF827C1ED7039300FF9803 /* ThankYouPageViewController.swift in Sources */,
 				2FEEC7121EA638C400CBE471 /* Alamofire.swift in Sources */,
 				2FEEC7051EA4A77100CBE471 /* PageViewMenuGroupsImagesVC.swift in Sources */,
+				2F6F93FE1EF13FBE00037532 /* CreateChannelCell.swift in Sources */,
 				2FEC664D1EC198EB00BACDCF /* SignupViewController.swift in Sources */,
 				2FEEC6F81E9CE00500CBE471 /* CuisineGroupsViewController.swift in Sources */,
+				2F6F93EB1EF137AC00037532 /* ChannelListViewController.swift in Sources */,
 				2FB53F8D1EDFFC8B00322EF7 /* PickUpViewController.swift in Sources */,
 				2FB53F941EE5621500322EF7 /* MyOrdersViewController.swift in Sources */,
 				2FEF827A1ED6F3F800FF9803 /* PaymentViewController.swift in Sources */,
@@ -743,6 +800,7 @@
 				2FEEC6FD1E9F64F000CBE471 /* SideMenuViewController.swift in Sources */,
 				2FEC66531EC1EEE100BACDCF /* ContinueAsGuestViewController.swift in Sources */,
 				2FEEC6CA1E9CA24E00CBE471 /* AppDelegate.swift in Sources */,
+				2F6F93EC1EF137AC00037532 /* ChatViewController.swift in Sources */,
 				2FEF82741ED4032300FF9803 /* AddAddressViewController.swift in Sources */,
 				2FB53F961EE566BB00322EF7 /* MyOrdersTableViewCell.swift in Sources */,
 				2FB53F8F1EE1289600322EF7 /* EditCartViewController.swift in Sources */,
@@ -907,6 +965,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DLRadioButton",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DropDown",
+					"$(PROJECT_DIR)/build/Release-iphoneos/GoogleToolboxForMac",
+					"$(PROJECT_DIR)/build/Release-iphoneos/GTMSessionFetcher",
+					"$(PROJECT_DIR)/build/Release-iphoneos/JSQMessagesViewController",
+					"$(PROJECT_DIR)/build/Release-iphoneos/JSQSystemSoundPlayer",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
 				);
 				INFOPLIST_FILE = "Pay-hub/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -929,6 +994,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DLRadioButton",
+					"$(PROJECT_DIR)/build/Release-iphoneos/DropDown",
+					"$(PROJECT_DIR)/build/Release-iphoneos/GoogleToolboxForMac",
+					"$(PROJECT_DIR)/build/Release-iphoneos/GTMSessionFetcher",
+					"$(PROJECT_DIR)/build/Release-iphoneos/JSQMessagesViewController",
+					"$(PROJECT_DIR)/build/Release-iphoneos/JSQSystemSoundPlayer",
+					"$(PROJECT_DIR)/build/Release-iphoneos/SDWebImage",
 				);
 				INFOPLIST_FILE = "Pay-hub/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

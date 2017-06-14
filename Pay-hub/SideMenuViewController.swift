@@ -90,8 +90,13 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }
         else if indexPath.row == 4 {
+            let storyboard : UIStoryboard = UIStoryboard(name: "ChatMain", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ChatMain")
+            self.present(vc, animated: true, completion: nil)
             
-        callNumber(phoneNumber: "+918436299719")
+            
+            
+       // callNumber(phoneNumber: "+918436299719")
             }
         else if indexPath.row == 5 {
             let alert = UIAlertController(title: "Sign out", message: "Are you sure to sign out ?", preferredStyle: UIAlertControllerStyle.alert)

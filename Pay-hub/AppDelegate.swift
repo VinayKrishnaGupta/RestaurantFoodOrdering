@@ -9,6 +9,7 @@
 import UIKit
 import SideMenuController
 import DropDown
+import Firebase
 
 
 
@@ -32,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
         DropDown.startListeningToKeyboard()
+        FirebaseApp.configure()
         
         // Override point for customization after application launch.
         return true
