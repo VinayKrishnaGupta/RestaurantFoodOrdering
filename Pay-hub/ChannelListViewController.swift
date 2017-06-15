@@ -22,6 +22,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 enum Section: Int {
   case createNewChannelSection = 0
@@ -52,6 +53,7 @@ class ChannelListViewController: UITableViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    SVProgressHUD.show()
     
     let backButton1 = UIBarButtonItem.init(image: UIImage.init(named: "BackButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(backAction(_:)))
     
@@ -91,6 +93,7 @@ class ChannelListViewController: UITableViewController {
       if let name = channelData?["name"] as! String!, name.characters.count > 0 {
         self.channels.append(Channel(id: id, name: name))
         self.tableView.reloadData()
+        SVProgressHUD.dismiss()
       } else {
         print("Error! Could not decode channel data")
       }
@@ -155,5 +158,9 @@ class ChannelListViewController: UITableViewController {
       self.performSegue(withIdentifier: "ShowChannel", sender: channel)
     }
   }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
+    }
   
 }

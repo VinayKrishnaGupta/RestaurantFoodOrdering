@@ -13,7 +13,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     @IBOutlet weak var tableView: UITableView!
-    var TitleList : Array = ["Logo", "Home", "About Us", "My Orders", "Contact Us", "Sign Out"]
+    var TitleList : Array = ["Logo", "Home", "About Us", "My Orders", "Contact Us","Chat", "Sign Out"]
     
 
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6;
+        return 7;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TitleList[indexPath.row], for: indexPath) as UITableViewCell
@@ -90,15 +90,21 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }
         else if indexPath.row == 4 {
+            
+            callNumber(phoneNumber: "+918436299719")
+            
+        }
+            
+        else if indexPath.row == 5 {
             let storyboard : UIStoryboard = UIStoryboard(name: "ChatMain", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ChatMain")
             self.present(vc, animated: true, completion: nil)
             
             
             
-       // callNumber(phoneNumber: "+918436299719")
+       //
             }
-        else if indexPath.row == 5 {
+        else if indexPath.row == 6 {
             let alert = UIAlertController(title: "Sign out", message: "Are you sure to sign out ?", preferredStyle: UIAlertControllerStyle.alert)
             
             // add an action (button)

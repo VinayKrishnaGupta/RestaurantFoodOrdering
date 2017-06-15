@@ -261,7 +261,7 @@
 			name = Experiment;
 			sourceTree = "<group>";
 		};
-		2F6F93DF1EF1134A00037532 /* FireBase */ = {
+		2F6F93DF1EF1134A00037532 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
 				2F6F93FD1EF13FBE00037532 /* CreateChannelCell.swift */,
@@ -274,7 +274,7 @@
 				2F6F93E81EF137AC00037532 /* UIImage+Gif.swift */,
 				2F6F93E01EF1136500037532 /* GoogleService-Info.plist */,
 			);
-			name = FireBase;
+			name = Chat;
 			sourceTree = "<group>";
 		};
 		2FB53F921EE561B300322EF7 /* SideMenus */ = {
@@ -355,7 +355,7 @@
 				2F104F6B1EAB7F400054DB64 /* Experiment */,
 				2FEEC7101EA638AE00CBE471 /* Models */,
 				2FEEC6D01E9CA24E00CBE471 /* Assets.xcassets */,
-				2F6F93DF1EF1134A00037532 /* FireBase */,
+				2F6F93DF1EF1134A00037532 /* Chat */,
 				2FEEC6D21E9CA24E00CBE471 /* LaunchScreen.storyboard */,
 				2FEEC6D51E9CA24E00CBE471 /* Info.plist */,
 			);
