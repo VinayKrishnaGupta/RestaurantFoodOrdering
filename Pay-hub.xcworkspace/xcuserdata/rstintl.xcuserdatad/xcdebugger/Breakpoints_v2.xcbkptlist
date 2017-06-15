@@ -3050,12 +3050,12 @@
                   moduleName = "Pay-hub"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rstintl/Desktop/Xcode/RestaurantFoodOrdering07062017/Pay-hub/ThankYouPageViewController.swift"
-                  timestampString = "519135781.893591"
+                  timestampString = "519213143.095481"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
                   endingLineNumber = "75"
-                  offsetFromSymbolStart = "740">
+                  offsetFromSymbolStart = "944">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3065,7 +3065,7 @@
                   moduleName = "Pay-hub"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rstintl/Desktop/Xcode/RestaurantFoodOrdering07062017/Pay-hub/ThankYouPageViewController.swift"
-                  timestampString = "519135781.896663"
+                  timestampString = "519213143.097258"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
